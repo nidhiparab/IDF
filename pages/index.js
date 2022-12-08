@@ -1,3 +1,4 @@
+import Link from 'next/link'
 
 const Home =({bgk})=>{
   console.log(bgk)
@@ -9,7 +10,8 @@ const Home =({bgk})=>{
   <div className="card-body">
     <h5 className="card-title">{bgkk.name}</h5>
     <p className="card-text">{bgkk.location}</p>
-    <a href="#" className="btn btn-primary">Know More</a>
+    
+    <Link href={'/balgurukul/[id]'} as={`/balgurukul/${bgkk.id}`} className="btn btn-primary">Know More</Link>
   </div>
 </div>
     )
