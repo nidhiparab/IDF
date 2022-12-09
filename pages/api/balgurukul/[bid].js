@@ -1,6 +1,6 @@
 import data from '../../../model/Product'    //created demo database for iteration
 
-export default async(req,res)=>{
+export default async function bgById (req,res) {
     const {bid} = req.query
 
     //trace all the element and find match null is given for id that doesnt match
@@ -19,3 +19,4 @@ export default async(req,res)=>{
     res.status(200).json(filtered[0]) 
     
 }
+
