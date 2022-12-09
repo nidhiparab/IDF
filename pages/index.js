@@ -1,8 +1,22 @@
 import Link from 'next/link'
+import baseUrl from '../helpers/baseUrl'
+// import executeQuery from '../config/db'
 
 export default async function Home(props) {
   let bgk = props.bgk
   console.log(bgk)
+
+  // let result = await executeQuery({
+  //   query:'select * from test',
+  //   values:[]
+  // })
+  // console.log(result)
+
+  // let result = await executeQuery({
+  //   query:'select * from test',
+  //   values:[]
+  // })
+  // console.log(result)
 
   const bgkList = bgk.map(bgkk => {
     return (

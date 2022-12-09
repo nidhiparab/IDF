@@ -1,3 +1,4 @@
+import baseUrl from '../../helpers/baseUrl'
 const Product =({balgurukul})=>{
     return(
 
@@ -10,7 +11,7 @@ const Product =({balgurukul})=>{
 
 //--------------------------get all the data from api of that bgk------------------
 export async function getServerSideProps({params:{id}}){
-   const res = await fetch(`http://localhost:3000/api/balgurukul/${id}`)
+   const res = await fetch(`${baseUrl}/api/balgurukul/${id}`)
     const data = await res.json()
     return{
         props:{balgurukul:data},
