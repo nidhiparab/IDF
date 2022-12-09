@@ -1,22 +1,13 @@
-import data from '../../../model/Product'    //created demo database for iteration
+import executeQuery from '../../../config/db'//created demo database for iteration
 
 export default async function bgById (req,res) {
     const {bid} = req.query
 
-    //trace all the element and find match null is given for id that doesnt match
-    const bk = data.map(bkk=>{
-        if (bkk.id == bid){
-            return(bkk)
-        }
+    let result = await executeQuery({
+      query: `SELECT * FROM bg where bg_id='${bid}'`,
+      values: []
     })
-
-    // remove all null from the array
-    var filtered = bk.filter(function (el) {
-        return el != null;
-      });
-
-    //check the response on http://localhost3000/api/balgurukul/1
-    res.status(200).json(filtered[0]) 
+  res.json(result).status(200)
     
 }
 

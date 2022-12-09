@@ -1,32 +1,19 @@
 import Link from 'next/link'
-import baseUrl from '../helpers/baseUrl'
-// import executeQuery from '../config/db'
+import baseUrl from "../helpers/baseUrl"
 
-export default async function Home(props) {
-  let bgk = props.bgk
+export default function Home({bgk}) {
+
   console.log(bgk)
-
-  // let result = await executeQuery({
-  //   query:'select * from test',
-  //   values:[]
-  // })
-  // console.log(result)
-
-  // let result = await executeQuery({
-  //   query:'select * from test',
-  //   values:[]
-  // })
-  // console.log(result)
 
   const bgkList = bgk.map(bgkk => {
     return (
-      <div className="card" key={bgkk.id} >
+      <div className="card" key={bgkk.bg_id} >
         {/* <img src="..." class="card-img-top" alt="..."/> */}
         <div className="card-body">
-          <h5 className="card-title">{bgkk.name}</h5>
-          <p className="card-text">{bgkk.location}</p>
+          <h5 className="card-title">{bgkk.bg_name}</h5>
+          <p className="card-text">{bgkk.state}</p>
 
-          <Link href={'/balgurukul/[id]'} as={`/balgurukul/${bgkk.id}`} className="btn btn-primary">Know More</Link>
+          <Link href={'/balgurukul/[id]'} as={`/balgurukul/${bgkk.bg_id}`} className="btn btn-primary">Know More</Link>
         </div>
       </div>
     )
@@ -39,22 +26,11 @@ export default async function Home(props) {
 }
 
 export async function getStaticProps() {
-  const data = [
-    {
-      id: 1,
-      name: "BGK 1",
-      location: "mumbai"
-    },
-    {
-      id: 2,
-      name: "BGK 2",
-      location: "pune"
-    }
-  ]
-
+  let res = await fetch( baseUrl + "/api/balgurukul/getAll")
+  const data = await res.json();
   return {
     props: {
-      bgk: data
+      bgk:data
     }
   }
 }
