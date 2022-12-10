@@ -1,11 +1,23 @@
+import Link from 'next/link'
 import baseUrl from '../../helpers/baseUrl'
 const Product =({balgurukul})=>{
     return(
 
         //--------------individual page design begins here-----------------
-        <div>
-            <h1>{balgurukul.bg_name}</h1>  
-        </div>
+        <div className = "container center-align">
+            <h2>{balgurukul.bg_name}</h2><br/>
+            <h5>Partnering Organization: {balgurukul.partnering_org}</h5><br/>  
+            <h5>Address</h5>
+            {balgurukul.address}<br/>  
+            {balgurukul.district}<br/>  
+            {balgurukul.state}<br/>  
+            {balgurukul.pincode}<br/><br/>
+
+            <h5>Management</h5>
+            {balgurukul.org_under_bg == "nan"? '-':balgurukul.org_under_bg}<br/>
+               { balgurukul.phone == "nan"? '-':balgurukul.phone}<br/>
+               Email: {balgurukul.mail == "nan"? '---':<Link href={`mailto:${balgurukul.mail}`}>{balgurukul.mail}</Link>}<br/>
+        </div> 
     )
 }
 
