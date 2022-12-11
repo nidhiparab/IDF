@@ -11,7 +11,7 @@ const Navbar=()=>{
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" href="../">Home</a>
-        <a class="nav-link active" aria-current="page" href="../product">Balgurukuls</a>
+        <a class="nav-link active" aria-current="page" href="../balgurukul">Balgurukuls</a>
         <a class="nav-link" href="#">Pricing</a>
       </div>
     </div>
