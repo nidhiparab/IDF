@@ -13,7 +13,7 @@ const Navbar=()=>{
       <div class="navbar-nav">
         <a class="nav-link" href="../">Home</a>
         <a class="nav-link active" aria-current="page" href="../balgurukul">Balgurukuls</a>
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link active" aria-current="page" href="../create">Create</a>
       </div>
     </div>
   </div>

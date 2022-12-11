@@ -325,3 +325,42 @@ a {
 .adr{
   font-size: 22px;
 } 
+
+/* -------------filters----------- */
+
+.filters{
+ margin: 0;
+}
+.fil{
+  margin-top: 20px;
+  margin: 20px 20px 10px 40px;
+  position: relative;
+  line-height: 10px;
+  border-radius: 6px;
+  background-color:#ABCBFF;
+  color: #000;
+
+}
+
+.fil::placeholder{
+  color: #000;
+}
+
+.Rbtn {
+  left: 48px;
+  display: inline-block;
+  color: #fff;
+  border: 2px solid #101010;
+  padding: 4px 6px;
+  font-size: 14px;
+  border-radius: 10px;
+  background: #c84869;
+  position: relative;
+  cursor: pointer;
+}
+
+.Rbtn:hover {
+  border: 2px solid #870026;
+  background: #870026;
+  transition: 1s;
+}
