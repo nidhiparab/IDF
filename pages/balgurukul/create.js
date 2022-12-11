@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import baseUrl from '../helpers/baseUrl';
+import baseUrl from '../../helpers/baseUrl';
 
 const Create = () => {
   const [bg_name, setName] = useState('');
@@ -58,6 +58,7 @@ const Create = () => {
       console.log(res2.error)
     } else {
       console.log("Success")
+      window.location("/balgurukul")
     }
   }
 
