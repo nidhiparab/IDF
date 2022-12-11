@@ -47,11 +47,11 @@ const Create = () => {
 		// console.log(bg_name, partnering_org, state, district, region, pincode, org_under_bg, phone, mail);
 
 	return (
-		<form className="container" onSubmit={(e) => handleSubmit(e)}>
+		<form className="container_crt" onSubmit={(e) => handleSubmit(e)}>
 			<br />
 			<br />
-			<h4>Details</h4>
-			<input
+			<h4 className='det'>Details</h4>
+			<input className='det1'
 				type="text"
 				name="bg_name"
 				placeholder="Balgurukul Name"
@@ -62,7 +62,7 @@ const Create = () => {
 			/>
 			<br />
 			<br />
-			<input
+			<input className='det2'
 				type="text"
 				name="partnering_org"
 				placeholder="Partnering Organization"
@@ -73,8 +73,8 @@ const Create = () => {
 			/>
 			<br />
 			<br />
-			<h4>Address</h4>
-			<input
+			<h4 className='addr'>Address</h4>
+			<input className='det1'
 				type="text"
 				name="district"
 				placeholder="District"
@@ -89,15 +89,15 @@ const Create = () => {
             onChange={(e)=>{setState(e.target.value)}}
             /><br/><br/> */}
 
-			<select
+			<select className='det1'
 				id="state"
 				name="state"
 				value={state}
 				onChange={(e) => {
 					setState(e.target.value);
 				}}
-			>
-				<option value="">SELECT STATE</option>
+			>     
+				<option className='val' value="">SELECT STATE</option>
 				<option value="AN">Andaman and Nicobar Islands</option>
 				<option value="AP">Andhra Pradesh</option>
 				<option value="AR">Arunachal Pradesh</option>
@@ -135,11 +135,13 @@ const Create = () => {
 				<option value="UP">Uttar Pradesh</option>
 				<option value="UT">Uttarakhand</option>
 				<option value="WB">West Bengal</option>
+			
+				
 			</select>
 			<br />
 			<br />
 
-			<input
+			<input className='det1'
 				type="text"
 				name="region"
 				placeholder="Region"
@@ -150,7 +152,7 @@ const Create = () => {
 			/>
 			<br />
 			<br />
-			<input
+			<input className='det1'
 				type="text"
 				name="pincode"
 				placeholder="Pin Code"
@@ -162,8 +164,8 @@ const Create = () => {
 			<br />
 			<br />
 
-			<h4>Incharge</h4>
-			<input
+			<h4 className='Ing'>Incharge</h4>
+			<input className='det1'
 				type="text"
 				name="org_under_bg"
 				placeholder="Organization"
@@ -174,7 +176,7 @@ const Create = () => {
 			/>
 			<br />
 			<br />
-			<input
+			<input className='det1'
 				type="text"
 				name="mob"
 				placeholder="Mobile No."
@@ -185,7 +187,7 @@ const Create = () => {
 			/>
 			<br />
 			<br />
-			<input
+			<input className='det1'
 				type="text"
 				name="tel"
 				placeholder="Telephone No."
@@ -196,7 +198,7 @@ const Create = () => {
 			/>
 			<br />
 			<br />
-			<input
+			<input  className='det1'
 				type="text"
 				name="mail"
 				placeholder="Email"
@@ -208,7 +210,7 @@ const Create = () => {
 			<br />
 			<br />
 
-			<button type="submit">Submit</button>
+			<button type="submit" className='sub-btn'>Submit</button>
 		</form>
 	);
 };

@@ -2,8 +2,9 @@ import Link from 'next/link'
 
 const Navbar=()=>{
     return(
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
+      <section className='Header' >
+<nav className='navbar navbar-expand-lg navbar-custom'>
+  <div class="container-fluid" >
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,12 +12,14 @@ const Navbar=()=>{
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" href="../">Home</a>
-        <a class="nav-link active" aria-current="page" href="../product">Balgurukuls</a>
-        <a class="nav-link" href="#">Create</a>
+        <a class="nav-link active" aria-current="page" href="../balgurukul">Balgurukuls</a>
+        <a class="nav-link active" aria-current="page" href="../create">Create</a>
       </div>
     </div>
   </div>
 </nav>
+      </section>
+        
     )
 }
 export default Navbar

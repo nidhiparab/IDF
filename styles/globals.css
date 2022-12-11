@@ -24,8 +24,20 @@ a {
     background: black;
   }
 }
+/* --------------------Navbar ---------------*/
 
-/* Cards css */
+.header {
+  top: 1000;
+  z-index: 10000;
+  margin: 0;
+  padding: 0;
+}
+.navbar-custom {
+  background-image: none;
+  background-color: #213e8c;
+}
+
+/*---------------- Cards css----------------- */
 .card {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -35,8 +47,6 @@ a {
   justify-content: center;
   cursor: pointer;
   /* width: 80%; */
-
-
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -53,3 +63,265 @@ a {
   font-size: 25px;
   font-weight: 200px;
 }
+
+/* --------------------Footer ------------------*/
+
+.footer {
+  padding: 4rem 6rem;
+  background:#213e8c;
+  color: #000;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  text-align: start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.top i {
+  color: #870026;
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.top i:hover {
+  color: #870026;
+}
+
+.bottom {
+  padding-top: 2rem;
+  text-align: start;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.bottom div {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom h1 {
+  font-size: 1.3rem;
+  padding: 1rem 0 0.8rem 0;
+}
+
+.bottom a {
+  text-decoration: none;
+  color: #000;
+  padding-bottom: 0.4rem;
+  font-size: 1.1rem;
+}
+
+.bottom a:hover {
+  color: #870026;
+}
+
+@media screen and (max-width: 850px) {
+  .footer {
+    padding: 4rem 2rem;
+  }
+
+  .footer i {
+    margin: 1rem 1rem 0 0;
+  }
+
+  .bottom div {
+    width: 50%;
+  }
+}
+
+/*------------------- create css ------------------*/
+
+.container_crt {
+  text-align: center;
+  font-size: large;
+  /* margin-top:50px;
+    margin-bottom: 50px; */
+  padding: 10px 0px 10px 0px;
+  /* border-radius: 30px 30px 30px 30px; */
+  /* background-color: #ABCBFF; */
+  /* background-image:linear-gradient(rgba(205, 241, 252, 0.52), #ABCBFF); */
+}
+
+.container_crt .det {
+  color: rgb(5, 5, 5);
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.det1 {
+  position: relative;
+
+  line-height: 40px;
+  border-radius: 6px;
+  padding: 0 22px;
+  font-size: 16px;
+  background-color: #ABCBFF;
+  background-color: #213e8c;
+}
+
+.det2 {
+  position: relative;
+  left: 2px;
+
+  line-height: 40px;
+  border-radius: 6px;
+  padding: 0 22px;
+  font-size: 16px;
+  background-color: #ABCBFF;
+  background-color: #213e8c;
+}
+
+.container_crt .addr {
+  color: rgb(5, 5, 5);
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.addr1 {
+  position: relative;
+  line-height: 40px;
+  border-radius: 6px;
+  padding: 0 22px;
+  font-size: 16px;
+  background-color: #ABCBFF;
+  background-color: #213e8c;
+}
+
+.addr2 {
+  position: relative;
+
+  line-height: 50px;
+  border-radius: 6px;
+  padding: 0 22px;
+  font-size: 16px;
+  background-color: #213e8c;
+}
+
+.addr3 {
+  position: relative;
+
+  line-height: 40px;
+  border-radius: 6px;
+  padding: 0 22px;
+  font-size: 16px;
+  background-color: #ABCBFF;
+  background-color: #213e8c;
+}
+
+.addr4 {
+  position: relative;
+
+  line-height: 40px;
+  border-radius: 6px;
+  padding: 0 22px;
+  font-size: 16px;
+  background-color: #ABCBFF;
+  background-color: #213e8c;
+}
+.addr5 {
+  position: relative;
+
+  line-height: 40px;
+  border-radius: 6px;
+  padding: 0 22px;
+  font-size: 16px;
+  background-color: #ABCBFF;
+  background-color: #213e8c;
+}
+
+.Ing {
+  color: rgb(5, 5, 5);
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.Ing1 {
+  position: relative;
+  line-height: 40px;
+  border-radius: 6px;
+  padding: 0 22px;
+  font-size: 16px;
+  /* background-color: #ABCBFF; */
+  background-color: #213e8c;
+}
+
+.Ing2 {
+  position: relative;
+  line-height: 40px;
+  border-radius: 6px;
+  padding: 0 22px;
+  font-size: 16px;
+  /* background-color: #ABCBFF; */
+  background-color: #213e8c;
+}
+
+.Ing3 {
+  position: relative;
+  line-height: 40px;
+  border-radius: 6px;
+  padding: 0 22px;
+  font-size: 16px;
+  /* background-color: #ABCBFF; */
+  background-color: #213e8c;
+}
+
+.Ing4 {
+  position: relative;
+  line-height: 40px;
+  border-radius: 6px;
+  padding: 0 22px;
+  font-size: 16px;
+  background-color: #213e8c;
+  /* background-color: #ABCBFF; */
+}
+
+.sub-btn {
+  font-weight: 550;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid #101010;
+  padding: 12px 34px;
+  font-size: 14px;
+  border-radius: 10px;
+  background: #c84869;
+  position: relative;
+  cursor: pointer;
+}
+
+.sub-btn:hover {
+  border: 2px solid #870026;
+  background: #870026;
+  transition: 1s;
+}
+
+/* -------------------------id -------------- */
+
+
+.container_id{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: medium;
+  /* background-image:linear-gradient(rgba(205, 241, 252, 0.52), #ABCBFF); */
+
+}
+.name{
+  font-weight: 750;
+  font-size: 35px;
+  color: #870026;
+}
+
+.org{
+  color: #2A70DE;
+  font-size: 25px;
+  font-style: oblique;
+}
+
+.adr{
+  font-size: 22px;
+} 
