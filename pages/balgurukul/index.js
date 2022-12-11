@@ -1,13 +1,7 @@
 import Link from 'next/link'
-import baseUrl from "../helpers/baseUrl"
+import baseUrl from "../../helpers/baseUrl"
 
 export default function bg({bgk}) {
-
-  console.log(bgk)
-  let m = '-'
-  let t = '-'
-  let data = m + '/' + t
-  console.log(data.split('/'));  
 
   const bgkList = bgk.map(bgkk => {
     return (
@@ -30,7 +24,7 @@ export default function bg({bgk}) {
 }
 
 export async function getStaticProps() {
-  let res = await fetch( baseUrl + "/api/balgurukul/getAll")
+  let res = await fetch( baseUrl + "/api/balgurukul")
   const data = await res.json();
   return {
     props: {

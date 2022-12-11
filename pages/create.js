@@ -7,12 +7,13 @@ const Create = () => {
 	const [ partnering_org, setPartner ] = useState('');
 	const [ district, setDist ] = useState('');
 	const [ state, setState ] = useState('');
+	const [ address, setAddress ] = useState('');
 	const [ region, setRegion ] = useState('SR');
 	const [ pincode, setPin ] = useState('');
 	const [ org_under_bg, setOu ] = useState('');
-	const [ mob, setMob ] = useState('');
-	const [ tel, setTel ] = useState('');
-	const [ phone, setPh ] = useState(mob + '/' + tel);
+	const [ mob, setMob ] = useState('#');
+	const [ tel, setTel ] = useState('#');
+	const [ phone, setPh ] = useState('');
 	const [ mail, setMail ] = useState('');
 
 	const handleSubmit = async (e) => {
@@ -20,6 +21,7 @@ const Create = () => {
 		e.preventDefault();
 
 		const res = await fetch(`${baseUrl}/api/balgurukul/getAll`, {
+      
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -27,6 +29,7 @@ const Create = () => {
 			body: JSON.stringify({
 				bg_name,
 				partnering_org,
+        address,
 				state,
 				district,
 				region,
@@ -74,6 +77,17 @@ const Create = () => {
 			<br />
 			<br />
 			<h4>Address</h4>
+			<input
+				type="text"
+				name="address"
+				placeholder="Address"
+				value={address}
+				onChange={(e) => {
+					setAddress(e.target.value);
+				}}
+			/>
+			<br />
+			<br />
 			<input
 				type="text"
 				name="district"
