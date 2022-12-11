@@ -26,6 +26,7 @@ export default function bg({bgk}) {
 export async function getStaticProps() {
   let res = await fetch( baseUrl + "/api/balgurukul")
   const data = await res.json();
+  console.log(data)
   return {
     props: {
       bgk:data
