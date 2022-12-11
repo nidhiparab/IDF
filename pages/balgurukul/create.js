@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import baseUrl from '../../helpers/baseUrl';
+import { Router } from 'next/router';
 
 const Create = () => {
   const [bg_name, setName] = useState('');
@@ -13,11 +14,10 @@ const Create = () => {
   const [org_under_bg, setOu] = useState('');
   const [mob, setMob] = useState('#');
   const [tel, setTel] = useState('#');
-  const [phone, setPh] = useState('');
   const [mail, setMail] = useState('');
 
   const handleSubmit = async (e) => {
-    setPh(mob + '/' + tel);
+    let phone = mob + '/' + tel
     e.preventDefault();
 
     if (bg_name == '' ||
@@ -58,7 +58,7 @@ const Create = () => {
       console.log(res2.error)
     } else {
       console.log("Success")
-      window.location("/balgurukul")
+      Router.push('/balgurukul')
     }
   }
 

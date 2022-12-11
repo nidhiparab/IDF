@@ -48,7 +48,6 @@ export default function BG({ BG }) {
         }} />
         <select
           id="state"
-          name="state"
           value={state}
           onChange={(e) => {
             setState(e.target.value);

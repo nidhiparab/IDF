@@ -43,11 +43,7 @@ const Product = ({ balgurukul }) => {
       {balgurukul.org_under_bg == "nan" ? '-' : balgurukul.org_under_bg}<br />
       {balgurukul.phone == "nan" ? '-' : balgurukul.phone}<br />
       Email: {balgurukul.mail == "nan" ? '---' : balgurukul.mail}<br />
-
-      <button className="btn btn-lg btn-danger" onClick={()=> {
-      
-      }} >Delete</button>
-      {/* <button className="btn btn-lg btn-danger" onClick={()=> bgDelete(balgurukul.bg_id)} >Delete</button> */}
+      <button className="btn btn-lg btn-danger" onClick={()=> bgDelete(balgurukul.bg_id)} >Delete</button>
     </div>
   )
 }
