@@ -1,6 +1,6 @@
 import executeQuery from '../../../config/db'
 
-export default async(req,res)=>{
+export default async function bg(req,res){
   switch(req.method)
   {
     case "GET":
