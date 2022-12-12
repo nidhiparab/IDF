@@ -62,7 +62,7 @@ const Create = () => {
 			/>
 			<br />
 			<br />
-			<input className='det2'
+			<input className='det1'
 				type="text"
 				name="partnering_org"
 				placeholder="Partnering Organization"
@@ -89,7 +89,7 @@ const Create = () => {
             onChange={(e)=>{setState(e.target.value)}}
             /><br/><br/> */}
 
-			<select className='det1'
+			<select className='det2'
 				id="state"
 				name="state"
 				value={state}
@@ -141,7 +141,7 @@ const Create = () => {
 			<br />
 			<br />
 
-			<input className='det1'
+			<input className='sr'
 				type="text"
 				name="region"
 				placeholder="Region"
