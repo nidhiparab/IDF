@@ -1,3 +1,4 @@
+
 html,
 body {
   padding: 0;
@@ -15,6 +16,7 @@ a {
   box-sizing: border-box;
 }
 
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -23,7 +25,58 @@ a {
     color: white;
     background: black;
   }
+
 }
+
+.rootcard{
+  background-image: url(https://img.freepik.com/free-vector/children-drawing-home-with-crayons_74855-5454.jpg?w=996&t=st=1670848889~exp=1670849489~hmac=8599260905f5b357141c0f2c9e43c5e90e06133af132b4c90075e0a5de74d4f3);
+  /* background-image: url(/public/house.jpg); */
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+ overflow: hidden;
+}
+
+
+
+.rtcrd{
+  width: 90%;
+  color: #000;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+
+.rtcrd .Rbtn{
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+  border: 2px solid #000;
+  padding: 8px 30px;
+  font-size: 14px;
+  left: 4px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+}
+
+.rtcrd .Rbtn:hover{
+  border: 2px solid #c84869;
+  background: #c84869;
+  transition: 1s;
+  color: #fff;
+}
+
+
+
+
+
+
+
 /* --------------------Navbar ---------------*/
 
 .header {
@@ -51,7 +104,7 @@ a {
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
 }
 
 /* Add some padding inside the card container */
@@ -143,8 +196,10 @@ a {
   padding: 10px 0px 10px 0px;
   /* border-radius: 30px 30px 30px 30px; */
   /* background-color: #ABCBFF; */
-  /* background-image:linear-gradient(rgba(205, 241, 252, 0.52), #ABCBFF); */
+  color: #000;
+  background-image:linear-gradient(rgba(205, 241, 252, 0.52), #ABCBFF);
 }
+ input:focus { color: black }
 
 .container_crt .det {
   color: rgb(5, 5, 5);
@@ -152,85 +207,42 @@ a {
   font-weight: 700;
 }
 
+.det1::placeholder{
+  color: black;
+}
+
 .det1 {
   position: relative;
-
   line-height: 40px;
   border-radius: 6px;
   padding: 0 22px;
   font-size: 16px;
-  background-color: #ABCBFF;
-  background-color: #213e8c;
+  background-color: white;
 }
 
-.det2 {
+.det2{
   position: relative;
-  left: 2px;
-
+  line-height: 40px;
+  border-radius: 6px;
+  border-color: #000;
+  padding: 10px 0px;
+  font-size: 16px;
+  color: #000;
+  background-color: white;
+}
+.sr{
+  color: #000;
+  position: relative;
   line-height: 40px;
   border-radius: 6px;
   padding: 0 22px;
   font-size: 16px;
-  background-color: #ABCBFF;
-  background-color: #213e8c;
+  background-color: white;
 }
-
 .container_crt .addr {
   color: rgb(5, 5, 5);
   font-size: 35px;
   font-weight: 700;
-}
-
-.addr1 {
-  position: relative;
-  line-height: 40px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  background-color: #ABCBFF;
-  background-color: #213e8c;
-}
-
-.addr2 {
-  position: relative;
-
-  line-height: 50px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  background-color: #213e8c;
-}
-
-.addr3 {
-  position: relative;
-
-  line-height: 40px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  background-color: #ABCBFF;
-  background-color: #213e8c;
-}
-
-.addr4 {
-  position: relative;
-
-  line-height: 40px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  background-color: #ABCBFF;
-  background-color: #213e8c;
-}
-.addr5 {
-  position: relative;
-
-  line-height: 40px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  background-color: #ABCBFF;
-  background-color: #213e8c;
 }
 
 .Ing {
@@ -239,64 +251,26 @@ a {
   font-weight: 700;
 }
 
-.Ing1 {
-  position: relative;
-  line-height: 40px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  /* background-color: #ABCBFF; */
-  background-color: #213e8c;
-}
-
-.Ing2 {
-  position: relative;
-  line-height: 40px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  /* background-color: #ABCBFF; */
-  background-color: #213e8c;
-}
-
-.Ing3 {
-  position: relative;
-  line-height: 40px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  /* background-color: #ABCBFF; */
-  background-color: #213e8c;
-}
-
-.Ing4 {
-  position: relative;
-  line-height: 40px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  background-color: #213e8c;
-  /* background-color: #ABCBFF; */
-}
-
 .sub-btn {
   font-weight: 550;
   display: inline-block;
   text-decoration: none;
-  color: #fff;
+  color: #000;
   border: 2px solid #101010;
-  padding: 12px 34px;
-  font-size: 14px;
+  padding: 8px 30px;
+  font-size: 18px;
   border-radius: 10px;
-  background: #c84869;
+  background: transparent;
   position: relative;
   cursor: pointer;
 }
 
 .sub-btn:hover {
-  border: 2px solid #870026;
-  background: #870026;
+  border: 2px solid #c84869;
+  background: #c84869;
   transition: 1s;
+  color: #fff;
+
 }
 
 /* -------------------------id -------------- */
@@ -337,8 +311,9 @@ a {
   position: relative;
   line-height: 10px;
   border-radius: 6px;
-  background-color:#ABCBFF;
   color: #000;
+  background-color: #fff;
+  border-color: #000;
 
 }
 
@@ -349,18 +324,19 @@ a {
 .Rbtn {
   left: 48px;
   display: inline-block;
-  color: #fff;
+  color: #000;
   border: 2px solid #101010;
   padding: 4px 6px;
   font-size: 14px;
   border-radius: 10px;
-  background: #c84869;
+  background: transparent;
   position: relative;
   cursor: pointer;
 }
 
 .Rbtn:hover {
-  border: 2px solid #870026;
-  background: #870026;
+  border: 2px solid #c84869;
+  background: #c84869;
   transition: 1s;
+  color: #fff;
 }
