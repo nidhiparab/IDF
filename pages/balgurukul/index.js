@@ -43,7 +43,7 @@ export default function BG({ BG }) {
   return (
     <>
       <div className='filters'>
-        <input className='fil' type="text" placeholder='Enter Text' value={name} onChange={(e) => {
+        <input className='fil' type="text" placeholder='Search by Name' value={name} onChange={(e) => {
           setName(e.target.value);
         }} />
         <select className='fil'

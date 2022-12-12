@@ -11,9 +11,9 @@ const Navbar=()=>{
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="../">Home</a>
-        <a class="nav-link active" aria-current="page" href="../balgurukul">Balgurukuls</a>
-        <a class="nav-link active" aria-current="page" href="../create">Create</a>
+        <Link class="nav-link active" aria-current="page" href="/" >Home</Link>
+        <Link class="nav-link active" aria-current="page" href="/balgurukul" >Balgurukuls</Link>
+        <Link class="nav-link active" aria-current="page" href="/balgurukul/create" >Create</Link>
       </div>
     </div>
   </div>
