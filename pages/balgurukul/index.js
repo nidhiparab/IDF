@@ -47,13 +47,11 @@ export default function BG({ BG }) {
   return (
     <>
       <div className='filters'>
-        <input className='filter-name' type="text" value={name} onChange={(e) => {                //------------name input
+        <input className='fil' type="text" placeholder='Search by Name' value={name} onChange={(e) => {
           setName(e.target.value);
         }} />
-        <select 
-          className='filter-state'                                                         //-----------------select state input 
+        <select className='fil'
           id="state"
-          name="state"
           value={state}
           onChange={(e) => {
             setState(e.target.value);
@@ -99,9 +97,7 @@ export default function BG({ BG }) {
           <option value="WB">West Bengal</option>
         </select>
         <br />
-
-        {/* ----------------reset filters--------------------- */}
-        <button className='filter-button' name='Reset' onClick={() => { setState("");  setName("")}}>Reset Filters</button>      
+        <button className="Rbtn" name='Reset' onClick={() => { setState("");  setName("")}}>Reset Filters</button>
       </div>
       <div className="rootcard">
         {bgkList}
