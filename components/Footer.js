@@ -1,4 +1,4 @@
-
+import Link from 'next/link';
 
 const Footer = () =>{
     return(
@@ -33,18 +33,18 @@ const Footer = () =>{
             
             <div>
                 <h4>About us</h4>
-                <a href="/">A</a>
-                <a href="/">B</a>
-                <a href="/">C</a>
-                <a href="/">D</a>
+                <Link href="/">A</Link>
+                <Link href="/">B</Link>
+                <Link href="/">C</Link>
+                <Link href="/">D</Link>
             </div>
 
             <div>
                 <h4>Others</h4>
-                <a href="/">A</a>
-                <a href="/">B</a>
-                <a href="/">C</a>
-                <a href="/">D</a>
+                <Link href="/">A</Link>
+                <Link href="/">B</Link>
+                <Link href="/">C</Link>
+                <Link href="/">D</Link>
             </div>
 
       

@@ -25,7 +25,7 @@ export default function BG({ BG }) {
 
   }, [state, name]);
 
-
+  console.log(BG);
   let bgkList = filterd.map(bg => {
     return (
       <div className="card" key={bg.bg_id} >
