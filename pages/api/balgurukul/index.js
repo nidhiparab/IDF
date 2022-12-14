@@ -1,6 +1,6 @@
 import executeQuery from '../../../lib/db'
 
-
+//--------------------API for getting bgk from database--------------
 
 export default async function getAllBG(req, res) {
   let result = await executeQuery({

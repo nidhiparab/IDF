@@ -4,6 +4,8 @@ import { useState } from 'react';
 import baseUrl from '../../helpers/baseUrl';
 
 const Create = () => {
+
+  //---------------------------all required fields------------------
   const [bg_name, setName] = useState('');
   const [partnering_org, setPartner] = useState('');
   const [district, setDist] = useState('');
@@ -17,6 +19,8 @@ const Create = () => {
   const [mail, setMail] = useState('');
   const router = useRouter()
   const handleSubmit = async (e) => {
+
+    //----------------set phone number mobile + telephone
     setPh(mob + '/' + tel);
     e.preventDefault();
 
@@ -38,7 +42,7 @@ const Create = () => {
       })
     })
 
-    const res2 = await res.json()
+    const res2 = await res.json()              //------------------show error
     if (res2.error) {
       console.log(res2.error)
     } else {

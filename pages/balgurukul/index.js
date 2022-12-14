@@ -5,27 +5,30 @@ import { useState, useEffect } from 'react'
 
 
 export default function BG({ BG }) {
+
   const [allBG, setAllBG] = useState(BG)
   const [filterd, setFilterd] = useState(allBG)
   const [state, setState] = useState("");
   const [name, setName] = useState("");
 
+
+  //implement filter update bg cards
   useEffect(() => {
     if (state || name) {
       let filteredData = allBG.filter((bg) => {
-        return bg.state_short.includes(state)
+        return bg.state_short.includes(state)             //------------filter state
       })
       filteredData = filteredData.filter((bg) => {
-        return bg.bg_name.toLowerCase().includes(name.toLowerCase())
+        return bg.bg_name.toLowerCase().includes(name.toLowerCase())       //----------filter name
       })
       setFilterd(filteredData)
-    } else {
+    } else {                                             //-------------if no filter show all bg
       setFilterd(allBG)
     }
 
   }, [state, name]);
 
-  console.log(BG);
+                      //---------cards displayed
   let bgkList = filterd.map(bg => {
     return (
       <div className="card" key={bg.bg_id} >
@@ -35,6 +38,7 @@ export default function BG({ BG }) {
           <p className="card-text">{bg.state}</p>
           <p className="card-text">{bg.state_short}</p>
 
+          {/* --------------------get every bg detail----------------- */}
           <Link href={'/balgurukul/[id]'} as={`/balgurukul/${bg.bg_id}`} className="btn btn-primary">Know More</Link>
         </div>
       </div>
@@ -102,6 +106,8 @@ export default function BG({ BG }) {
   )
 }
 
+
+//-------------------get all bg from db api
 export async function getStaticProps() {
   let res = await fetch(baseUrl + "/api/balgurukul/")
   const data = await res.json();
