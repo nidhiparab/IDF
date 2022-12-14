@@ -29,14 +29,14 @@ a {
 }
 
 .rootcard{
-  background-image: url(https://img.freepik.com/free-vector/children-drawing-home-with-crayons_74855-5454.jpg?w=996&t=st=1670848889~exp=1670849489~hmac=8599260905f5b357141c0f2c9e43c5e90e06133af132b4c90075e0a5de74d4f3);
+  /* background-image: url(https://img.freepik.com/free-vector/children-drawing-home-with-crayons_74855-5454.jpg?w=996&t=st=1670848889~exp=1670849489~hmac=8599260905f5b357141c0f2c9e43c5e90e06133af132b4c90075e0a5de74d4f3); */
   /* background-image: url(/public/house.jpg); */
   width: 100%;
   height: 100vh;
   background-size: cover;
   background-position: center;
   justify-content: center;
- overflow: hidden;
+ /* overflow: hidden; */
 }
 
 
