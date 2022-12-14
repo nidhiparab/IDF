@@ -3,6 +3,8 @@ import { useState } from 'react';
 import baseUrl from '../../helpers/baseUrl';
 
 const Create = () => {
+
+  //---------------------------all required fields------------------
   const [bg_name, setName] = useState('');
   const [partnering_org, setPartner] = useState('');
   const [district, setDist] = useState('');
@@ -17,9 +19,12 @@ const Create = () => {
   const [mail, setMail] = useState('');
 
   const handleSubmit = async (e) => {
+
+    //----------------set phone number mobile + telephone
     setPh(mob + '/' + tel);
     e.preventDefault();
 
+    //check all values are added
     if (bg_name == '' ||
       partnering_org == '' ||
       address == '' ||
@@ -32,7 +37,7 @@ const Create = () => {
       return;
     }
 
-
+    //--------------post the values in api
     const res = await fetch(`${baseUrl}/api/balgurukul/add`, {
 
       method: 'POST',
@@ -53,11 +58,11 @@ const Create = () => {
       })
     })
 
-    const res2 = await res.json()
+    const res2 = await res.json()              //------------------show error
     if (res2.error) {
       console.log(res2.error)
     } else {
-      console.log("Success")
+      console.log("Success")                   //-------------------success
       window.location("/balgurukul")
     }
   }
@@ -65,6 +70,8 @@ const Create = () => {
   // console.log(bg_name, partnering_org, state, district, region, pincode, org_under_bg, phone, mail);
 
   return (
+
+    //----------------------form for new bg-------------------------
     <form className="container" onSubmit={(e) => handleSubmit(e)}>
       <br />
       <br />

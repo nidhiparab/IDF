@@ -1,6 +1,9 @@
 
 import executeQuery from '../../../lib/db';
 
+//----------------API to delete bgk------------------
+
+
 export default async function deleteBG(req, res) {
   if (req.method != 'POST') {
     res.json({ 'message': 'This is a POST API' });

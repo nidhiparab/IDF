@@ -1,22 +1,41 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
-const Navbar=()=>{
-    return(
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <div className="container-fluid">
-    <a className="navbar-brand" href="#">Navbar</a>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div className="navbar-nav">
-        <a className="nav-link" href="../">Home</a>
-        <a className="nav-link active" aria-current="page" href="../balgurukul">Balgurukuls</a>
-        <a className="nav-link" href="#">Pricing</a>
-      </div>
-    </div>
-  </div>
-</nav>
-    )
-}
-export default Navbar
+const Navbar = () => {
+	return (
+		<nav>
+			<div className="container">
+				<div className=" navbar navbar-expand-lg navbar-light row ">
+					<div className="col col-lg-2">
+						<div className="navbar-brand row">
+							<a className=" col" href="https://www.idf.org.in">
+								<img
+									src="https://static.wixstatic.com/media/d3cf27_7565cf50f68f4fe2858ef7f67371d7aa~mv2.png/v1/fill/w_46,h_71,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/idf-logo.png"
+									alt="idf-logo.png"
+								/>
+							</a>
+							<div className=" col col-lg-2">
+								<h1 className="row ">Indian Development Foundation</h1>
+								<p className="row nav-text">
+									A National NGO committed to Health, Education, and Development
+								</p>
+								<p className="row nav-text">
+									IDF - Organization in Special Consultative Status with the Economic and Social
+									Council since 2012.
+								</p>
+							</div>
+						</div>
+						<div class="navbar-nav">
+							<a class="nav-link" aria-current="page" href="../">
+								Home
+							</a>
+							<a class="nav-link" href="../balgurukul">
+								Balgurukuls
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+	);
+};
+export default Navbar;

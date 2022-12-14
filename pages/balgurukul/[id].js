@@ -4,6 +4,7 @@ import baseUrl from '../../helpers/baseUrl'
 
 const Product = ({ balgurukul }) => {
 
+  //-----------------delet bg fuction-----------------------
   const bgDelete = async (bg_id) =>{
     const res = await fetch(`${baseUrl}/api/balgurukul/delete`, {
 
@@ -40,6 +41,7 @@ const Product = ({ balgurukul }) => {
       {balgurukul.pincode}<br /><br />
 
       <h5>Management</h5>
+      {/* ----------------------if no info print "--" on screen for that field */}
       {balgurukul.org_under_bg == "nan" ? '-' : balgurukul.org_under_bg}<br />
       {balgurukul.phone == "nan" ? '-' : balgurukul.phone}<br />
       Email: {balgurukul.mail == "nan" ? '---' : balgurukul.mail}<br />

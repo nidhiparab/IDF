@@ -1,6 +1,8 @@
 import executeQuery from '../../../lib/db';
 
 
+//------------API for adding new bg to database
+
 export default async function addBG(req, res) {
   if (req.method != 'POST') {
     res.json({ 'message': 'This is a POST API' }).status(404);

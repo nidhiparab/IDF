@@ -5,28 +5,31 @@ import { useState, useEffect } from 'react'
 
 
 export default function BG({ BG }) {
+
   const [allBG, setAllBG] = useState(BG)
   const [filterd, setFilterd] = useState(allBG)
   const [state, setState] = useState("");
   const [name, setName] = useState("");
 
+
+  //implement filter update bg cards
   useEffect(() => {
     if (state || name) {
       let filteredData = allBG.filter((bg) => {
-        return bg.state_short.includes(state)
+        return bg.state_short.includes(state)             //------------filter state
       })
       filteredData = filteredData.filter((bg) => {
-        return bg.bg_name.toLowerCase().includes(name.toLowerCase())
+        return bg.bg_name.toLowerCase().includes(name.toLowerCase())       //----------filter name
       })
       setFilterd(filteredData)
-    } else {
+    } else {                                             //-------------if no filter show all bg
       setFilterd(allBG)
     }
 
   }, [state, name]);
 
 
-  let bgkList = filterd.map(bg => {
+  let bgkList = filterd.map(bg => {                       //---------cards displayed
     return (
       <div className="card" key={bg.bg_id} >
         {/* <img src="..." class="card-img-top" alt="..."/> */}
@@ -35,6 +38,7 @@ export default function BG({ BG }) {
           <p className="card-text">{bg.state}</p>
           <p className="card-text">{bg.state_short}</p>
 
+          {/* --------------------get every bg detail----------------- */}
           <Link href={'/balgurukul/[id]'} as={`/balgurukul/${bg.bg_id}`} className="btn btn-primary">Know More</Link>
         </div>
       </div>
@@ -43,10 +47,11 @@ export default function BG({ BG }) {
   return (
     <>
       <div className='filters'>
-        <input type="text" value={name} onChange={(e) => {
+        <input className='filter-name' type="text" value={name} onChange={(e) => {                //------------name input
           setName(e.target.value);
         }} />
-        <select
+        <select 
+          className='filter-state'                                                         //-----------------select state input 
           id="state"
           name="state"
           value={state}
@@ -94,7 +99,9 @@ export default function BG({ BG }) {
           <option value="WB">West Bengal</option>
         </select>
         <br />
-        <button name='Reset' onClick={() => { setState("");  setName("")}}>Reset Filters</button>
+
+        {/* ----------------reset filters--------------------- */}
+        <button className='filter-button' name='Reset' onClick={() => { setState("");  setName("")}}>Reset Filters</button>      
       </div>
       <div className="rootcard">
         {bgkList}
@@ -103,6 +110,8 @@ export default function BG({ BG }) {
   )
 }
 
+
+//-------------------get all bg from db api
 export async function getStaticProps() {
   let res = await fetch(baseUrl + "/api/balgurukul/")
   const data = await res.json();
