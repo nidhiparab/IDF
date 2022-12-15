@@ -4,9 +4,9 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import baseUrl from '../../helpers/baseUrl';
 
-const update = ({ balgurukul} ) => {
+const Update = ({ balgurukul} ) => {
    //---------------------------all required fields------------------
-  const [bg_name, setName] = useState('');
+  const [bg_name, setName] = useState(balgurukul.bg_name);
   const [partnering_org, setPartner] = useState('');
   const [district, setDist] = useState('');
   const [state, setState] = useState('');
@@ -23,13 +23,14 @@ const update = ({ balgurukul} ) => {
     //----------------set phone number mobile + telephone
     setPh(mob + '/' + tel);
     e.preventDefault();
-
-    const res = await fetch(`${baseUrl}/api/balgurukul/getAll`, {
+    let bg_id = balgurukul.bg_id
+    const res = await fetch(`${baseUrl}/api/balgurukul/update`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+        bg_id,
         bg_name,
         partnering_org,
         state,
@@ -223,7 +224,7 @@ const update = ({ balgurukul} ) => {
   );
 }
 
-export default Id;
+export default Update;
 
 
 
