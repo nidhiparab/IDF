@@ -2,6 +2,7 @@ import Link from 'next/link'
 import CustomModal from '../../components/Modals/CustomModal'
 import baseUrl from '../../helpers/baseUrl'
 import { useState } from 'react'
+import Image from 'next/image'
 
 
 const Product = ({ balgurukul }) => {
@@ -41,20 +42,28 @@ const Product = ({ balgurukul }) => {
         <button className='cancel' onClick={() => setOpenModal(false)}>Cancel</button>
 
       </CustomModal>
-      <div className="container_id">
-        <h2 className='name'>{balgurukul.bg_name}</h2><br />
-        <h5 className='org'>Partnering Organization: {balgurukul.partnering_org}</h5><br />
-        <h5 className='adr'>Address</h5>
+      <div className="container_id ">
+        <h1 className='name'>{balgurukul.bg_name}</h1><br />
+        <h5 className='org '>Partnering Organization: {balgurukul.partnering_org}</h5><br />
+        <div className="row">
+          <div className="col">
+            
+          </div>
+          <div className="">
+          <h5 className='adr'>Address</h5>
         {balgurukul.address}<br />
         {balgurukul.district}<br />
         {balgurukul.state}<br />
         {balgurukul.pincode}<br /><br />
+          </div>
+        </div>
 
         <h5 className='adr'>Management</h5>
         {balgurukul.org_under_bg == "nan" ? '-' : balgurukul.org_under_bg}<br />
         {balgurukul.phone == "nan" ? '-' : balgurukul.phone}<br />
-        Email: {balgurukul.mail == "nan" ? '---' : <Link href={`mailto:${balgurukul.mail}`}>{balgurukul.mail}</Link>}<br />
+        Email: {balgurukul.mail == "nan" ? '---' : balgurukul.mail}<br />
         <button className='delete' onClick={() => setOpenModal(true)}>Delete</button>
+        <Link href={'/update/[id]'} as={`/update/${balgurukul.bg_id}`} className="btn btn-primary">Know More</Link>
       </div>
     </>
   )

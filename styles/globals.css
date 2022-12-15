@@ -284,11 +284,11 @@ a {
   /* background-image:linear-gradient(rgba(205, 241, 252, 0.52), #ABCBFF); */
 
 }
-.name{
+/* .name{
   font-weight: 750;
   font-size: 35px;
   color: #870026;
-}
+} */
 
 .org{
   color: #2A70DE;
@@ -302,7 +302,7 @@ a {
 
 /* -------------filters----------- */
 
-.filters{
+/* .filters{
  margin: 0;
 }
 .fil{
@@ -319,9 +319,9 @@ a {
 
 .fil::placeholder{
   color: #000;
-}
+} */
 
-.Rbtn {
+/* .Rbtn {
   left: 48px;
   display: inline-block;
   color: #000;
@@ -332,11 +332,11 @@ a {
   background: transparent;
   position: relative;
   cursor: pointer;
-}
+} */
 
-.Rbtn:hover {
+/* .Rbtn:hover {
   border: 2px solid #c84869;
   background: #c84869;
   transition: 1s;
   color: #fff;
-}
+} */

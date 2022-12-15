@@ -6,7 +6,7 @@ import baseUrl from '../../../helpers/baseUrl';
 
 const Update = ({ balgurukul} ) => {
    //---------------------------all required fields------------------
-  const [bg_name, setName] = useState(balgurukul.bg_name);
+  const [bg_name, setName] = useState('');
   const [partnering_org, setPartner] = useState('');
   const [district, setDist] = useState('');
   const [state, setState] = useState('');
