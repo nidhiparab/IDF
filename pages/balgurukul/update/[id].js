@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import baseUrl from '../../helpers/baseUrl';
 
-const update = ({ balgurukul} ) => {
+const Update = ({ balgurukul} ) => {
    //---------------------------all required fields------------------
   const [bg_name, setName] = useState('');
   const [partnering_org, setPartner] = useState('');
@@ -223,7 +223,7 @@ const update = ({ balgurukul} ) => {
   );
 }
 
-export default Id;
+export default Update;
 
 
 
