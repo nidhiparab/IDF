@@ -1,5 +1,7 @@
+/* ----------------navbar------------------- */
+
 .container .navbar {
-    margin:0 10% 2% 10%;
+    margin:0 10% 0% 10%;
 }
 
 .navbar-brand img{
@@ -41,11 +43,17 @@
     /* display:flex; */
 }
 
+/* -------------------filter--------------- */
+
 .filters{
     display: flex;
 }
+.fil{
+    line-height: 10px;
+    border-radius: 6px;
+}
 .filter-name{
-    margin:1% 1% 1% 2%;
+    margin:1% 1% 1% 4%;
     width: 40%;
     height: 4%;
     background-color: #ffff;
@@ -59,7 +67,7 @@
     background-color: #ffff;
     color: black;
 }
-.filter-button{
+.Rbtn{
     margin-top:1%;
     width: 10%;
     height: 4%;
@@ -68,7 +76,7 @@
     color: white;
     transition: 0.3s;
 }
-.filter-button:hover{
+.Rbtn:hover{
     background-color: #417586;
     color: white;
 }
@@ -90,4 +98,23 @@
   }
   
 
-  
+  /* ---------------------------bg detail ----------------------------- */
+
+  .name{
+    background-color: rgb(42,112,222);
+    color:#ffff;
+    font-size: 40px;
+    font-weight: 800;
+    padding: 5%;
+  }
+
+  .delete{
+    font-weight: 550;
+    margin: 5%;
+  background-color: #c84869;
+  color: #fff;
+  border: none;
+  padding: 1%;
+  font-size: 18px;
+  border-radius: 10px;
+  }

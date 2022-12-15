@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Create from '../pages/balgurukul/create'
 
 const Navbar = () => {
 	return (
@@ -24,12 +25,18 @@ const Navbar = () => {
 								</p>
 							</div>
 						</div>
-						<div class="navbar-nav">
-							<a class="nav-link" aria-current="page" href="../">
+						<div className="navbar-nav">
+							<a className="nav-link" aria-current="page" href="../">
 								Home
 							</a>
-							<a class="nav-link" href="../balgurukul">
+							<a className="nav-link" href="../balgurukul">
 								Balgurukuls
+							</a>
+							<a className="nav-link" href="../balgurukul/create" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New Balgurukul">
+								Create
+							</a>
+							<a className="nav-link" href="https://indiandevelopmentfoundation.blogspot.com/" >
+								Blog
 							</a>
 						</div>
 					</div>
