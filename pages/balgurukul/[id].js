@@ -3,6 +3,7 @@ import CustomModal from '../../components/Modals/CustomModal'
 import baseUrl from '../../helpers/baseUrl'
 import { useState } from 'react'
 import Image from 'next/image'
+import AdminButtons from '../../components/Admin/balgurukul/info'
 
 
 const Product = ({ balgurukul }) => {
@@ -62,8 +63,9 @@ const Product = ({ balgurukul }) => {
         {balgurukul.org_under_bg == "nan" ? '-' : balgurukul.org_under_bg}<br />
         {balgurukul.phone == "nan" ? '-' : balgurukul.phone}<br />
         Email: {balgurukul.mail == "nan" ? '---' : balgurukul.mail}<br />
-        <button className='delete' onClick={() => setOpenModal(true)}>Delete</button>
-        <Link href={'/update/[id]'} as={`/update/${balgurukul.bg_id}`} className="btn btn-primary">Know More</Link>
+        {/* <button className='delete' onClick={() => setOpenModal(true)}>Delete</button>
+        <Link href={'update/[id]'} as={`update/${balgurukul.bg_id}`} className="btn btn-primary">Update this page</Link> */}
+        <AdminButtons modal={setOpenModal} bg_id={ balgurukul.bg_id }></AdminButtons>
       </div>
     </>
   )
