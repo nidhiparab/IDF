@@ -111,7 +111,6 @@ export default function BG({ BG }) {
 export async function getServerSideProps() {
   let res = await fetch(baseUrl + "/api/balgurukul/")
   const data = await res.json();
-  console.log(data)
   return {
     props: {
       BG: data

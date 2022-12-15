@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import baseUrl from '../../helpers/baseUrl';
+import baseUrl from '../../../helpers/baseUrl';
 
 const Update = ({ balgurukul} ) => {
    //---------------------------all required fields------------------
@@ -13,9 +13,9 @@ const Update = ({ balgurukul} ) => {
   const [region, setRegion] = useState('SR');
   const [pincode, setPin] = useState('');
   const [org_under_bg, setOu] = useState('');
-  const [mob, setMob] = useState('');
-  const [tel, setTel] = useState('');
-  const [phone, setPh] = useState(mob + '/' + tel);
+  const [mob, setMob] = useState(balgurukul.phone.split('/')[0]);
+  const [tel, setTel] = useState(balgurukul.phone.split('/')[1]);
+  const [phone, setPh] = useState('');
   const [mail, setMail] = useState('');
   const router = useRouter()
   const handleSubmit = async (e) => {
@@ -47,7 +47,7 @@ const Update = ({ balgurukul} ) => {
     if (res2.error) {
       console.log(res2.error)
     } else {
-      router.push('/balgurukul')
+      router.push(`/balgurukul/${bg_id}`)
       console.log("Success")
 
     }
