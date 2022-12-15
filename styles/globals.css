@@ -197,6 +197,7 @@ a {
   /* border-radius: 30px 30px 30px 30px; */
   /* background-color: #ABCBFF; */
   color: #000;
+  
   background-image:linear-gradient(rgba(205, 241, 252, 0.52), #ABCBFF);
 }
  input:focus { color: black }
@@ -218,6 +219,7 @@ a {
   padding: 0 22px;
   font-size: 16px;
   background-color: white;
+  color: black;
 }
 
 .det2{

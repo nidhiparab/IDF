@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Create from '../pages/balgurukul/create'
 import Image from 'next/image';
 import logo from '../public/images/idf-logo.png'
 
@@ -28,18 +27,18 @@ const Navbar = () => {
 							</div>
 						</div>
 						<div className="navbar-nav">
-							<a className="nav-link" aria-current="page" href="../">
+							<Link className="nav-link" aria-current="page" href="/">
 								Home
-							</a>
-							<a className="nav-link" href="../balgurukul">
+							</Link>
+							<Link className="nav-link" href="/balgurukul">
 								Balgurukuls
-							</a>
-							<a className="nav-link" href="../balgurukul/create" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New Balgurukul">
+							</Link>
+							<Link className="nav-link" href="/balgurukul/create" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New Balgurukul">
 								Create
-							</a>
-							<a className="nav-link" href="https://indiandevelopmentfoundation.blogspot.com/" >
+							</Link>
+							<Link className="nav-link" href="https://indiandevelopmentfoundation.blogspot.com/" >
 								Blog
-							</a>
+							</Link>
 						</div>
 					</div>
 				</div>
