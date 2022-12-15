@@ -63,6 +63,7 @@ const Product = ({ balgurukul }) => {
         {balgurukul.phone == "nan" ? '-' : balgurukul.phone}<br />
         Email: {balgurukul.mail == "nan" ? '---' : balgurukul.mail}<br />
         <button className='delete' onClick={() => setOpenModal(true)}>Delete</button>
+        <Link href={'/update/[id]'} as={`/update/${balgurukul.bg_id}`} className="btn btn-primary">Know More</Link>
       </div>
     </>
   )
