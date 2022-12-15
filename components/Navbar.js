@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import logo from '../public/images/idf-logo.png'
 
 const Navbar = () => {
 	return (
@@ -10,7 +11,7 @@ const Navbar = () => {
 						<div className="navbar-brand row">
 							<Link className=" col" href="https://www.idf.org.in">
 								<Image
-									src="https://static.wixstatic.com/media/d3cf27_7565cf50f68f4fe2858ef7f67371d7aa~mv2.png/v1/fill/w_46,h_71,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/idf-logo.png"
+									src={logo}
 									alt="idf-logo.png"
 								/>
 							</Link>
