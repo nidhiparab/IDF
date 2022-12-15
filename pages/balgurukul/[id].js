@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import CustomModal from '../../components/CustomModal'
+import CustomModal from '../../components/Modals/CustomModal'
 import baseUrl from '../../helpers/baseUrl'
 import { useState } from 'react'
 import Image from 'next/image'

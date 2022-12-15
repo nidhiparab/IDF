@@ -28,8 +28,8 @@ export default function BG({ BG }) {
 
   }, [state, name]);
 
-
-  let bgkList = filterd.map(bg => {                       //---------cards displayed
+                      //---------cards displayed
+  let bgkList = filterd.map(bg => {
     return (
       <div className="card" key={bg.bg_id} >
         {/* <img src="..." class="card-img-top" alt="..."/> */}
@@ -108,7 +108,7 @@ export default function BG({ BG }) {
 
 
 //-------------------get all bg from db api
-export async function getStaticProps() {
+export async function getServerSideProps() {
   let res = await fetch(baseUrl + "/api/balgurukul/")
   const data = await res.json();
   console.log(data)
