@@ -1,93 +1,88 @@
 .container .navbar {
-    margin:0 10% 2% 10%;
+  margin: 0 10% 2% 10%;
 }
 
-.navbar-brand img{
-    margin: 2% 0 2% 10%;
-    /* height: 90%; */
+.navbar-brand img {
+  margin: 2% 0 2% 10%;
+  /* height: 90%; */
 }
 
-.navbar-brand h1{
-    font-weight: 700;
-    text-align: left;
-    font-size: 30px;
+.navbar-brand h1 {
+  font-weight: 700;
+  text-align: left;
+  font-size: 30px;
 }
-.navbar-brand p{
-    text-align: left;
-    font-size: 50%;
+.navbar-brand p {
+  text-align: left;
+  font-size: 50%;
 }
-.nav-text{
-    height: 0.1px;
-}
-
-.navbar-nav a{
-    background-color: rgb(171,203,255);
-    margin: 2%;
-    border-radius: 20px;
-    color: black;
-}
-.navbar-nav a:hover{
-    background-color: rgb(42,112,222);
-    color: white;
-   
+.nav-text {
+  height: 0.1px;
 }
 
-.card{
-    margin: 1%;
+.navbar-nav a {
+  background-color: rgb(171, 203, 255);
+  margin: 2%;
+  border-radius: 20px;
+  color: black;
+}
+.navbar-nav a:hover {
+  background-color: rgb(42, 112, 222);
+  color: white;
 }
 
-.rootcard{
-    margin: 1%;
-    /* display:flex; */
+.card {
+  margin: 1%;
 }
 
-.filters{
-    display: flex;
+.rootcard {
+  margin: 1%;
+  /* display:flex; */
 }
-.filter-name{
-    margin:1% 1% 1% 2%;
-    width: 40%;
-    height: 4%;
-    background-color: #ffff;
-    color: black;
-    
+
+.filters {
+  display: flex;
 }
-.filter-state{
-    margin:1%;
-    width: 40%;
-    height: 4%;
-    background-color: #ffff;
-    color: black;
+.filter-name {
+  margin: 1% 1% 1% 2%;
+  width: 40%;
+  height: 4%;
+  background-color: #ffff;
+  color: black;
 }
-.filter-button{
-    margin-top:1%;
-    width: 10%;
-    height: 4%;
-    border: none;
-    background-color: rgb(33,62,140);
-    color: white;
-    transition: 0.3s;
+.filter-state {
+  margin: 1%;
+  width: 40%;
+  height: 4%;
+  background-color: #ffff;
+  color: black;
 }
-.filter-button:hover{
-    background-color: #417586;
-    color: white;
+.filter-button {
+  margin-top: 1%;
+  width: 10%;
+  height: 4%;
+  border: none;
+  background-color: rgb(33, 62, 140);
+  color: white;
+  transition: 0.3s;
+}
+.filter-button:hover {
+  background-color: #417586;
+  color: white;
 }
 
 ::-webkit-scrollbar {
-    width: 20px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
-    border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: black; 
-    border-radius: 10px;
-  }
-  
+  width: 20px;
+}
 
-  
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}

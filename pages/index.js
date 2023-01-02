@@ -10,7 +10,7 @@ export default function Home() {
     <div className="rootcard">
       <div className='rtcrd'>    <h1>Home page</h1>
                 <p>IDF</p>
-               <button className='Rbtn'> Know More</button> 
+               {/* <button className='Rbtn'> Know More</button>  */}
                </div>
   
                 

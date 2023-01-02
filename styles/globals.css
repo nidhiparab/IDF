@@ -1,4 +1,3 @@
-
 html,
 body {
   padding: 0;
@@ -16,7 +15,6 @@ a {
   box-sizing: border-box;
 }
 
-
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -25,69 +23,6 @@ a {
     color: white;
     background: black;
   }
-
-}
-
-.rootcard{
-  /* background-image: url(https://img.freepik.com/free-vector/children-drawing-home-with-crayons_74855-5454.jpg?w=996&t=st=1670848889~exp=1670849489~hmac=8599260905f5b357141c0f2c9e43c5e90e06133af132b4c90075e0a5de74d4f3); */
-  /* background-image: url(/public/house.jpg); */
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  justify-content: center;
- /* overflow: hidden; */
-}
-
-
-
-.rtcrd{
-  width: 90%;
-  color: #000;
-  position:absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  text-align: center;
-}
-
-.rtcrd .Rbtn{
-  display: inline-block;
-  text-decoration: none;
-  color: #000;
-  border: 2px solid #000;
-  padding: 8px 30px;
-  font-size: 14px;
-  left: 4px;
-  background: transparent;
-  position: relative;
-  cursor: pointer;
-}
-
-.rtcrd .Rbtn:hover{
-  border: 2px solid #c84869;
-  background: #c84869;
-  transition: 1s;
-  color: #fff;
-}
-
-
-
-
-
-
-
-/* --------------------Navbar ---------------*/
-
-.header {
-  top: 1000;
-  z-index: 10000;
-  margin: 0;
-  padding: 0;
-}
-.navbar-custom {
-  background-image: none;
-  background-color: #213e8c;
 }
 
 /*---------------- Cards css----------------- */
@@ -95,8 +30,7 @@ a {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  margin: 30px;
-  /* margin-left: 150px; */
+  margin: 4%;
   justify-content: center;
   cursor: pointer;
   /* width: 80%; */
@@ -108,10 +42,6 @@ a {
 }
 
 /* Add some padding inside the card container */
-.container {
-  padding: 2px 16px;
-}
-
 .card-title {
   font-size: 25px;
   font-weight: 200px;
@@ -121,34 +51,32 @@ a {
 
 .footer {
   padding: 4rem 6rem;
-  background:#213e8c;
+  background: #ffff;
   color: #000;
 }
 
-.top {
-  display: flex;
-  align-items: center;
-  text-align: start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.top i {
-  color: #870026;
-  font-size: 2rem;
-  margin-left: 1rem;
-}
-
-.top i:hover {
-  color: #870026;
-}
-
 .bottom {
-  padding-top: 2rem;
+  padding-top: 1rem;
   text-align: start;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.column1 {
+  width: 25%;
+}
+
+.off_address {
+  letter-spacing: normal;
+}
+
+.column2 {
+  width: 35%;
+}
+
+.column3 {
+  width: 25%;
 }
 
 .bottom div {
@@ -172,13 +100,32 @@ a {
   color: #870026;
 }
 
+.off_address {
+  letter-spacing: normal;
+  font-size: 15px;
+  text-align: justify;
+}
+
+.end {
+  justify-content: center;
+  text-align: center;
+  background-color: #213e8c;
+  font-size: 13px;
+  color: #fff;
+}
+.subs {
+  background-color: #c84869;
+  border: #c84869;
+  padding: 1%;
+}
+
+.subs:hover {
+  background-color: #870026;
+}
+
 @media screen and (max-width: 850px) {
   .footer {
     padding: 4rem 2rem;
-  }
-
-  .footer i {
-    margin: 1rem 1rem 0 0;
   }
 
   .bottom div {
@@ -197,9 +144,11 @@ a {
   /* border-radius: 30px 30px 30px 30px; */
   /* background-color: #ABCBFF; */
   color: #000;
-  background-image:linear-gradient(rgba(205, 241, 252, 0.52), #ABCBFF);
+  background-image: linear-gradient(rgba(205, 241, 252, 0.52), #abcbff);
 }
- input:focus { color: black }
+input:focus {
+  color: black;
+}
 
 .container_crt .det {
   color: rgb(5, 5, 5);
@@ -207,7 +156,7 @@ a {
   font-weight: 700;
 }
 
-.det1::placeholder{
+.det1::placeholder {
   color: black;
 }
 
@@ -220,7 +169,7 @@ a {
   background-color: white;
 }
 
-.det2{
+.det2 {
   position: relative;
   line-height: 40px;
   border-radius: 6px;
@@ -230,7 +179,7 @@ a {
   color: #000;
   background-color: white;
 }
-.sr{
+.sr {
   color: #000;
   position: relative;
   line-height: 40px;
@@ -270,68 +219,66 @@ a {
   background: #c84869;
   transition: 1s;
   color: #fff;
-
 }
 
 /* -------------------------id -------------- */
 
-
-.container_id{
+.container_id {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
   font-size: medium;
   /* background-image:linear-gradient(rgba(205, 241, 252, 0.52), #ABCBFF); */
-
 }
-.name{
+.name {
   font-weight: 750;
   font-size: 35px;
   color: #870026;
 }
 
-.org{
-  color: #2A70DE;
+.org {
+  color: #2a70de;
   font-size: 25px;
   font-style: oblique;
 }
 
-.adr{
+.adr {
   font-size: 22px;
-} 
+}
 
 /* -------------filters----------- */
 
-.filters{
- margin: 0;
+.filters {
+  margin: 0;
 }
-.fil{
-  margin-top: 20px;
-  margin: 20px 20px 10px 40px;
+.fil {
+  margin-top: 20%;
+  margin: 2% 2% 1% 4%;
   position: relative;
-  line-height: 10px;
+  line-height: 10%;
   border-radius: 6px;
   color: #000;
   background-color: #fff;
   border-color: #000;
-
 }
 
-.fil::placeholder{
+.fil::placeholder {
   color: #000;
 }
 
 .Rbtn {
-  left: 48px;
+  left: 4%;
   display: inline-block;
   color: #000;
   border: 2px solid #101010;
-  padding: 4px 6px;
+  padding: 1% 1%;
   font-size: 14px;
   border-radius: 10px;
   background: transparent;
   position: relative;
   cursor: pointer;
+  height: 1%;
+  margin-top: 1%;
 }
 
 .Rbtn:hover {
