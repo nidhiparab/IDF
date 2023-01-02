@@ -47,10 +47,10 @@ export default function BG({ BG }) {
   return (
     <>
       <div className='filters'>
-        <input className='fil' type="text" placeholder='Search by Name' value={name} onChange={(e) => {
+        <input className='fil filter-name' type="text" placeholder='Search by Name' value={name} onChange={(e) => {
           setName(e.target.value);
         }} />
-        <select className='fil'
+        <select className='fil filter-state'
           id="state"
           value={state}
           onChange={(e) => {
@@ -111,7 +111,6 @@ export default function BG({ BG }) {
 export async function getServerSideProps() {
   let res = await fetch(baseUrl + "/api/balgurukul/")
   const data = await res.json();
-  console.log(data)
   return {
     props: {
       BG: data
