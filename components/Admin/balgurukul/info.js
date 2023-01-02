@@ -9,3 +9,4 @@ export default function AdminButtons({ modal, bg_id }) {
     </>
   )
 }
+  
