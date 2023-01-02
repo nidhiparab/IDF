@@ -23,7 +23,7 @@ export default async function addBG(req, res) {
     soft_delete} = req.body;
 
   let updateData = await executeQuery({
-    query: "UPDATE `bg` SET `bg_name`='?',`partnering_org`='?',`address`='?',`district`='?',`state`='?',`state_short`='?',`region`='?',`pincode`='?',`org_under_bg`='?',`phone`='?',`mail`='?',`soft_delete`='?' WHERE `bg_id`='?'",
+    query: "UPDATE `bg` SET `bg_name`=?,`partnering_org`=?,`address`=?,`district`=?,`state`=?,`state_short`=?,`region`=?,`pincode`=?,`org_under_bg`=?,`phone`=?,`mail`=?,`soft_delete`=? WHERE `bg_id`=?",
     values: [bg_name, partnering_org, address, district, state, state_short, region, pincode, org_under_bg, phone, mail, soft_delete, bg_id]
   })
 

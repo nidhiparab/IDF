@@ -8,6 +8,7 @@ const Create = () => {
   //---------------------------all required fields------------------
   const [bg_name, setName] = useState('');
   const [partnering_org, setPartner] = useState('');
+  const [address, setAddr] = useState('');
   const [district, setDist] = useState('');
   const [state, setState] = useState('');
   const [region, setRegion] = useState('SR');
@@ -32,6 +33,7 @@ const Create = () => {
       body: JSON.stringify({
         bg_name,
         partnering_org,
+        address,
         state,
         district,
         region,
@@ -82,6 +84,17 @@ const Create = () => {
 			<br />
 			<br />
 			<h4 className='addr'>Address</h4>
+      <input className='det1'
+        type="text"
+        name="address"
+        placeholder="Address"
+        value={address}
+        onChange={(e) => {
+          setAddr(e.target.value);
+        }}
+      />
+      <br />
+      <br />
 			<input className='det1'
 				type="text"
 				name="district"
@@ -93,9 +106,6 @@ const Create = () => {
 			/>
 			<br />
 			<br />
-			{/* <input type="text" name="state" placeholder="State" value={setState}
-            onChange={(e)=>{setState(e.target.value)}}
-            /><br/><br/> */}
 
 			<select className='det2'
 				id="state"
