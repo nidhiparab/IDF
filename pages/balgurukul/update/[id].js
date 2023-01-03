@@ -9,6 +9,7 @@ const Update = ({ balgurukul }) => {
   const [partnering_org, setPartner] = useState(balgurukul.partnering_org);
   const [district, setDist] = useState(balgurukul.district);
   const [state, setState] = useState(balgurukul.state);
+  const [address, setAddr] = useState(balgurukul.address);
   const [region, setRegion] = useState(balgurukul.region);
   const [pincode, setPin] = useState(balgurukul.pincode);
   const [org_under_bg, setOu] = useState(balgurukul.org_under_bg);
@@ -18,8 +19,7 @@ const Update = ({ balgurukul }) => {
   const [mail, setMail] = useState(balgurukul.mail);
   const router = useRouter()
   const handleSubmit = async (e) => {
-  console.log(state);
-
+  console.log(balgurukul)
     //----------------set phone number mobile + telephone
     setPh(mob + '/' + tel);
     e.preventDefault();
@@ -35,6 +35,7 @@ const Update = ({ balgurukul }) => {
         bg_id,
         bg_name,
         partnering_org,
+        address,
         state,
         state_short,
         district,
@@ -86,6 +87,17 @@ const Update = ({ balgurukul }) => {
       <br />
       <br />
       <h4 className='addr'>Address</h4>
+      <input className='det1'
+        type="text"
+        name="address"
+        placeholder="Address"
+        value={address}
+        onChange={(e) => {
+          setAddr(e.target.value);
+        }}
+      />
+      <br />
+      <br />
       <input className='det1'
         type="text"
         name="district"

@@ -2,6 +2,7 @@ import NextAuth from "next-auth"
 import executeQuery from '../../../lib/db'
 import { compare } from 'bcryptjs';
 import CredentialProvider from "next-auth/providers/credentials"
+import { signIn } from "next-auth/react";
 export default NextAuth({
   // Configure one or more authentication providers
   providers: [
@@ -43,6 +44,11 @@ export default NextAuth({
     })
   ],
   callbacks: {
+    
+    async signIn({ }) {
+      return true;
+    },
+    
     jwt: ({ token, user }) => {
       if (user) {
         token = {

@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 html,
 body {
   padding: 0;
@@ -278,7 +281,9 @@ a {
   cursor: pointer;
 } */
   /* height: 1%;
+  /* height: 1%;
   margin-top: 1%;
+} */
 } */
 
 /* .Rbtn:hover {
@@ -287,3 +292,7 @@ a {
   transition: 1s;
   color: #fff;
 } */
+
+.fil::placeholder {
+  color: #000;
+}

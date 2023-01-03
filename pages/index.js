@@ -13,9 +13,6 @@ export default function Home() {
                 <p>IDF</p>
                {/* <button className='Rbtn'> Know More</button>  */}
                </div>
-  
-                
-        
          </div>
 
   )
