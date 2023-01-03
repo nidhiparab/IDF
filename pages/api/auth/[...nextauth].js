@@ -2,7 +2,6 @@ import NextAuth from "next-auth"
 import executeQuery from '../../../lib/db'
 import { compare } from 'bcryptjs';
 import CredentialProvider from "next-auth/providers/credentials"
-import { signIn } from "next-auth/react";
 export default NextAuth({
   // Configure one or more authentication providers
   providers: [
@@ -33,11 +32,32 @@ export default NextAuth({
           query: `SELECT * FROM user where user_id=? LIMIT 1`,
           values: [dbUser[0].user_id]
         })
+        let isAdmin = await executeQuery({
+          query: `SELECT * FROM admin where user_id=? LIMIT 1`,
+          values: [dbUser[0].user_id]
+        })
+        if (isAdmin.length > 0) isAdmin = true;
+        let hodData = await executeQuery({
+          query: `SELECT bg_id FROM hod where user_id=? `,
+          values: [dbUser[0].user_id]
+        })
+        let spocData = await executeQuery({
+          query: `SELECT bg_id FROM spoc where user_id=? `,
+          values: [dbUser[0].user_id]
+        })
+        let teacherData = await executeQuery({
+          query: `SELECT bg_id FROM teacher where user_id=? `,
+          values: [dbUser[0].user_id]
+        })
 
         if (userData.length < 0) return null; // User Data not found
         let user = {
           email: dbUser[0].email,
-          ...userData[0]
+          ...userData[0],
+          isAdmin,
+          hod:hodData.map(x => x.bg_id),
+          spoc:spocData.map(x => x.bg_id),
+          teacher:teacherData.map(x => x.bg_id),
         }
         return user
       },
