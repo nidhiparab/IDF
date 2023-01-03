@@ -4,10 +4,10 @@ import baseUrl from '../../helpers/baseUrl'
 import { useState } from 'react'
 import Image from 'next/image'
 import AdminButtons from '../../components/Admin/balgurukul/info'
-
+import { useSession } from "next-auth/react"
 
 const Product = ({ balgurukul }) => {
-
+  const { data: session } = useSession()
   const [openModal, setOpenModal] = useState(false)
 
   const bgDelete = async (bg_id) => {
@@ -22,14 +22,15 @@ const Product = ({ balgurukul }) => {
       })
     })
 
-    const res2 = await res.json()
+      const res2 = await res.json()
     if (res2.error) {
       console.log(res2.error)
     } else {
       console.log("Success")
     }
   }
-
+  console.log(session?.user.hod);
+  console.log(`Is HoD ${session?.user.hod.includes(balgurukul.bg_id)}`);
 
 
 
