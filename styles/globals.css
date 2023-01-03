@@ -250,7 +250,7 @@ a {
 
 /* -------------filters----------- */
 
-.filters{
+/* .filters{
  margin: 0;
 }
 .fil {
@@ -263,6 +263,10 @@ a {
   background-color: #fff;
   border-color: #000;
 }
+
+.fil::placeholder {
+  color: #000;
+}  */
 
 /* .Rbtn {
   left: 48px;
@@ -277,7 +281,9 @@ a {
   cursor: pointer;
 } */
   /* height: 1%;
+  /* height: 1%;
   margin-top: 1%;
+} */
 } */
 
 /* .Rbtn:hover {
