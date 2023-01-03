@@ -247,7 +247,7 @@ a {
 
 /* -------------filters----------- */
 
-.filters{
+/* .filters{
  margin: 0;
 }
 .fil {
@@ -263,7 +263,7 @@ a {
 
 .fil::placeholder {
   color: #000;
-} */
+}  */
 
 /* .Rbtn {
   left: 48px;
@@ -277,9 +277,9 @@ a {
   position: relative;
   cursor: pointer;
 } */
-  height: 1%;
+  /* height: 1%;
   margin-top: 1%;
-}
+} */
 
 /* .Rbtn:hover {
   border: 2px solid #c84869;
