@@ -6,7 +6,7 @@ export default NextAuth({
   // Configure one or more authentication providers
   providers: [
     CredentialProvider({
-      name: 'credentials',
+      name: 'credentials',  
       credentials: {
         email: {
           label: 'Email',
