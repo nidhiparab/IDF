@@ -1,6 +1,7 @@
 import Navbar from "./Navbar"
 import Head from 'next/head'
 import Footer from "./Footer"
+import Herosection from "../pages/herosection"
 const Layout = ({ children }) => {
   return (
     <>
@@ -11,7 +12,7 @@ const Layout = ({ children }) => {
       </Head>
       <Navbar />
       {children}             {/*--------------content of the page----------------*/}
-
+      <Herosection/>
       <Footer />
     </>
   )

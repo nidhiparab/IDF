@@ -22,7 +22,7 @@ const Footer = () => {
                 </ul> */}
 
         <div className="bottom">
-          <div className="column1">
+          <div className="footer_col">
             <h4>IDF Head Office</h4>
             <span className="off_address">
               L 10 / 3 & 4 Jal Ratan Deep, Bangur Nagar, Goregaon (West), Mumbai
@@ -42,7 +42,7 @@ const Footer = () => {
               <b>Registered Charity: </b>F-10540
             </span>
           </div>
-          <div className="column2">
+          <div className="footer_col">
             <h4>Subscribe our Newsletter</h4>
             <input
               type="text"
@@ -53,7 +53,7 @@ const Footer = () => {
             <button className="subs">Subscribe</button>
           </div>
 
-          <div className="column3">
+          <div className="footer_col">
             <h4>Quick Links</h4>
             <Link href="/">About Us</Link>
             <Link href="/">Projects</Link>
