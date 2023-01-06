@@ -10,10 +10,11 @@ export default function Home() {
   return (
     <div className="rootcard">
       <div className='rtcrd'>
-        {/* <button className='Rbtn'> Know More</button>  */}
-      </div>
-      {/* <Herosection /> */}
-    </div>
+               {/* <button className='Rbtn'> Know More</button>  */}
+               </div>
+           <Herosection />
+
+         </div>
 
   )
 }
