@@ -47,16 +47,16 @@ const Slideshow = () => {
 	};
 	return (
 		<div className="m-10">
-			{/* <h1 className="text-center text-6xl  font-bold pb-10 ">
+			<h1 className="text-center text-6xl  font-bold pb-10 ">
 			<span className="text-indigo-600"></span>
-			</h1> */}
+			</h1>
 
 			<Zoom {...zoomInProperties}>
 				{images.map((each, index) => (
 					<div key={index} className="flex justify-center w-full h-full">
 						<img src={each}
+						
 							className="w-3/4 object-cover rounded-lg shadow-xl"
-							
 						/>
 					</div>
 				))}

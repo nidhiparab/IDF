@@ -12,7 +12,8 @@ export default function Home() {
       <div className='rtcrd'>
                {/* <button className='Rbtn'> Know More</button>  */}
                </div>
-           {/* <Herosection /> */}
+           <Herosection />
+
          </div>
 
   )
