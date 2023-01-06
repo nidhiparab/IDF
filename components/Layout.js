@@ -1,7 +1,7 @@
 import Navbar from "./Navbar"
 import Head from 'next/head'
 import Footer from "./Footer"
-import Herosection from "../pages/herosection"
+import Herosection from "./herosection"
 const Layout = ({ children }) => {
   return (
     <>

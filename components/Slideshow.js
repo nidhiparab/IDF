@@ -2,16 +2,17 @@ import React from "react";
 //These are Third party packages for smooth slideshow
 import { Zoom } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import Image from 'next/image'
 
 
 const Slideshow = () => {
 	//Array of Images
 	const images = [
-		"images/Image1.png",
-		"images/Image2.png",
-		"images/Image3.png",
-		"images/Image1.png",
-		"images/Image2.png",
+		"/images/Image1.png",
+		"/images/Image2.png",
+		"/images/Image3.png",
+		"/images/Image1.png",
+		"/images/Image2.png",
      
 	];
 
@@ -54,10 +55,7 @@ const Slideshow = () => {
 			<Zoom {...zoomInProperties}>
 				{images.map((each, index) => (
 					<div key={index} className="flex justify-center w-full h-full">
-						<img src={each}
-							className="w-3/4 object-cover rounded-lg shadow-xl"
-							
-						/>
+            <Image src={ each } alt="Childern Image" fill></Image>
 					</div>
 				))}
 			</Zoom>
