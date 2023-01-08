@@ -50,7 +50,7 @@ export default function BG({ BG }) {
         <input className='fil filter-name' type="text" placeholder='Search by Name' value={name} onChange={(e) => {
           setName(e.target.value);
         }} />
-        <select className='fil filter-state'
+        <select className='fill filter-state'
           id="state"
           value={state}
           onChange={(e) => {

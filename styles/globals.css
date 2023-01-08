@@ -177,16 +177,12 @@ select {
   color: #fff;
   padding: 1%;
   /* background-color: #fff; */
-  border-color: #0a023fc3;
+ border-color: #0a023fc3;
   width: 90%;
   cursor: pointer;
-}
+}  
 
-.select::placeholder {
-  font-size: 12px;
-  font-weight: 500;
-  color: rgb(54, 52, 52);
-}
+
 
 form .fields .input-field {
   display: flex;
