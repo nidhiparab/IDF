@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -128,89 +129,122 @@ a {
   }
 }
 
-/*------------------- create css ------------------*/
-
+/* ------------Create form ------------*/
 .container_crt {
-  text-align: center;
-  font-size: large;
-  
-  padding: 10px 0px 10px 0px;
- 
-  color: #000;
-  
-  background-image:linear-gradient(rgba(205, 241, 252, 0.52), #ABCBFF);
-}
-
-.container_crt .det {
-  color: rgb(5, 5, 5);
-  font-size: 35px;
-  font-weight: 700;
-}
-
-.det1::placeholder {
-  color: black;
-}
-
-.det1 {
   position: relative;
-  line-height: 40px;
+  max-width: 900px;
+  width: 100%;
   border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  background-color: white;
-  color: black;
+  padding: 30px;
+  /* margin: 10% 15px; */
+  left: 15%;
+  /* background-color: rgb(243, 244, 248); */
+  /* box-shadow: 0 5px 10px rgba(0,0,0,0.1); */
 }
 
-.det2 {
+.container_crt form {
   position: relative;
-  line-height: 40px;
-  border-radius: 6px;
-  border-color: #000;
-  padding: 10px 0px;
-  font-size: 16px;
-  color: #000;
-  background-color: white;
-}
-.sr {
-  color: #000;
-  position: relative;
-  line-height: 40px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  background-color: white;
-}
-.container_crt .addr {
-  color: rgb(5, 5, 5);
-  font-size: 35px;
-  font-weight: 700;
+  margin-top: 2%;
+  min-height: 595px;
+  background-color: rgb(165, 207, 242);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-.Ing {
-  color: rgb(5, 5, 5);
-  font-size: 35px;
-  font-weight: 700;
+.container_crt form .title {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 2%;
+  color: rgb(134, 129, 129);
+  margin: 3% 5%;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 1%;
+}
+.container_crt form .fields {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
+  justify-content: space-around;
 }
 
-.sub-btn {
-  font-weight: 550;
+.field_select,
+select {
+  margin-left: 8.5%;
+  color: #fff;
+  padding: 1%;
+  /* background-color: #fff; */
+ border-color: #0a023fc3;
+  width: 90%;
+  cursor: pointer;
+}  
+
+
+
+form .fields .input-field {
+  display: flex;
+  width: calc(100% / 3 - 15px);
+  flex-direction: column;
+  margin: 1% 0;
+  padding: 1%;
+  background-color: #fff;
+  border-color: #0a023fc3;
+}
+form .fields .input-field {
+  display: flex;
+  width: calc(100% / 3 - 15px);
+  flex-direction: column;
+  margin: 1% 0;
+  padding: 1%;
+  background-color: #fff;
+  border-color: #0a023fc3;
+}
+
+.input-field::placeholder {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(54, 52, 52);
+}
+
+.Rbtn_crt {
+  margin-top: 1%;
+
+  left: 25%;
   display: inline-block;
-  text-decoration: none;
   color: #000;
   border: 2px solid #101010;
-  padding: 8px 30px;
-  font-size: 18px;
-  border-radius: 10px;
+  padding: 1% 1%;
+  font-size: 14px;
+
+  width: 55%;
   background: transparent;
   position: relative;
   cursor: pointer;
 }
+.Rbtn_crt:hover {
+  background-color: #417586;
+  color: white;
+}
 
-.sub-btn:hover {
-  border: 2px solid #c84869;
-  background: #c84869;
-  transition: 1s;
-  color: #fff;
+@media (max-width: 750px) {
+  .container_crt form {
+    overflow-y: scroll;
+  }
+  .container_crt form::-webkit-scrollbar {
+    display: none;
+  }
+  form .fields .input-field {
+    width: calc(100% / 2 - 15px);
+  }
+}
+
+@media (max-width: 550px) {
+  form .fields .input-field {
+    width: 100%;
+  }
 }
 
 /* -------------------------id -------------- */
@@ -237,50 +271,6 @@ a {
 .adr {
   font-size: 22px;
 }
-
-/* -------------filters----------- */
-
-/* .filters{
- margin: 0;
-}
-.fil {
-  margin-top: 20%;
-  margin: 2% 2% 1% 4%;
-  position: relative;
-  line-height: 10%;
-  border-radius: 6px;
-  color: #000;
-  background-color: #fff;
-  border-color: #000;
-}
-
-.fil::placeholder {
-  color: #000;
-}  */
-
-/* .Rbtn {
-  left: 48px;
-  display: inline-block;
-  color: #000;
-  border: 2px solid #101010;
-  padding: 1% 1%;
-  font-size: 14px;
-  border-radius: 10px;
-  background: transparent;
-  position: relative;
-  cursor: pointer;
-} */
-/* height: 1%;
-  /* height: 1%;
-  margin-top: 1%;
-} */
-
-/* .Rbtn:hover {
-  border: 2px solid #c84869;
-  background: #c84869;
-  transition: 1s;
-  color: #fff;
-} */
 
 .fil::placeholder {
   color: #000;

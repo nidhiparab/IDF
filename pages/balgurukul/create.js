@@ -54,13 +54,18 @@ const Create = () => {
   // console.log(bg_name, partnering_org, state, district, region, pincode, org_under_bg, phone, mail);
 
   return (
-    <form className="container_crt" onSubmit={(e) => handleSubmit(e)}>
-      <br />
-      <br />
 
-      <h4 className="det">Details</h4>
+       
+    <div className="container_crt">
+      <form action="#" onSubmit={(e) => handleSubmit(e)}>
+  
+  
+    
+
+<h4 className="title">Details</h4>
+      <div className="fields">
       <input
-        className="det1"
+        className="input-field"
         type="text"
         name="bg_name"
         placeholder="Balgurukul Name"
@@ -70,10 +75,8 @@ const Create = () => {
         }}
       />
 
-      <br />
-      <br />
-      <input
-        className="det1"
+         <input
+        className="input-field"
         type="text"
         name="partnering_org"
         placeholder="Partnering Organization"
@@ -82,12 +85,27 @@ const Create = () => {
           setPartner(e.target.value);
         }}
       />
-      <br />
-      <br />
+      </div>
+     
 
-      <h4 className="addr">Address</h4>
+    
+      
+
+
+      
+    
+
+
+
+
+
+{/* --------------------------------------------------------------------------------- */}
+ 
+      <h4 className="title">Address</h4>
+
+      <div className="fields">
       <input
-        className="det1"
+        className="input-field"
         type="text"
         name="address"
         placeholder="Address"
@@ -96,10 +114,8 @@ const Create = () => {
           setAddr(e.target.value);
         }}
       />
-      <br />
-      <br />
-      <input
-        className="det1"
+        <input
+        className="input-field"
         type="text"
         name="district"
         placeholder="District"
@@ -108,11 +124,11 @@ const Create = () => {
           setDist(e.target.value);
         }}
       />
-      <br />
-      <br />
-
-      <select
-        className="det2"
+      </div>
+  
+<div className="field_select">
+<select
+        className="input-field_select"
         id="state"
         name="state"
         value={state}
@@ -121,7 +137,7 @@ const Create = () => {
         }}
       >
         <option className="val" value="">
-          SELECT STATE
+          State
         </option>
         <option value="AN">Andaman and Nicobar Islands</option>
         <option value="AP">Andhra Pradesh</option>
@@ -161,11 +177,11 @@ const Create = () => {
         <option value="UT">Uttarakhand</option>
         <option value="WB">West Bengal</option>
       </select>
-      <br />
-      <br />
-
-      <input
-        className="sr"
+</div>
+   
+<div className="fields">
+<input
+        className="input-field"
         type="text"
         name="region"
         placeholder="Region"
@@ -174,10 +190,8 @@ const Create = () => {
           setRegion("SR");
         }}
       />
-      <br />
-      <br />
       <input
-        className="det1"
+        className="input-field"
         type="text"
         name="pincode"
         placeholder="Pin Code"
@@ -186,12 +200,14 @@ const Create = () => {
           setPin(e.target.value);
         }}
       />
-      <br />
-      <br />
+</div>
+     
 
-      <h4 className="Ing">Incharge</h4>
+      {/* ------------------------------------------------------------ */}
+      <h4 className="title">Incharge</h4>
+      <div className="fields">
       <input
-        className="det1"
+        className="input-field"
         type="text"
         name="org_under_bg"
         placeholder="Organization"
@@ -200,34 +216,8 @@ const Create = () => {
           setOu(e.target.value);
         }}
       />
-      <br />
-      <br />
-      <input
-        className="det1"
-        type="text"
-        name="mob"
-        placeholder="Mobile No."
-        value={mob}
-        onChange={(e) => {
-          setMob(e.target.value);
-        }}
-      />
-      <br />
-      <br />
-      <input
-        className="det1"
-        type="text"
-        name="tel"
-        placeholder="Telephone No."
-        value={tel}
-        onChange={(e) => {
-          setTel(e.target.value);
-        }}
-      />
-      <br />
-      <br />
-      <input
-        className="det1"
+          <input
+        className="input-field"
         type="text"
         name="mail"
         placeholder="Email"
@@ -236,13 +226,44 @@ const Create = () => {
           setMail(e.target.value);
         }}
       />
-      <br />
-      <br />
+      </div>
 
-      <button type="submit" className="sub-btn">
+<div className="fields">
+<input
+        className="input-field"
+        type="text"
+        name="mob"
+        placeholder="Mobile No."
+        value={mob}
+        onChange={(e) => {
+          setMob(e.target.value);
+        }}
+      />
+<input
+        className="input-field"
+        type="text"
+        name="tel"
+        placeholder="Telephone No."
+        value={tel}
+        onChange={(e) => {
+          setTel(e.target.value);
+        }}
+      />
+</div>
+      
+
+    
+
+
+      <button type="submit" className="Rbtn_crt">
         Submit
       </button>
     </form>
+
+
+
+
+    </div>
   );
 };
 
