@@ -57,6 +57,7 @@ const Slideshow = () => {
 					<div key={index} className="flex justify-center w-full h-full">
 						<Image src={each} alt="Some image"
 							className="w-3/4 object-cover rounded-lg shadow-xl"
+              fill
 						/>
 					</div>
 				))}
