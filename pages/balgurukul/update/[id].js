@@ -169,7 +169,7 @@ const Update = ({ balgurukul }) => {
       />
       <br />
       <br />
-      <input className='det1'
+      <input
         type="text"
         name="tel"
         placeholder="Telephone No."
@@ -180,7 +180,7 @@ const Update = ({ balgurukul }) => {
       />
       <br />
       <br />
-      <input className='det1'
+      <input 
         type="text"
         name="mail"
         placeholder="Email"
@@ -192,7 +192,7 @@ const Update = ({ balgurukul }) => {
       <br />
       <br />
 
-      <button type="submit" className='sub-btn'>Submit</button>
+      <button type="submit">Submit</button>
     </form>
   );
 }
