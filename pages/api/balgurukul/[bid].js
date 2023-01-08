@@ -26,9 +26,8 @@ export default async function bgById(req, res) {
     spoc_users: [...spoc_users],
     teacher_users: [...teacher_users],
   }
-  console.log(data);
   
-  res.json({...bg_data[0]})
+  res.json({...data})
 
 }
 
