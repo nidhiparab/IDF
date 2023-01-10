@@ -29,7 +29,7 @@ const Product = ({ balgurukul }) => {
       console.log("Success")
     }
   }
-  console.log(session?.user.hod);
+  console.log(session);
   console.log(`Is HoD ${session?.user.hod.includes(balgurukul.bg_id)}`);
 
 

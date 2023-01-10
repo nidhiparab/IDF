@@ -33,9 +33,9 @@ const Navbar = () => {
                 Home
               </Link>
               
-              <div class="dropdown">
+              <div className="dropdown">
               <Link href="/balgurukul" class="nav-link dropbtn">Balgurukul</Link>
-               <div class="dropdown-content">
+               <div className="dropdown-content">
                <Link className="nav-link" href="/balgurukul">
                 See all Balgurukuls
               </Link>
@@ -49,14 +49,14 @@ const Navbar = () => {
               {(() => {
                 if (session) {
                   return (
-                    <div>
+                    <>
                       <Link className="nav-link" href={`/user/${session.user.user_id}`}>
                         { session.user?.f_name }
                       </Link>
                       <Link className="nav-link" href="/api/auth/signout">
                         SignOut
                       </Link>
-                    </div>
+                    </>
                   )
                 }
                 else {return(
