@@ -32,24 +32,31 @@ const Navbar = () => {
               <Link className="nav-link" aria-current="page" href="/">
                 Home
               </Link>
-              <Link className="nav-link" href="/balgurukul">
-                Balgurukuls
+              
+              <div class="dropdown">
+              <Link href="/balgurukul" class="nav-link dropbtn">Balgurukul</Link>
+               <div class="dropdown-content">
+               <Link className="nav-link" href="/balgurukul">
+                See all Balgurukuls
               </Link>
-              <Link className="nav-link" href="/balgurukul/create" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New Balgurukul">
-                Create
+                  <Link className="nav-link" href="/balgurukul/create" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New Balgurukul">
+                Create Balgurukul
               </Link>
+                  {/* <Link href="#">Link 3</Link> */}
+                </div>
+                </div>
               
               {(() => {
                 if (session) {
                   return (
-                    <>
+                    <div>
                       <Link className="nav-link" href={`/user/${session.user.user_id}`}>
                         { session.user?.f_name }
                       </Link>
                       <Link className="nav-link" href="/api/auth/signout">
                         SignOut
                       </Link>
-                    </>
+                    </div>
                   )
                 }
                 else {return(
