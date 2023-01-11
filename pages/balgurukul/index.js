@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import baseUrl from "../../helpers/baseUrl"
+import styles from '../../styles/BgIndex.module.css'
 import { useState, useEffect } from 'react'
 
 
@@ -31,10 +32,10 @@ export default function BG({ BG }) {
                       //---------cards displayed
   let bgkList = filterd.map(bg => {
     return (
-      <div className="card" key={bg.bg_id} >
+      <div className={styles.card} key={bg.bg_id} >
         {/* <img src="..." class="card-img-top" alt="..."/> */}
         <div className="card-body">
-          <h5 className="card-title">{bg.bg_name}</h5>
+          <h5 className={ styles.card_title }>{bg.bg_name}</h5>
           <p className="card-text">{bg.state}</p>
           <p className="card-text">{bg.state_short}</p>
 
@@ -46,11 +47,11 @@ export default function BG({ BG }) {
   })
   return (
     <>
-      <div className='filters'>
-        <input className='fil filter-name' type="text" placeholder='Search by Name' value={name} onChange={(e) => {
+      <div className={styles.filter}>
+        <input className={styles.filter_name} type="text" placeholder='Search by Name' value={name} onChange={(e) => {
           setName(e.target.value);
         }} />
-        <select className='fill filter-state'
+        <select className={styles.filter_state}
           id="state"
           value={state}
           onChange={(e) => {
@@ -97,7 +98,7 @@ export default function BG({ BG }) {
           <option value="WB">West Bengal</option>
         </select>
         <br />
-        <button className="Rbtn" name='Reset' onClick={() => { setState("");  setName("")}}>Reset Filters</button>
+        <button className={ styles.Rbtn } name='Reset' onClick={() => { setState("");  setName("")}}>Reset Filters</button>
       </div>
       <div className="rootcard">
         {bgkList}

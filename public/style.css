@@ -66,14 +66,14 @@
 
 /* ------------------------all bg----------------- */
 
-.card {
+/* .card {
   margin: 1%;
-}
+} */
 
-.rootcard {
+/* .rootcard {
   margin: 1%;
-  /* display:flex; */
-}
+  display:flex;
+} */
 
 
 
@@ -99,7 +99,7 @@
   width: 40%;
   height: 4%;
   background-color: #ffff;
-  color: black;
+  color: rgb(104, 37, 37);
 }
 .Rbtn{
     margin-top:1%;
