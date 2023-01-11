@@ -97,7 +97,7 @@ export default function BG({ BG }) {
           <option value="UT">Uttarakhand</option>
           <option value="WB">West Bengal</option>
         </select>
-        <br />
+
         <button className={ styles.Rbtn } name='Reset' onClick={() => { setState("");  setName("")}}>Reset Filters</button>
       </div>
       <div className="rootcard">

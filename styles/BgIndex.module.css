@@ -6,8 +6,8 @@
   margin: 4%;
   justify-content: center;
   cursor: pointer;
-  /* width: 80%; */
   padding: 3%;
+  border-radius: 6px;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -30,7 +30,7 @@
 .filter_name {
   line-height: 10px;
   border-radius: 6px;
-  border: 1px solid red;
+  border: 1px solid #000;
   margin: 1% 1% 1% 4%;
   width: 40%;
   height: 4%;
@@ -40,16 +40,17 @@
 .filter_state {
   line-height: 10px;
   border-radius: 6px;
-  border: 1px solid red;
-  margin: 1% 1% 1% 4%;
+  border: 1px solid #000;
+  margin: 1% 1% 1% 1%;
   width: 40%;
   height: 4%;
   background-color: #ffff;
-  color: rgb(104, 37, 37);
+  color: rgb(65, 63, 63);
 }
 .Rbtn {
-  margin-top: 1%;
-  width: 10%;
+  /* margin-top: 1%; */
+ margin: 1% 1% 1% 1%;
+ width: 10%;
   height: 4%;
   border: none;
   background-color: rgb(33, 62, 140);
