@@ -37,7 +37,6 @@ a {
   margin: 4%;
   justify-content: center;
   cursor: pointer;
-  /* width: 80%; */
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -136,10 +135,8 @@ a {
   width: 100%;
   border-radius: 6px;
   padding: 30px;
-  /* margin: 10% 15px; */
+
   left: 15%;
-  /* background-color: rgb(243, 244, 248); */
-  /* box-shadow: 0 5px 10px rgba(0,0,0,0.1); */
 }
 
 .container_crt form {
@@ -167,32 +164,22 @@ a {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  /* flex-direction: row; */
+
   justify-content: space-around;
 }
 
-.field_select,
-select {
-  margin-left: 8.5%;
-  color: #fff;
+.input-field_select {
+  color: rgb(23, 17, 17);
+  background-color: #fff;
+  margin: 1%;
+
   padding: 1%;
-  /* background-color: #fff; */
- border-color: #0a023fc3;
-  width: 90%;
+  border: 1px solid #0a023ffb;
+  width: 80%;
+  margin-left: 10%;
   cursor: pointer;
-}  
-
-
-
-form .fields .input-field {
-  display: flex;
-  width: calc(100% / 3 - 15px);
-  flex-direction: column;
-  margin: 1% 0;
-  padding: 1%;
-  background-color: #fff;
-  border-color: #0a023fc3;
 }
+
 form .fields .input-field {
   display: flex;
   width: calc(100% / 3 - 15px);
@@ -200,13 +187,14 @@ form .fields .input-field {
   margin: 1% 0;
   padding: 1%;
   background-color: #fff;
-  border-color: #0a023fc3;
+  color: #000;
+  border: 1px solid #0a023ffb;
 }
 
 .input-field::placeholder {
   font-size: 12px;
   font-weight: 500;
-  color: rgb(54, 52, 52);
+  color: #000;
 }
 
 .Rbtn_crt {
@@ -243,7 +231,9 @@ form .fields .input-field {
 
 @media (max-width: 550px) {
   form .fields .input-field {
-    width: 100%;
+    width: 80%;
+    margin: 1%;
+    justify-content: center;
   }
 }
 
