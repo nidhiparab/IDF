@@ -1,9 +1,13 @@
 import React from 'react'
-
-const test = () => {
+import styles from '../styles/Test.module.css'
+const Test = () => {
   return (
-    <div className='text-blue-600'>test</div>
+    <>
+      <div className={ styles.xyz }>
+      asdasd
+      </div>
+    </>
   )
 }
 
-export default test
+export default Test
