@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import baseUrl from "../../helpers/baseUrl";
+import styles from '../../styles/Create.module.css'
 
 const Create = () => {
   //---------------------------all required fields------------------
@@ -54,12 +55,12 @@ const Create = () => {
   // console.log(bg_name, partnering_org, state, district, region, pincode, org_under_bg, phone, mail);
 
   return (
-    <div className="container_crt">
+    <div className={styles.container_crt}>
       <form action="#" onSubmit={(e) => handleSubmit(e)}>
-        <h4 className="title">Details</h4>
-        <div className="fields">
+        <h4 className={styles.title}>Details</h4>
+        <div className={styles.fields}>
           <input
-            className="input-field"
+            className={styles.input_field}
             type="text"
             name="bg_name"
             placeholder="Balgurukul Name"
@@ -70,7 +71,7 @@ const Create = () => {
           />
 
           <input
-            className="input-field"
+            className={styles.input_field}
             type="text"
             name="partnering_org"
             placeholder="Partnering Organization"
@@ -83,11 +84,11 @@ const Create = () => {
 
         {/* --------------------------------------------------------------------------------- */}
 
-        <h4 className="title">Address</h4>
+        <h4 className={styles.title}>Address</h4>
 
-        <div className="fields">
+        <div className={styles.fields}>
           <input
-            className="input-field"
+            className={styles.input_field}
             type="text"
             name="address"
             placeholder="Address"
@@ -97,7 +98,7 @@ const Create = () => {
             }}
           />
           <input
-            className="input-field"
+            className={styles.input_field}
             type="text"
             name="district"
             placeholder="District"
@@ -108,9 +109,9 @@ const Create = () => {
           />
         </div>
 
-        <div className="field_select">
+        <div className={styles.field_select}>
           <select
-            className="input-field_select"
+            className={styles.input_field_select}
             id="state"
             name="state"
             value={state}
@@ -161,9 +162,9 @@ const Create = () => {
           </select>
         </div>
 
-        <div className="fields">
+        <div className={styles.fields}>
           <input
-            className="input-field"
+            className={styles.input_field}
             type="text"
             name="region"
             placeholder="Region"
@@ -173,7 +174,7 @@ const Create = () => {
             }}
           />
           <input
-            className="input-field"
+            className={styles.input_field}
             type="text"
             name="pincode"
             placeholder="Pin Code"
@@ -185,10 +186,10 @@ const Create = () => {
         </div>
 
         {/* ------------------------------------------------------------ */}
-        <h4 className="title">Incharge</h4>
-        <div className="fields">
+        <h4 className={styles.title}>Incharge</h4>
+        <div className={styles.fields}>
           <input
-            className="input-field"
+            className={styles.input_field}
             type="text"
             name="org_under_bg"
             placeholder="Organization"
@@ -198,7 +199,7 @@ const Create = () => {
             }}
           />
           <input
-            className="input-field"
+            className={styles.input_field}
             type="text"
             name="mail"
             placeholder="Email"
@@ -209,9 +210,9 @@ const Create = () => {
           />
         </div>
 
-        <div className="fields">
+        <div className={styles.fields}>
           <input
-            className="input-field"
+            className={styles.input_field}
             type="text"
             name="mob"
             placeholder="Mobile No."
@@ -221,7 +222,7 @@ const Create = () => {
             }}
           />
           <input
-            className="input-field"
+            className={styles.input_field}
             type="text"
             name="tel"
             placeholder="Telephone No."
@@ -232,7 +233,7 @@ const Create = () => {
           />
         </div>
 
-        <button type="submit" className="Rbtn_crt">
+        <button type="submit" className={styles.Rbtn_crt}>
           Submit
         </button>
       </form>
