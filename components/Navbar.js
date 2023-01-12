@@ -53,7 +53,7 @@ const Navbar = () => {
                       <Link className="nav-link" href={`/user/${session.user.user_id}`}>
                         {session.user?.f_name}
                       </Link>
-                      <Link className="nav-link" href="/api/auth/signout">
+                      <Link className="nav-link" href="/" onClick={() => { signOut() }}>
                         SignOut
                       </Link>
                     </>
