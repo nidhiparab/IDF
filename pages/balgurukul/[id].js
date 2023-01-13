@@ -2,6 +2,7 @@ import Link from 'next/link'
 import CustomModal from '../../components/Modals/CustomModal'
 import baseUrl from '../../helpers/baseUrl'
 import { useState } from 'react'
+import styles from '../../styles/Balgurukul.module.css'
 import Image from 'next/image'
 import AdminButtons from '../../components/Admin/balgurukul/info'
 import { useSession } from "next-auth/react"
@@ -44,34 +45,34 @@ const Product = ({ balgurukul }) => {
         <button className='cancel' onClick={() => setOpenModal(false)}>Cancel</button>
 
       </CustomModal>
-      <div className="container_id ">
-        <h1 className='name'>{balgurukul.bg_name}</h1><br />
-        <h5 className='org '>Partnering Organization: {balgurukul.partnering_org}</h5><br />
-        <div className="row">
-          <div className="col">
+      <div className='bg-blue-300 flex justify-center text-center p-10'>
+        <span className='m-auto text-5xl text-white font-extrabold'>{balgurukul.bg_name}</span>
+      </div>
 
+      <div className={` flex flex-row space-x-2 bg-slate-400 mx-10 `}>
+        <div className='m-auto'>
+          <div className='flex flex-col space-x-2 bg-slate-300'>
+            <div className='m-auto flex flex-col space-x-2  bg-slate-200'>
+              <div className='m-auto'>
+                <span className='text-2xl text-blue-300 font-medium roun'>H.O.D</span>
+              </div>
+              <div className='m-auto'>
+                <span className='text-2xl text-blue-300 font-medium'>Manage</span>
+              </div>
+            </div>
           </div>
-          <div className="">
-            <h5 className='adr'>Address</h5>
-            {balgurukul.address}<br />
-            {balgurukul.district}<br />
-            {balgurukul.state}<br />
-            {balgurukul.pincode}<br /><br />
+        </div>
+        <div className='m-auto'>
+          <div className='flex flex-row space-x-2 bg-slate-100'>
+            <div className='m-auto p-4'>
+              <span className='text-3xl text-blue-300 font-medium'>{balgurukul.partnering_org}</span>
+            </div>
           </div>
         </div>
 
-        <h5 className='adr'>Management</h5>
-        {balgurukul.org_under_bg == "nan" ? '-' : balgurukul.org_under_bg}<br />
-        {balgurukul.phone == "nan" ? '-' : balgurukul.phone}<br />
-        Email: {balgurukul.mail == "nan" ? '---' : balgurukul.mail}<br />
-        {/* <button className='delete' onClick={() => setOpenModal(true)}>Delete</button>
-        <Link href={'update/[id]'} as={`update/${balgurukul.bg_id}`} className="btn btn-primary">Update this page</Link> */}
-        {balgurukul.hod_users?.map((hod) => <> HOD: {hod.f_name} <br /> </>)}
-        {balgurukul.spoc_users?.map((hod) => <> SPOC: {hod.f_name} <br /> </>)}
-        {balgurukul.teacher_users?.map((hod) => <> Teacher: {hod.f_name}  <br /></>)}
-        <br />
-        <AdminButtons modal={setOpenModal} bg_id={balgurukul.bg_id}></AdminButtons>
       </div>
+
+      {/* <AdminButtons modal={setOpenModal} bg_id={balgurukul.bg_id}></AdminButtons> */}
     </>
   )
 }

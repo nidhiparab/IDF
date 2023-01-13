@@ -44,7 +44,6 @@ export default async function Test(req, res) {
       query: "INSERT INTO `" + role + "` (`bg_id`, `user_id`) VALUES (?, ?);",
       values: [bg_id, parseInt(user_id)]
     })
-    console.log(insert);
 
 
   } else {
@@ -53,7 +52,6 @@ export default async function Test(req, res) {
       query: "DELETE FROM `" + role + "`WHERE `bg_id`=? AND `user_id`=?;",
       values: [bg_id, parseInt(user_id)]
     })
-    console.log(deleteRole);
   }
   res.json({ message: 'success' })
 }
