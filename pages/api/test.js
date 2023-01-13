@@ -1,8 +1,14 @@
-import { hash, compare } from 'bcryptjs';
-
-export default async function bgById(req, res) {
-  
-  let a = await hash("qweqweqwe", 10)
-  let b = await compare("qweqweqwe", "$2a$10$hPYg1XJKSglzcGk8A/U/Yug6KBpJVxYrqgujiaLgjhL199Ut3CpRa")
-  res.send({a, b})
+import { getSession } from "next-auth/react"
+export default async function Test(req, res) {
+  const session = await getSession({ req })
+  if (session) {
+    // Signed in
+    console.log("Session", JSON.stringify(session, null, 2))
+    res.json({ message: "signed in" })
+    return;
+  } else {
+    // Not Signed in
+    res.json({ message: "not signed in" })
+    return;
+  }
 }

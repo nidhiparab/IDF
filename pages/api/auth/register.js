@@ -30,7 +30,7 @@ export default async function registerUser(req, res) {
     values: [email]
   })
   console.log(email);
-  if (duplicateEmail > 0) {
+  if (duplicateEmail.length > 0) {
     res.json({
       error: 'User with this Email Id already exists'
     }); return

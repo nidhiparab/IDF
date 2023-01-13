@@ -63,6 +63,12 @@ export default NextAuth({
       },
     })
   ],
+  
+  pages: {
+  signIn: '/auth/login',
+  error: '/auth/error', // Error code passed in query string as ?error=
+},
+  
   callbacks: {
     
     async signIn({ }) {
@@ -84,9 +90,9 @@ export default NextAuth({
       return session
     },
   },
-  secret: 'SomeSecretShhhuu',
+  secret: process.env.NEXTAUTH_SECRET,
   jwt: {
-    secret: 'SomeSecretShhhuu',
+    secret: process.env.NEXTAUTH_SECRET,
     encryption: true
   }
 })
