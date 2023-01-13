@@ -32,63 +32,63 @@ const Register = () => {
     validate: (values) => {
       const errors = {};
 
-    if (!values.email) {
+      if (!values.email) {
         errors.email = 'Required';
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
         errors.email = 'Invalid email address';
-    }
+      }
 
-    // validate confirm password
-    if(!values.cpassword){
+      // validate confirm password
+      if (!values.cpassword) {
         errors.cpassword = "Required";
-    } else if(values.password !== values.cpassword){
+      } else if (values.password !== values.cpassword) {
         errors.cpassword = "Password Not Match...!"
-    } else if(values.cpassword.includes(" ")){
+      } else if (values.cpassword.includes(" ")) {
         errors.cpassword = "Invalid Confirm Password"
-    }
-    
-    // validation for password
-    if(!values.password){
+      }
+
+      // validation for password
+      if (!values.password) {
         errors.password = "Required";
-    } else if(values.password.length < 8 || values.password.length > 20){
+      } else if (values.password.length < 8 || values.password.length > 20) {
         errors.password = "Must be greater then 8 and less then 20 characters long";
-    } else if(values.password.includes(" ")){
+      } else if (values.password.includes(" ")) {
         errors.password = "Invalid Password";
-    }
+      }
 
-    // validation for designation
-    if(values.designation.includes(" ")){
+      // validation for designation
+      if (values.designation.includes(" ")) {
         errors.designation = "Invalid Designation";
-    }
-    // validation for title
-    if(!values.title){
+      }
+      // validation for title
+      if (!values.title) {
         errors.title = "Required";
-    } else if(values.title.includes(" ")){
+      } else if (values.title.includes(" ")) {
         errors.title = "Invalid Title";
-    }
-    // validation for f_name
-    if(!values.f_name){
+      }
+      // validation for f_name
+      if (!values.f_name) {
         errors.f_name = "Required";
-    } else if(values.f_name.includes(" ")){
+      } else if (values.f_name.includes(" ")) {
         errors.f_name = "Invalid First Name";
-    }
-    // validation for m_name
-    if(values.m_name.includes(" ")){
+      }
+      // validation for m_name
+      if (values.m_name.includes(" ")) {
         errors.m_name = "Invalid Middle Name";
-    }
-    // validation for l_name
-    if(values.l_name.includes(" ")){
+      }
+      // validation for l_name
+      if (values.l_name.includes(" ")) {
         errors.l_name = "Invalid First Name";
-    }
-    
-    // validation for mob
-    if(values.mob.length != 10){
-        errors.mob = "Mobile Number should be 10 digits";
-    } else if(values.mob.includes(" ")){
-        errors.mob = "Invalid Mobile Number";
-    }
+      }
 
-    return errors;
+      // validation for mob
+      if (!/^[0-9]*$/i.test(values.mob)) {
+        errors.mob = "Mobile Number should only contains numbers";
+      } else if (values.mob.length != 10) {
+        errors.mob = "Mobile Number should be 10 digits";
+      }
+
+      return errors;
     },
     onSubmit: onSubmit
   })
@@ -102,7 +102,7 @@ const Register = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        email: values.emails,
+        email: values.email,
         password: values.password,
         designation: values.designation,
         title: values.title,
@@ -188,7 +188,6 @@ const Register = () => {
                       </span>
 
                     </div>
-                    {`${ formik.values.cpassword}`}
                     {formik.errors.cpassword && formik.touched.cpassword ? <span className='text-rose-500'>{formik.errors.cpassword}</span> : <></>}
                   </>
                 )
@@ -213,13 +212,21 @@ const Register = () => {
 
                   {/* Title */}
                   <div className={`${styles.input_group} ${formik.errors.title && formik.touched.title ? 'border-rose-600' : ''}`}>
-                    <input
-                      type="text"
+                    <select
                       name='title'
                       placeholder='Title'
+                      default=''
                       className={styles.input_text}
                       {...formik.getFieldProps('title')}
-                    />
+                    >
+                    <option value="" className={styles.input_text}>Title</option>
+                    <option value="Mr" className={styles.input_text}>Mr</option>
+                    <option value="Miss" className={styles.input_text}>Miss</option>
+                    <option value="Mrs" className={styles.input_text}>Mrs</option>
+                    <option value="Dr" className={styles.input_text}>Dr</option>
+                    <option value="Fr" className={styles.input_text}>Fr</option>
+                    <option value="Sr" className={styles.input_text}>Sr</option>
+                    </select>
                     <span className='icon flex items-center px-4'>
                       <HiOutlineAnnotation size={25} />
                     </span>
