@@ -45,30 +45,41 @@ const Product = ({ balgurukul }) => {
         <button className='cancel' onClick={() => setOpenModal(false)}>Cancel</button>
 
       </CustomModal>
-      <div className='bg-blue-300 flex justify-center text-center p-10'>
+      <div className='bg-blue-600 flex justify-center text-center h-60'>
         <span className='m-auto text-5xl text-white font-extrabold'>{balgurukul.bg_name}</span>
       </div>
 
-      <div className={` flex flex-row space-x-2 bg-slate-400 mx-10 `}>
-        <div className='m-auto'>
-          <div className='flex flex-col space-x-2 bg-slate-300'>
-            <div className='m-auto flex flex-col space-x-2  bg-slate-200'>
-              <div className='m-auto'>
-                <span className='text-2xl text-blue-300 font-medium roun'>H.O.D</span>
-              </div>
-              <div className='m-auto'>
-                <span className='text-2xl text-blue-300 font-medium'>Manage</span>
-              </div>
-            </div>
+      <div className= 'mb-40 flex justify-center ' >
+        <div className='ml-8 mt-3 p-6 bg-gradient-to-r from-blue-500 to-indigo-500 w-1/3 h-2/3 shadow-2xl shadow-slate-700 rounded-2xl'>
+         <div className='m-auto '>
+            <span className=' text-2xl text-white font-semibold roun'>HOD</span>
+         </div>
+         <br/>
+          <div className='m-auto'>
+            <span className='text-2xl bg-slate-200 rounded-full font-bold mt-100 p-2 text-sm'>Manage</span>
           </div>
         </div>
-        <div className='m-auto'>
-          <div className='flex flex-row space-x-2 bg-slate-100'>
-            <div className='m-auto p-4'>
-              <span className='text-3xl text-blue-300 font-medium'>{balgurukul.partnering_org}</span>
+      
+          <div className='m-auto w-4/5'>
+            <div className='ml-8  mt-auto p-4'>
+            <h3 className='font-bold'>Partnering Organisation</h3>
+              <div >{balgurukul.partnering_org}</div>
+              <br/>
+              <br/>
+              <h3 className='font-bold'>Address</h3>
+              <div >{balgurukul.address}</div>
+              <div >{balgurukul.district}</div>
+              <div >{balgurukul.state}</div>
+              <div >{balgurukul.pincode}</div>
+              <br/>
+              <br/>
+              <h3 className='font-bold'>Management Information</h3>
+              <div >HOD name</div>
+              <div >HOD email</div>
+              <div >HOD phone</div>
             </div>
           </div>
-        </div>
+  
 
       </div>
 
@@ -83,7 +94,9 @@ export async function getServerSideProps({ params: { id } }) {
   const data = await res.json()
   console.log(data);
   return {
-    props: { balgurukul: data },
+    props: { balgurukul: data,
+    hod:data.hod_users
+    },
   }
 }
 
