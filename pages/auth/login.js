@@ -50,7 +50,7 @@ export default function Login() {
           </div>
 
           {/* form */}
-          <form className='flex flex-col gap-5' onSubmit={formik.handleSubmit}>
+          <form className='flex flex-col gap-3' onSubmit={formik.handleSubmit}>
             <div className={`${styles.input_group} ${formik.errors.email && formik.touched.email ? 'border-rose-600' : ''}`}>
               <input
                 type="email"
@@ -90,7 +90,7 @@ export default function Login() {
           </form>
 
           {/* bottom */}
-          <p className='text-center text-gray-400 '>Don{"'"}t have an account yet? <Link href={'/auth/register'} className='text-blue-400'>Sign Up</Link>
+          <p className='text-center text-gray-400 '>Don{"'"}t have an account yet? <Link href={'/auth/register'} className='text-blue-400'>Register</Link>
           </p>
         </section>
       </div>
