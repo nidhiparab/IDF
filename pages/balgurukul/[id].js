@@ -124,7 +124,7 @@ const Product = ({ balgurukul }) => {
             <br />
             <h3 className='font-bold'>Management Information</h3>
             {balgurukul.org_under_bg == "nan" ? '-' : balgurukul.org_under_bg}<br />
-            {balgurukul.phone == "nan" ? '-' : balgurukul.phone}<br />
+            {balgurukul.phone == "nan" ? '-' : balgurukul.phone}
             Email: {balgurukul.mail == "nan" ? '---' : balgurukul.mail}<br />
           </div>
         </div>
