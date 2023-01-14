@@ -18,7 +18,7 @@
         {balgurukul.phone == "nan" ? '-' : balgurukul.phone}<br />
         Email: {balgurukul.mail == "nan" ? '---' : balgurukul.mail}<br />
         
-        {/* {balgurukul.hod_users?.map((hod) => <> HOD: {hod.f_name} <br /> </>)} */}
+        {balgurukul.hod_users?.map((hod) => <> HOD: {hod.f_name} <br /> </>)} 
         <br />
         
         
