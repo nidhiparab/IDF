@@ -50,12 +50,12 @@ const Product = ({ balgurukul }) => {
         <span className='m-auto text-5xl text-white font-extrabold'>{balgurukul.bg_name}</span>
       </div>
 
-      <div className='mb-40 flex justify-center flex-row' >
-        <div className='m-auto mt-2 w-auto justify-end flex flex-col'>
+      <div className='mb-40 flex justify-center flex-row mx-40' >
+        <div className='ml-auto mt-2 pt-12 pr-12 w-auto justify-start flex flex-col h-auto'>
 
 
           {/* HOD */}
-          <div className='m-auto w-full mt-3 p-6 bg-gradient-to-r from-blue-500 to-indigo-500 h-2/3 shadow-2xl shadow-slate-700 rounded-2xl'>
+          <div className='mx-auto w-full h-auto mt-1 mb-5 p-6 bg-gradient-to-r from-blue-500 to-indigo-500 shadow-2xl shadow-slate-700 rounded-2xl'>
             <div className='m-auto py-2'>
               <span className=' text-3xl text-white font-semibold roun'>HOD</span>
             </div>
@@ -73,7 +73,7 @@ const Product = ({ balgurukul }) => {
 
 
           {/* SPOC */}
-          <div className='m-auto w-full mt-3 p-6 bg-gradient-to-r from-blue-500 to-indigo-500 h-2/3 shadow-2xl shadow-slate-700 rounded-2xl'>
+          <div className='mx-auto w-full h-auto mt-1 mb-5 p-6 bg-gradient-to-r from-blue-500 to-indigo-500 shadow-2xl shadow-slate-700 rounded-2xl'>
             <div className='m-auto py-2'>
               <span className=' text-3xl text-white font-semibold roun'>SPOC</span>
             </div>
@@ -91,7 +91,7 @@ const Product = ({ balgurukul }) => {
 
 
           {/* Teacher */}
-          <div className='m-auto w-full mt-3 p-6 bg-gradient-to-r from-blue-500 to-indigo-500 h-2/3 shadow-2xl shadow-slate-700 rounded-2xl'>
+          <div className='mx-auto w-full h-auto mt-1 mb-5 p-6 bg-gradient-to-r from-blue-500 to-indigo-500 shadow-2xl shadow-slate-700 rounded-2xl'>
             <div className='m-auto py-2'>
               <span className=' text-3xl text-white font-semibold roun'>Teachers</span>
             </div>
@@ -109,24 +109,29 @@ const Product = ({ balgurukul }) => {
 
         </div>
 
-        <div className='m-auto w-auto flex flex-col'>
-          <div className=' mt-auto p-4'>
-            <h3 className='font-bold'>Partnering Organization</h3>
-            <div >{balgurukul.partnering_org}</div>
-            <br />
-            <br />
-            <h3 className='font-bold'>Address</h3>
-            <div >{balgurukul.address}</div>
-            <div >{balgurukul.district}</div>
-            <div >{balgurukul.state}</div>
-            <div >{balgurukul.pincode}</div>
-            <br />
-            <br />
-            <h3 className='font-bold'>Management Information</h3>
-            {balgurukul.org_under_bg == "nan" ? '-' : balgurukul.org_under_bg}<br />
-            {balgurukul.phone == "nan" ? '-' : balgurukul.phone}<br />
-            Email: {balgurukul.mail == "nan" ? '---' : balgurukul.mail}<br />
+
+        <div className='mr-auto w-auto pt-12 pl-12 flex flex-col justify-center items-start text-slate-900 text-3xl'>
+          <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
+            <h3 className='text-4xl font-bold text-blue-600  mt-auto mb-3'>Partnering Organization</h3>
+            <span className='mt-auto mb-2'>{balgurukul.partnering_org}</span>
           </div>
+          <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
+            <h3 className='text-4xl font-bold text-blue-600  mt-auto mb-3'>Address</h3>
+            <span className='mt-auto mb-2'>{balgurukul.address}</span>
+            <span className='mt-auto mb-2'>{balgurukul.district}</span>
+            <span className='mt-auto mb-2'>{balgurukul.state}</span>
+            <span className='mt-auto mb-2'>{balgurukul.pincode}</span>
+          </div>
+          <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
+            <h3 className='text-4xl font-bold text-blue-600  mt-auto mb-3'>Management</h3>
+            <span className='mt-auto mb-2'>{balgurukul.org_under_bg == "nan" ? <span></span> : balgurukul.org_under_bg}</span>
+            <span className='mt-auto mb-2'>{balgurukul.phone == "nan" ? <span></span> : balgurukul.phone}</span>
+            <span className='mt-auto mb-2'>{balgurukul.mail == "nan" ? <span></span> : 'Email: ' + balgurukul.mail}</span>
+          </div>
+
+          <button className='delete' onClick={() => setOpenModal(true)}>Delete</button>
+          <Link href={`update/${balgurukul.bg_id}`} as={`update/${balgurukul.bg_id}`} className="btn btn-primary">Update this page</Link>
+
         </div>
 
       </div>
