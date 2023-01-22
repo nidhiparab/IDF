@@ -81,7 +81,7 @@ const Product = ({ balgurukul }) => {
               <div key={i} className='m-auto pl-7 py-1 text-2xl text-white font-semibold'>
                 {user.title} {user.f_name} {user.l_name}
               </div>)}
-            {isHod ?
+            {(isHod || session?.user.isAdmin) ?
               <div className='m-auto py-2'>
                 <button className='bg-slate-200 rounded-full font-bold mt-100 p-2 text-sm'>Manage</button>
               </div>
@@ -99,7 +99,7 @@ const Product = ({ balgurukul }) => {
               <div key={i} className='m-auto pl-7 py-3/2 text-2xl text-white font-semibold'>
                 {user.title} {user.f_name} {user.l_name}
               </div>)}
-            {isHod ?
+            {(isHod || session?.user.isAdmin) ?
               <div className='m-auto py-2'>
                 <button className='bg-slate-200 rounded-full font-bold mt-100 p-2 text-sm'>Manage</button>
               </div>

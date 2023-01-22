@@ -10,22 +10,18 @@ export default async function Test(req, res) {
     res.redirect('/auth/login');
     return;
   }
-  // const {
-  //   role,
-  //   bg_id,
-  //   user_id,
-  //   add } = req.body;
-  let role = 'spoc'
-  let bg_id = 'AP001'
-  let user_id = '3'
-  let add = false
+  const {
+    role,
+    bg_id,
+    user_id,
+    add } = req.body;
   console.log(session.user);
 
   if ((role === 'hod' && !session.user.isAdmin)) {
     res.json({ message: "You don't have Permission of this action" })
     return;
   }
-  if (!session.user.hod?.includes(bg_id)) {
+  if (!session.user.hod?.includes(bg_id) || session.user.isAdmin) {
     res.json({ message: "You don't have Permission of this action" })
     return;
   }

@@ -8,7 +8,7 @@ export default async function Test(req, res) {
     return;
   } else {
     // Not Signed in
-    res.json({ message: "not signed in" })
+    res.json({ message: "not signed in", session })
     return;
   }
 }
