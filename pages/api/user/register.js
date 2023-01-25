@@ -23,7 +23,6 @@ export default async function registerUser(req, res) {
     values: []
   })
   const user_id = parseInt(count[0]['COUNT(*)']) + 1;
-  console.log(user_id);
   // check email
   let duplicateEmail = await executeQuery({
     query: "SELECT * FROM auth where `email`=?;",

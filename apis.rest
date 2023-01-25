@@ -1,12 +1,16 @@
 GET http://localhost:3000/api/
 
 ###
-POST http://localhost:3000/api/
+POST http://localhost:3000/api/ HTTP/1.1
 content-type: application/json
 
 {
   "name": "sample",
 }
+
+
+###
+POST http://localhost:3000/api/auth/signout
 
 ###
 GET http://localhost:3000/api/user/2
@@ -29,3 +33,27 @@ content-type: application/json
   "mob": "9987032721",
   "qualification": "None"
 }
+
+###
+GET http://localhost:3000/api/student/2 HTTP/1.1
+
+
+###
+POST http://localhost:3000/api/student/grade/insert HTTP/1.1
+User-Agent: rest-client
+content-type: application/json
+
+{
+  "student_id": "1",
+  "bg_id": "AP001",
+  "exam": "IA2",
+  "grade": "7",
+  "grade_qualities":["O7","O2","O1","O5","O1","O1","O1","O3","O1","O1","O7","O1"],
+  "grade_subjects":["O1","O2","O3","O1","O9"],
+  "grade_intrests":["O1","O2","O3","O4","O5","O1","O1","O1","O7"],
+  "grade_specifics":["asdasd","asdasd","asdasd"] 
+ 
+}
+
+###
+GET http://localhost:3000/api/student/grade/student/1 HTTP/1.1
