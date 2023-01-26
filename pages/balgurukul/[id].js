@@ -184,7 +184,6 @@ const Product = ({ balgurukul }) => {
 export async function getServerSideProps({ params: { id } }) {
   const res = await fetch(`${baseUrl}/api/balgurukul/${id}`)
   const data = await res.json()
-  console.log(data);
   return {
     props: {
       balgurukul: data,

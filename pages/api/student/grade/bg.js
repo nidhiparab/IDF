@@ -1,16 +1,16 @@
-import executeQuery from '../../../../../lib/db'
-import gradeConstants from '../../../../../lib/grades';
+import executeQuery from '../../../../lib/db'
+import gradeConstants from '../../../../lib/grades';
 
-export default async function getGradeByStudentId(req, res) {
+export default async function getGradeByBgId(req, res) {
   let finalResult = [];
-  const student_id = req.query.student_id;
-
+  const bg_id = req.query.bg_id;
+  console.log(bg_id);
   let grades = await executeQuery({
-    query: "SELECT `grade_id` FROM `grade` WHERE `student_id` = ?;",
-    values: [student_id]
+    query: "SELECT `grade_id`, `student_id` FROM `grade` WHERE `bg_id` = ?;",
+    values: [bg_id]
   })
-  
 
+  console.log(grades);
   for (const grade of grades) {
 
     let result = {
@@ -85,6 +85,7 @@ export default async function getGradeByStudentId(req, res) {
 
     finalResult.push(result);
   }
-  res.json({result: finalResult })
+
+  res.json({ result: finalResult })
 
 }

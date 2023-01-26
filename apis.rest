@@ -46,7 +46,7 @@ content-type: application/json
 {
   "student_id": "1",
   "bg_id": "AP001",
-  "exam": "IA2",
+  "exam": "IA1",
   "grade": "7",
   "grade_qualities":["O7","O2","O1","O5","O1","O1","O1","O3","O1","O1","O7","O1"],
   "grade_subjects":["O1","O2","O3","O1","O9"],
@@ -56,4 +56,10 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:3000/api/student/grade/student/1 HTTP/1.1
+POST http://localhost:3000/api/student/grade/get HTTP/1.1
+User-Agent: rest-client
+content-type: application/json
+
+{
+  "dateLesser": "2024-1-1"
+}

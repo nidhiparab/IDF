@@ -50,7 +50,7 @@ const Navbar = () => {
                 if (session) {
                   return (
                     <>
-                      <Link className="nav-link" href={`/user/${session.user.user_id}`}>
+                      <Link className="nav-link" href={`/profile/user/${session.user.user_id}`}>
                         {session.user?.f_name}
                       </Link>
                       <Link className="nav-link" href="/" onClick={() => { signOut() }}>

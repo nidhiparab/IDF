@@ -1,29 +1,37 @@
-import executeQuery from '../../../../../lib/db'
-import gradeConstants from '../../../../../lib/grades';
+import executeQuery from '../../../../lib/db'
+import gradeConstants from '../../../../lib/grades';
 
-export default async function getGradeByBgId(req, res) {
+export default async function getGradeByStudentId(req, res) {
+  if(req.method !== 'POST') return res.status(405).json({message: "Method not allowed"})
+  
   let finalResult = [];
-  const bg_id = req.query.bg_id;
-  console.log(bg_id);
+  let { student_id, bg_id, grade, grade_id, exam, dateLesser, dateGreater } = req.body;
+  let condition = " 1 = 1 ";
+  if(student_id) condition += " AND `student_id` = " + `'${student_id}'`;
+  if(bg_id) condition += " AND `bg_id` = " + `'${bg_id}'`;
+  if(grade) condition += " AND `grade` = " + `'${grade}'`;
+  if(exam) condition += " AND `exam` = " + `'${exam}'`;
+  if(grade_id) condition += " AND `grade_id` = " + `'${grade_id}'`;
+  if(dateLesser) condition += " AND `timestamp` <= " + `'${dateLesser}'`;
+  if(dateGreater) condition += " AND `timestamp` >= " + `'${dateGreater}'`;
+  
+  console.log("SELECT `grade_id` FROM `grade` WHERE " + condition + ";");
   let grades = await executeQuery({
-    query: "SELECT `grade_id`, `student_id` FROM `grade` WHERE `bg_id` = ?;",
-    values: [bg_id]
+    query: "SELECT * FROM `grade` WHERE " + condition + ";",
+    values: []
   })
+  
 
-  console.log(grades);
   for (const grade of grades) {
 
     let result = {
-      student_id: null,
-      grade_id: null,
       grade_qualities: {},
       grade_subjects: {},
       grade_intrests: {},
       grade_specifics: {},
     }
 
-    result.student_id = grade.student_id;
-    result.grade_id = grade.grade_id;
+    result = {...grade, ...result}
     let grade_id = grade.grade_id;
 
     let grade_qualities = await executeQuery({
@@ -81,11 +89,9 @@ export default async function getGradeByBgId(req, res) {
         result.grade_specifics[gradeConstants.grade_specifics.columns[key]] = value;
       }
     }
-    console.log(result);
 
     finalResult.push(result);
   }
-
-  res.json({ result: finalResult })
+  res.json({result: finalResult })
 
 }

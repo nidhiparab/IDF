@@ -10,12 +10,23 @@ export default async function createStudent(req, res) {
   // if (!session) return res.status(401).redirect('/auth/login');
   // if(!session?.user.isAdmin && (session?.user.hod?.includes(bg_id) || session?.user.teacher?.includes(bg_id)) ) return res.status(401).json({message: "Unauthorized"})
 
-  let timestamp = new Date().toISOString();
+  let timestamp = `${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`
+  console.log(timestamp);
+  
+  let exists = await executeQuery({
+    query: "SELECT * FROM `grade` WHERE `student_id` = ? AND `bg_id` = ? AND `exam` = ? AND `grade` = ?;",
+    values: [student_id, bg_id, exam, grade]
+  })
+  if(exists.length > 0) return res.status(500).json({ message: "Grade already exists", error: exists })
 
-  const grade_id = `${bg_id}-${student_id}-${exam}-${grade}`;
+  let count = await executeQuery({
+    query: "SELECT COUNT(*) FROM `grade`;",
+    values: []
+  })
+  const grade_id = parseInt(count[0]['COUNT(*)']) + 1;
 
   let gradeInsert = await executeQuery({
-    query: "INSERT INTO `grade`(`grade_id`, `student_id`, `exam`, `grade`, `bg_id`, `timestamp`) VALUES (?,?,?,?,?,?);",
+    query: "INSERT INTO `grade`(`grade_id`, `student_id`, `bg_id`, `exam`, `grade`, `timestamp`) VALUES (?,?,?,?,?,?);",
     values: [grade_id, student_id, bg_id, exam, grade, timestamp]
   })
 
@@ -46,3 +57,11 @@ export default async function createStudent(req, res) {
 
   res.json({ message: specificsInsert.affectedRows == 1 ? "Student graded successfully" : "Error grading student" })
 }
+
+// Delete Query:
+
+// DELETE FROM `grade` WHERE grade_id = '2';
+// DELETE FROM `grade_intrests` WHERE grade_id = '2';
+// DELETE FROM `grade_qualities` WHERE grade_id = '2';
+// DELETE FROM `grade_specifics` WHERE grade_id = '2';
+// DELETE FROM `grade_subjects` WHERE grade_id = '2';
