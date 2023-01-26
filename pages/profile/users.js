@@ -1,5 +1,6 @@
 import React from 'react';
 import baseUrl from '../../helpers/baseUrl';
+import styles from '../../styles/UserId.module.css'
 
 const Users = ({ users }) => {
   // user Object
@@ -15,7 +16,15 @@ const Users = ({ users }) => {
   console.log(users);
     return (
     <>
-        {users.map(user => { return (<>{ user.f_name } <br></br></>)  })}
+     
+        {users.map(user => { return (
+        
+        <>
+       
+        <div classname="">
+        { user.f_name }
+        </div>
+        </>)  })}
     </>
   );
 }

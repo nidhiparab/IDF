@@ -16,6 +16,9 @@ const UserProfile = ({ user }) => {
   // Designation Title First Middle Last 
     return (
     <>
+    <div className='bg-blue-600 flex justify-center text-center h-60'>
+        <span className='m-auto text-5xl text-white font-extrabold'>Profile Page</span>
+      </div>
       {user?.f_name}
     </>
   );
