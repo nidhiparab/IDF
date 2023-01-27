@@ -16,7 +16,7 @@ POST http://localhost:3000/api/auth/signout
 GET http://localhost:3000/api/user/2
 
 ###
-GET http://localhost:3000/api/user/allUsers
+GET http://localhost:3000/api/user/users
 
 ###
 POST http://localhost:3000/api/user/update HTTP/1.1
@@ -61,5 +61,5 @@ User-Agent: rest-client
 content-type: application/json
 
 {
-  "dateLesser": "2024-1-1"
+  "student_id": "1"
 }

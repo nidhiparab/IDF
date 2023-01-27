@@ -2,13 +2,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../public/images/idf-logo.png'
 import { useSession, signOut } from 'next-auth/react'
+import styles from '../styles/Navbar.module.css'
 
 const Navbar = () => {
   let { data: session } = useSession();
   return (
     <nav>
-      <div className="container">
-        <div className=" navbar navbar-expand-lg navbar-light row ">
+      <div className={ `${styles.container} container` }>
+        <div className={`${styles.navbar} navbar navbar-expand-lg navbar-light row `}>
           <div className="col col-lg-2">
             <div className="navbar-brand row">
               <Link className="col" href="https://www.idf.org.in" passHref>
