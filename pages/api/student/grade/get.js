@@ -5,7 +5,7 @@ export default async function getGradeByStudentId(req, res) {
   if(req.method !== 'POST') return res.status(405).json({message: "Method not allowed"})
   
   let finalResult = [];
-  let { student_id, bg_id, grade, grade_id, exam, dateLesser, dateGreater } = req.body;
+  let { student_id, bg_id, grade, grade_id, exam, dateLesser, dateGreater, min } = req.body;
   let condition = " 1 = 1 ";
   if(student_id) condition += " AND `student_id` = " + `'${student_id}'`;
   if(bg_id) condition += " AND `bg_id` = " + `'${bg_id}'`;
@@ -17,7 +17,7 @@ export default async function getGradeByStudentId(req, res) {
   
   console.log("SELECT `grade_id` FROM `grade` WHERE " + condition + ";");
   let grades = await executeQuery({
-    query: "SELECT * FROM `grade` WHERE " + condition + ";",
+    query: "SELECT *, DATE_FORMAT(`timestamp`, '%d-%m-%Y') as timestamp FROM `grade` WHERE " + condition + ";",
     values: []
   })
   
@@ -30,8 +30,11 @@ export default async function getGradeByStudentId(req, res) {
       grade_intrests: {},
       grade_specifics: {},
     }
+    
+    if (min) {result = { ...grade };finalResult.push(result); break}
 
     result = {...grade, ...result}
+    
     let grade_id = grade.grade_id;
 
     let grade_qualities = await executeQuery({

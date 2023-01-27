@@ -21,6 +21,7 @@ const StudentProfile = ({ student }) => {
 export async function getServerSideProps({ params: { student_id } }) {
   const res = await fetch(`${baseUrl}/api/student/${student_id}`)
   const data = await res.json()
+  console.log(data.grades);
   return {
     props: {
       student: data,

@@ -11,7 +11,7 @@ export default async function getGradeByStudentId(req, res) {
   const grade_id = req.query.grade_id;
 
   let grade_qualities = await executeQuery({
-    query: "SELECT * FROM `grade_qualities` WHERE `grade_id` = ?;",
+    query: "SELECT *, DATE_FORMAT(`timestamp`, '%d-%m-%Y') as timestamp FROM `grade_qualities` WHERE `grade_id` = ?;",
     values: [grade_id]
   })
   grade_qualities = grade_qualities[0];
