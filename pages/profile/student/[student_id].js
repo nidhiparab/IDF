@@ -14,6 +14,30 @@ const StudentProfile = ({ student }) => {
     return (
     <>
       {student?.f_name}
+      
+      
+      {/* <table class="table-auto mx-auto">
+  <thead>
+    <tr class="bg-gray-300 text-gray-700">
+      <th class="px-4 py-2">Header 1</th>
+      <th class="px-4 py-2">Header 2</th>
+      <th class="px-4 py-2">Header 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-white text-gray-700">
+      <td class="border px-4 py-2">Row 1, Cell 1</td>
+      <td class="border px-4 py-2">Row 1, Cell 2</td>
+      <td class="border px-4 py-2">Row 1, Cell 3</td>
+    </tr>
+    <tr class="bg-gray-100 text-gray-700">
+      <td class="border px-4 py-2">Row 2, Cell 1</td>
+      <td class="border px-4 py-2">Row 2, Cell 2</td>
+      <td class="border px-4 py-2">Row 2, Cell 3</td>
+    </tr>
+  </tbody>
+</table> */}
+
     </>
   );
 }
