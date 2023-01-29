@@ -39,7 +39,7 @@ const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreate
       })
       console.log(res);
       const data = await res.json()
-      console.log(data);
+      
       setGrades(data.result)
     }
     getData()
