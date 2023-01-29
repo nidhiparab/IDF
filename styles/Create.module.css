@@ -15,7 +15,7 @@
     /* margin-top: 2%; */
     min-height: 595px;
     background-color: rgb(165, 207, 242);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 50px 100px rgba(0, 0, 0, 0.1);
     overflow: hidden;
   }
   
@@ -25,8 +25,8 @@
     font-weight: 500;
 
     color: rgba(11, 11, 11, 0.889);
-    margin: 3% 5%;
-    /* margin-bottom: 1%; */
+    /* margin: 3% 5%; */
+    margin-bottom: 1%;
   }
   .container_crt form .fields {
     display: flex;
