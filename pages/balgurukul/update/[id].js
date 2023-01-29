@@ -62,17 +62,17 @@ const Update = ({ balgurukul }) => {
 
   return (
          
-    <div className="container_crt">
+    <div className={styles.container_crt}>
       <form action="#" onSubmit={(e) => handleSubmit(e)}>
   
   
     
 
-<h4 className="title">Details</h4>
-      <div className="fields">
-      <input
-        className="input-field"
-        type="text"
+      <h4 className={styles.title}>Details</h4>
+        <div className={styles.fields}>
+          <input
+            className={styles.input_field}
+            type="text"
         name="bg_name"
         placeholder="Balgurukul Name"
         value={bg_name}
@@ -82,7 +82,7 @@ const Update = ({ balgurukul }) => {
       />
 
          <input
-        className="input-field"
+          className={styles.input_field}
         type="text"
         name="partnering_org"
         placeholder="Partnering Organization"
@@ -107,11 +107,11 @@ const Update = ({ balgurukul }) => {
 
 {/* --------------------------------------------------------------------------------- */}
  
-      <h4 className="title">Address</h4>
+<h4 className={styles.title}>Address</h4>
 
-      <div className="fields">
-      <input
-        className="input-field"
+<div className={styles.fields}>
+          <input
+            className={styles.input_field}
         type="text"
         name="address"
         placeholder="Address"
@@ -121,7 +121,7 @@ const Update = ({ balgurukul }) => {
         }}
       />
         <input
-        className="input-field"
+       className={styles.input_field}
         type="text"
         name="district"
         placeholder="District"
@@ -132,10 +132,10 @@ const Update = ({ balgurukul }) => {
       />
       </div>
   
-<div className="field_select">
-<select
-        className="input-field_select"
-        id="state"
+      <div className={styles.field_select}>
+          <select
+            className={styles.input_field_select}
+            id="state"
         name="state"
         value={state}
         onChange={(e) => {
@@ -185,10 +185,10 @@ const Update = ({ balgurukul }) => {
       </select>
 </div>
    
-<div className="fields">
-<input
-        className="input-field"
-        type="text"
+<div className={styles.fields}>
+          <input
+            className={styles.input_field}
+            type="text"
         name="region"
         placeholder="Region"
         value={region}
@@ -196,9 +196,9 @@ const Update = ({ balgurukul }) => {
           setRegion("SR");
         }}
       />
-      <input
-        className="input-field"
-        type="text"
+            <input
+            className={styles.input_field}
+            type="text"
         name="pincode"
         placeholder="Pin Code"
         value={pincode}
@@ -210,11 +210,11 @@ const Update = ({ balgurukul }) => {
      
 
       {/* ------------------------------------------------------------ */}
-      <h4 className="title">Incharge</h4>
-      <div className="fields">
-      <input
-        className="input-field"
-        type="text"
+      <h4 className={styles.title}>Incharge</h4>
+        <div className={styles.fields}>
+          <input
+            className={styles.input_field}
+            type="text"
         name="org_under_bg"
         placeholder="Organization"
         value={org_under_bg}
@@ -222,9 +222,9 @@ const Update = ({ balgurukul }) => {
           setOu(e.target.value);
         }}
       />
-          <input
-        className="input-field"
-        type="text"
+        <input
+            className={styles.input_field}
+            type="text"
         name="mail"
         placeholder="Email"
         value={mail}
@@ -234,10 +234,10 @@ const Update = ({ balgurukul }) => {
       />
       </div>
 
-<div className="fields">
-<input
-        className="input-field"
-        type="text"
+      <div className={styles.fields}>
+          <input
+            className={styles.input_field}
+            type="text"
         name="mob"
         placeholder="Mobile No."
         value={mob}
@@ -245,9 +245,9 @@ const Update = ({ balgurukul }) => {
           setMob(e.target.value);
         }}
       />
-<input
-        className="input-field"
-        type="text"
+  <input
+            className={styles.input_field}
+            type="text"
         name="tel"
         placeholder="Telephone No."
         value={tel}
@@ -261,7 +261,7 @@ const Update = ({ balgurukul }) => {
     
 
 
-      <button type="submit" className="Rbtn_crt">
+<button type="submit" className={styles.Rbtn_crt}>
         Submit
       </button>
     </form>

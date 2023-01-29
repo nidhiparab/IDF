@@ -61,5 +61,5 @@ User-Agent: rest-client
 content-type: application/json
 
 {
-  "student_id": "1"
+  
 }
