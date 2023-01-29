@@ -62,17 +62,14 @@ const Update = ({ balgurukul }) => {
 
   return (
          
-    <div className={styles.container_crt}>
-      <form action="#" onSubmit={(e) => handleSubmit(e)}>
-  
-  
-    
-
-      <h4 className={styles.title}>Details</h4>
-        <div className={styles.fields}>
-          <input
-            className={styles.input_field}
-            type="text"
+    <div className="  mx-auto p-20 items-center shadow-2xl shadow-slate-700 rounded-2xl w-2/3">
+    <form action="#" onSubmit={(e) => handleSubmit(e)}>
+        
+      <h4 className="font-bold">Details</h4>
+      <div className=" flex space-x-4  items-center  block text-sm font-medium mb-2">
+      <input
+          className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
+          type="text"
         name="bg_name"
         placeholder="Balgurukul Name"
         value={bg_name}
@@ -81,9 +78,9 @@ const Update = ({ balgurukul }) => {
         }}
       />
 
-         <input
-          className={styles.input_field}
-        type="text"
+<input
+            className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
+            type="text"
         name="partnering_org"
         placeholder="Partnering Organization"
         value={partnering_org}
@@ -107,12 +104,11 @@ const Update = ({ balgurukul }) => {
 
 {/* --------------------------------------------------------------------------------- */}
  
-<h4 className={styles.title}>Address</h4>
-
-<div className={styles.fields}>
-          <input
-            className={styles.input_field}
-        type="text"
+<h4 className="font-bold">Address</h4>
+        <div className=" flex space-x-4  items-center  block text-sm font-medium mb-2">
+        <input
+            className="inline-block w-full py-3 px-4 my-2  border rounded-xl bg-slate-200 focus:outline-none border-none "
+            type="text"
         name="address"
         placeholder="Address"
         value={address}
@@ -120,9 +116,9 @@ const Update = ({ balgurukul }) => {
           setAddr(e.target.value);
         }}
       />
-        <input
-       className={styles.input_field}
-        type="text"
+      <input
+            className="inline-block w-full py-3 px-4 my-2 border rounded-xl bg-slate-200 focus:outline-none border-none "
+            type="text"
         name="district"
         placeholder="District"
         value={district}
@@ -133,8 +129,8 @@ const Update = ({ balgurukul }) => {
       </div>
   
       <div className={styles.field_select}>
-          <select
-            className={styles.input_field_select}
+      <select
+           className="inline-block w-full py-3 px-4 my-2  border rounded-xl bg-slate-200 focus:outline-none border-none "
             id="state"
         name="state"
         value={state}
@@ -185,9 +181,9 @@ const Update = ({ balgurukul }) => {
       </select>
 </div>
    
-<div className={styles.fields}>
-          <input
-            className={styles.input_field}
+<div className="  flex space-x-4  items-center  block text-sm font-medium mb-2">
+        <input
+            className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
         name="region"
         placeholder="Region"
@@ -196,8 +192,8 @@ const Update = ({ balgurukul }) => {
           setRegion("SR");
         }}
       />
-            <input
-            className={styles.input_field}
+          <input
+            className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
         name="pincode"
         placeholder="Pin Code"
@@ -210,10 +206,10 @@ const Update = ({ balgurukul }) => {
      
 
       {/* ------------------------------------------------------------ */}
-      <h4 className={styles.title}>Incharge</h4>
-        <div className={styles.fields}>
-          <input
-            className={styles.input_field}
+      <h4 className="font-bold">Incharge</h4>
+        <div className="  flex space-x-4  items-center  block text-sm font-medium mb-2">
+        <input
+            className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
         name="org_under_bg"
         placeholder="Organization"
@@ -222,8 +218,8 @@ const Update = ({ balgurukul }) => {
           setOu(e.target.value);
         }}
       />
-        <input
-            className={styles.input_field}
+     <input
+            className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
         name="mail"
         placeholder="Email"
@@ -234,9 +230,10 @@ const Update = ({ balgurukul }) => {
       />
       </div>
 
-      <div className={styles.fields}>
-          <input
-            className={styles.input_field}
+   
+      <div className="  flex space-x-4  items-center  block text-sm font-medium mb-2">
+        <input
+            className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
         name="mob"
         placeholder="Mobile No."
@@ -245,8 +242,8 @@ const Update = ({ balgurukul }) => {
           setMob(e.target.value);
         }}
       />
-  <input
-            className={styles.input_field}
+   <input
+            className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
         name="tel"
         placeholder="Telephone No."
@@ -261,7 +258,7 @@ const Update = ({ balgurukul }) => {
     
 
 
-<button type="submit" className={styles.Rbtn_crt}>
+<button type="submit"  className="items-center  w-full bg-indigo-500 text-white py-2 px-4 my-2 rounded-md hover:bg-indigo-600">
         Submit
       </button>
     </form>
