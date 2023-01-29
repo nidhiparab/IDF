@@ -1,7 +1,7 @@
 import React from 'react';
 import baseUrl from '../../helpers/baseUrl';
 import Link from 'next/link';
-import { useRouter, withRouter } from 'next/router';
+import Router, { useRouter, withRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreater } }) => {
@@ -16,7 +16,10 @@ const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreate
 
   useEffect(() => {
     let getData = async () => {
-      console.log(student_id_val);
+      
+      Router.push(`/grade?bg_id=${bg_id_val}&student_id=${student_id_val}&grade=${grade_val}&exam=${exam_val}&dateLesser=${dateLesser_val}&dateGreater=${dateGreater_val}`)
+      
+      
       const res = await fetch(`${baseUrl}/api/student/grade/get`, {
 
         method: 'POST',
@@ -34,6 +37,7 @@ const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreate
           min: true
         })
       })
+      console.log(res);
       const data = await res.json()
       console.log(data);
       setGrades(data.result)
@@ -42,21 +46,20 @@ const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreate
     return;
   }, [bg_id_val, dateGreater_val, dateLesser_val, exam_val, grade_val, student_id_val]);
 
-  console.log(grades);
   return (
     <div>
       <div>
-        <input type="text" value={student_id_val == null ? '' : student_id_val} onChange={(e) => setStudent_id(e.target.value)} />
+        <input type="text" value={student_id_val == null  || student_id_val == 'null'? '' : student_id_val} onChange={(e) => setStudent_id(e.target.value)} />
         <br />
-        <input type="text" value={bg_id_val == null ? '' : bg_id_val} onChange={(e) => setBg_id(e.target.value)} />
+        <input type="text" value={bg_id_val == null  || bg_id_val == 'null'? '' : bg_id_val} onChange={(e) => setBg_id(e.target.value)} />
         <br />
-        <input type="text" value={exam_val == null ? '' : exam_val} onChange={(e) => setExam(e.target.value)} />
+        <input type="text" value={exam_val == null  || exam_val == 'null'? '' : exam_val} onChange={(e) => setExam(e.target.value)} />
         <br />
-        <input type="text" value={grade_val == null ? '' : grade_val} onChange={(e) => setGrade(e.target.value)} />
+        <input type="text" value={grade_val == null  || grade_val == 'null'? '' : grade_val} onChange={(e) => setGrade(e.target.value)} />
         <br />
-        <input type="date" value={dateGreater_val == null ? '' : dateGreater_val} onChange={(e) => setDateGreater(e.target.value)} />
+        <input type="date" value={dateGreater_val == null  || dateGreater_val == 'null'? '' : dateGreater_val} onChange={(e) => setDateGreater(e.target.value)} />
         <br />
-        <input type="date" value={dateLesser_val == null ? '' : dateLesser_val} onChange={(e) => setDateLesser(e.target.value)} />
+        <input type="date" value={dateLesser_val == null  || dateLesser_val == 'null'? '' : dateLesser_val} onChange={(e) => setDateLesser(e.target.value)} />
         <br />
         <button name='Reset' onClick={() => { setStudent_id(null); setBg_id(null); setExam(null); setGrade(null); setDateGreater(null);setDateLesser(null) }}>Reset Filters</button>
       </div>
