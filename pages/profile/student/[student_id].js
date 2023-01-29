@@ -13,7 +13,7 @@ const StudentProfile = ({ student }) => {
   //   grade
     return (
     <>
-      {student?.f_name}
+      {student.f_name}
       
       
       {/* <table class="table-auto mx-auto">
