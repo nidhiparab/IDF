@@ -27,45 +27,36 @@ const StudentProfile = ({ student, grades }) => {
             <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>DOB</h3>
             <span className='mt-auto mb-2'>{student.dob}</span>
           </div>
-          {/* <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
-            <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Assigned Balgurukul</h3>
-              {hod.length > 0 ? <span className='text-2xl font-bold text-blue-600  mt-auto mb-3 ml-5'> As HOD</span> : <span></span>}
-              {hod.length > 0 && hod.map((bg) => { return (<span className='mt-auto mb-2 ml-10' key={bg.bg_id}><Link href={`/balgurukul/${bg.bg_id}`}>{ bg.bg_name }</Link></span>)})}
-              {spoc.length > 0 ? <span className='text-2xl font-bold text-blue-600  mt-auto mb-3 ml-5'> As SPOC</span> : <span></span>}
-              {spoc.length > 0 && spoc.map((bg) => { return (<span className='mt-auto mb-2 ml-10' key={bg.bg_id}><Link href={`/balgurukul/${bg.bg_id}`}>{ bg.bg_name }</Link></span>)})}
-              {teacher.length > 0 ? <span className='text-2xl font-bold text-blue-600  mt-auto mb-3 ml-5'> As Teacher</span> : <span></span>}
-              {teacher.length > 0 && hteachermap((bg) => { return (<span className='mt-auto mb-2 ml-10' key={bg.bg_id}><Link href={`/balgurukul/${bg.bg_id}`}>{ bg.bg_name }</Link></span>)})}
-          </div> */}
           <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
             <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Class</h3>
             <span className='mt-auto mb-2'>{student?.grade}</span>
           </div>
           </div>
-          </div>
-      
-      
-      <table className="table-auto mx-auto">
+          
+          <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
+            <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Results</h3>
+            <table className="table-auto w-5/6 mx-auto ">
   <thead>
     <tr className="bg-gray-300 text-gray-700">
-      <th className="px-4 py-2">Header 1</th>
-      <th className="px-4 py-2">Header 2</th>
-      <th className="px-4 py-2">Header 3</th>
+      <th className="px-4 py-2">Grade Id</th>
+      <th className="px-4 py-2">Balgurukul Id</th>
+      <th className="px-4 py-2">Exam</th>
+      <th className="px-4 py-2">Class</th>
     </tr>
   </thead>
+  
   <tbody>
     <tr className="bg-white text-gray-700">
-      <td className="border px-4 py-2">Row 1, Cell 1</td>
+      <td className="border px-4 py-2">{grades?.exam}</td>
       <td className="border px-4 py-2">Row 1, Cell 2</td>
       <td className="border px-4 py-2">Row 1, Cell 3</td>
     </tr>
-    <tr className="bg-gray-100 text-gray-700">
-      <td className="border px-4 py-2">Row 2, Cell 1</td>
-      <td className="border px-4 py-2">Row 2, Cell 2</td>
-      <td className="border px-4 py-2">Row 2, Cell 3</td>
-    </tr>
   </tbody>
 </table>
-
+          </div>
+      
+     
+</div>
     </>
   );
 }
