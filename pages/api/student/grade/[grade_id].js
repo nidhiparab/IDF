@@ -6,10 +6,10 @@ export default async function getGradeById(req, res) {
     let finalResult = [];
   let { grade_id } = req.query;
   let grades = await executeQuery({
-    query: "SELECT *, DATE_FORMAT(`timestamp`, '%d-%m-%Y') as timestamp FROM `grade` WHERE `grade_id` = ?;",
+    query: "SELECT grade.*, bg.bg_name, student.*, DATE_FORMAT(`timestamp`, '%d-%m-%Y') as timestamp FROM `grade` JOIN `bg` ON grade.bg_id = bg.bg_id JOIN `student` ON grade.student_id = student.student_id WHERE grade.grade_id = ?;",
     values: [grade_id]
   })
-
+  console.log(grades);
   for (const grade of grades) {
 
     let result = {
