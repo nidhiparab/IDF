@@ -9,22 +9,24 @@ const GradeId = ({ grade }) => {
 <>
 
 <div className='bg-blue-600 flex h-60'>
-        {/* <span className='m-auto text-3xl text-white font-extrabold'>Student Profile Page</span> */}
-        <div className='ml-30'>
-          <div className='justify-between p-2'>
-            <h3 className='text-4xl font-extrabold text-white mt-auto mb-3'>Name</h3>
-            <span className='mt-auto mb-2'>{student?.f_name} {student?.m_name} {student?.l_name}</span>
+        <span className= 'm-auto m-20 text-center text-right text-4xl text-white font-bold'>Student's Details</span>
+        <div className='   m-auto      flex flex-col    justify-between'>
+          <div className='p-2 text-center'>
+            <h3 className="text-xl mb-2 text-left text-white font-bold">Name</h3>
+            <span className="text-left">{student?.f_name} {student?.m_name} {student?.l_name}</span>
           </div>
-          <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
-            <h3 className='text-4xl font-extrabold text-white mt-auto mb-3'>DOB</h3>
-            <span className='mt-auto mb-2'>{student.dob}</span>
+          <div className='p-2 text-center'>
+            <h3 className="text-xl mb-2 text-left text-white font-bold">DOB</h3>
+            <span className="text-left">{student.dob}</span>
           </div>
-          <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
-            <h3 className='text-4xl font-extrabold  text-white  mt-auto mb-3'>Class</h3>
-            <span className='mt-auto mb-2'>{student?.grade}</span>
+          <div className='p-2 text-center'>
+            <h3 className="text-xl mb-2 text-left text-white font-bold">Class</h3>
+            <span className="text-left">{student?.grade}</span>
           </div>
         </div>
       </div>
+
+
   
       <div className="justify-center p-10 text-justify ">
 <h1 className=" text-3xl mb-2  text-blue-700 font-extrabold">Student's Qualities and Abilities</h1>
