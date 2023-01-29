@@ -103,7 +103,6 @@ const CreateGrade = ({ bg, students }) => {
         })
       })
       let data = await res.json();
-      console.log(data);
     }
   });
 
@@ -204,8 +203,6 @@ const CreateGrade = ({ bg, students }) => {
                         <div>
                           <ul className={styles.options}>
                             {Object.keys(grade_opt).map((key_opt) => {
-                              console.log("name, value, some");
-                              console.log(key_col, key_opt, value);
                               return (
                                 <li key={key_opt}>
                                   <Field type="radio" name={`${obj}.${key_col}`} value={key_opt}>
@@ -246,8 +243,6 @@ const CreateGrade = ({ bg, students }) => {
                         <div>
                           <ul className={styles.options}>
                             {Object.keys(grade_opt).map((key_opt) => {
-                              console.log("name, value, some");
-                              console.log(key_col, key_opt, value);
                               return (
                                 <li key={key_opt}>
                                   <Field type="radio" name={`${obj}.${key_col}`} value={key_opt}>
@@ -287,8 +282,6 @@ const CreateGrade = ({ bg, students }) => {
                         <div>
                           <ul className={styles.options}>
                             {Object.keys(grade_opt).map((key_opt) => {
-                              console.log("name, value, some");
-                              console.log(key_col, key_opt, value);
                               return (
                                 <li key={key_opt}>
                                   <Field type="radio" name={`${obj}.${key_col}`} value={key_opt}>
@@ -368,7 +361,6 @@ export async function getServerSideProps({ params: { bg_id } }) {
   const stdnt = await fetch(`${baseUrl}/api/student/bg/${bg_id}`)
   const bg = await bg_data.json()
   const stdn = await stdnt.json()
-  console.log(stdn);
   return {
     props: {
       bg,

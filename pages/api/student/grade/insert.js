@@ -7,11 +7,10 @@ export default async function createStudent(req, res) {
   let { student_id, bg_id, exam, grade, grade_qualities, grade_subjects, grade_intrests, grade_specifics } = req.body;
 
   const session = await getSession({ req })
-  // if (!session) return res.status(401).redirect('/auth/login');
-  // if(!session?.user.isAdmin && (session?.user.hod?.includes(bg_id) || session?.user.teacher?.includes(bg_id)) ) return res.status(401).json({message: "Unauthorized"})
+  if (!session) return res.status(401).redirect('/auth/login');
+  if(!session?.user.isAdmin && (session?.user.hod?.includes(bg_id) || session?.user.teacher?.includes(bg_id)) ) return res.status(401).json({message: "Unauthorized"})
 
   let timestamp = `${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`
-  console.log(timestamp);
   
   let exists = await executeQuery({
     query: "SELECT * FROM `grade` WHERE `student_id` = ? AND `bg_id` = ? AND `exam` = ? AND `grade` = ?;",

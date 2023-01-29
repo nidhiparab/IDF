@@ -1,5 +1,5 @@
 import executeQuery from '../../../lib/db';
-
+import { getSession } from 'next-auth/client';
 
 //------------API for adding new bg to database
 
@@ -7,7 +7,9 @@ export default async function addBG(req, res) {
   if (req.method != 'POST') {
     res.json({ 'message': 'This is a POST API' }).status(404);
   }
-
+  const session = await getSession({ req })
+  if (!session) return res.status(401).redirect('/auth/login');
+  if(!session?.user.isAdmin ) return res.status(401).json({message: "Unauthorized"})
   const { bg_name,
     partnering_org,
     address,

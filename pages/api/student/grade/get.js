@@ -14,13 +14,11 @@ export default async function getGradeByStudentId(req, res) {
   if(grade_id != null && grade_id != 'null') condition += " AND grade.grade_id = " + `'${grade_id }'`;
   if(dateLesser != null && dateLesser != 'null') condition += " AND grade.timestamp <= " + `'${dateLesser }'`;
   if(dateGreater != null && dateGreater != 'null') condition += " AND grade.timestamp >= " + `'${dateGreater }'`;
-  console.log(condition);
   let grades = await executeQuery({
     query: "SELECT grade.*, bg.bg_name, student.*, DATE_FORMAT(`timestamp`, '%d-%m-%Y') as timestamp FROM `grade` JOIN `bg` ON grade.bg_id = bg.bg_id JOIN `student` ON grade.student_id = student.student_id WHERE " + condition + ";",
     values: []
   })
   
-  console.log(grades);
   for (const grade of grades) {
 
     let result = {

@@ -28,7 +28,6 @@ export default async function registerUser(req, res) {
     query: "SELECT * FROM auth where `email`=?;",
     values: [email]
   })
-  console.log(email);
   if (duplicateEmail.length > 0) {
     res.json({
       error: 'User with this Email Id already exists'

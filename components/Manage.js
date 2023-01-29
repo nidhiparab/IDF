@@ -19,7 +19,6 @@ const Manage = ({ user, users, users_list, bg_id }) => {
     if(name){
       let filtered_data = users_list.filter((user)=>{
         let fullName = user.f_name +" "+ user.m_name +" "+ user.l_name
-        console.log(fullName)
         return fullName.toLowerCase().includes(name.toLowerCase())
       })
       setFilter(filtered_data)

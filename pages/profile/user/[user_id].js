@@ -63,7 +63,6 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
 export async function getServerSideProps({ params: { user_id } }) {
   const res = await fetch(`${baseUrl}/api/user/${user_id}`)
   const data = await res.json()
-  console.log(data);
   return {
     props: {
       user: data.user,

@@ -14,11 +14,11 @@ export default async function allUSers(req, res) {
     user_id } = req.body
 
   const session = await getSession({ req })
-  // if (!session) return res.json({ message: "You should be logged in" })
+  if (!session) return res.json({ message: "You should be logged in" })
 
   let sessionUserID = session?.user.user_id;
 
-  // if (sessionUserID !== user_id) return res.json({ message: "You can't update other user's profile" })
+  if (sessionUserID !== user_id) return res.json({ message: "You can't update other user's profile" })
 
   let user = await executeQuery({
     query: `UPDATE user SET desgination=?,title=?,f_name=?,m_name=?,l_name=?,mob=?,qualification=? WHERE user_id=?`,

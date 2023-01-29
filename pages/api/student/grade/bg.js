@@ -4,13 +4,11 @@ import gradeConstants from '../../../../lib/grades';
 export default async function getGradeByBgId(req, res) {
   let finalResult = [];
   const bg_id = req.query.bg_id;
-  console.log(bg_id);
   let grades = await executeQuery({
     query: "SELECT `grade_id`, `student_id` FROM `grade` WHERE `bg_id` = ?;",
     values: [bg_id]
   })
 
-  console.log(grades);
   for (const grade of grades) {
 
     let result = {
@@ -81,7 +79,6 @@ export default async function getGradeByBgId(req, res) {
         result.grade_specifics[gradeConstants.grade_specifics.columns[key]] = value;
       }
     }
-    console.log(result);
 
     finalResult.push(result);
   }

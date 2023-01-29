@@ -37,7 +37,6 @@ const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreate
           min: true
         })
       })
-      console.log(res);
       const data = await res.json()
       
       setGrades(data.result)

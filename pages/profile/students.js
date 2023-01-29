@@ -12,13 +12,12 @@ const Students = ({ students }) => {
   //   dob
   //   gender
   //   grade
-  console.log(students);
   return (
     <>
       {students.map(student => {
         return (<>
 
-          <div className="m-20 p-10 items-center shadow-2xl shadow-slate-700 rounded-2xl">
+          <div className="m-20 p-10 items-center shadow-2xl shadow-slate-700 rounded-2xl" key={student.student_id}>
             <div className=' text-l'>
               <div className='justify-between p-2'>
                 <h3 className='text-l font-bold text-blue-600  mt-auto mb-3'>Name</h3>
@@ -32,7 +31,7 @@ const Students = ({ students }) => {
                 <h3 className='text-l font-bold text-blue-600 mt-auto mb-3'>Balgurukul</h3>
                 <Link href={`/balgurukul/${student.bg_id}`} className='mt-auto mb-2'>{student.bg_name}</Link>
               </div>
-
+              <Link href={ `/profile/student/${student.student_id}` } className='btn btn-primary' > Details </Link>
             </div>
           </div>
 
@@ -45,7 +44,6 @@ const Students = ({ students }) => {
 export async function getServerSideProps() {
   const res = await fetch(`${baseUrl}/api/student/students`)
   const data = await res.json()
-  console.log(data);
   return {
     props: {
       students: data,

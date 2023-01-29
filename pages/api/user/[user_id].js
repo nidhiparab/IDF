@@ -66,7 +66,6 @@ export default async function byUserId(req, res) {
     }
   }
 
-  console.log(teacher);
   res.json({
     user,
     hod,

@@ -20,7 +20,6 @@ const Update = ({ balgurukul }) => {
   const [mail, setMail] = useState(balgurukul.mail);
   const router = useRouter()
   const handleSubmit = async (e) => {
-  console.log(balgurukul)
     //----------------set phone number mobile + telephone
     setPh(mob + '/' + tel);
     e.preventDefault();

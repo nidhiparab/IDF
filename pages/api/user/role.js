@@ -1,10 +1,10 @@
 import { getSession } from "next-auth/react"
 import executeQuery from "../../../lib/db"
 export default async function Test(req, res) {
-  // if (req.method !== "POST") {
-  //   res.json({ message: "This is POST API" })
-  //   return;
-  // }
+  if (req.method !== "POST") {
+    res.json({ message: "This is POST API" })
+    return;
+  }
   const session = await getSession({ req })
   if (!session) {
     res.redirect('/auth/login');
@@ -18,11 +18,9 @@ export default async function Test(req, res) {
   
   if ((role === 'hod' && !session.user.isAdmin)) {
     res.json({ message: "You don't have Permission of this action" })
-    console.log("hod");
     return;
   }
   if (!session.user.hod?.includes(bg_id) && !session.user.isAdmin) {
-    console.log("not hod");
     res.json({ message: "You don't have Permission of this action" })
     return;
   }
@@ -41,8 +39,6 @@ export default async function Test(req, res) {
       query: "INSERT INTO `" + role + "` (`bg_id`, `user_id`) VALUES (?, ?);",
       values: [bg_id, parseInt(user_id)]
     })
-    console.log("insert");
-    console.log(insert);
 
   } else {
     //delete
