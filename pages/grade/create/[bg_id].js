@@ -12,12 +12,48 @@ const OptionComponent = ({ options, value, onChange, isVisible }) => {
   if (!isVisible) return <></>
   return (
     <div>
+    <div className="flex flex-row justify-between font-extrabold text-blue-900 mt-3">
+                <div className="flex flex-col w-1/12">Subjects</div>
+                <div className="flex flex-col w-1/12">Excellent</div>
+                <div className="flex flex-col w-1/12">Very Good</div>
+                <div className="flex flex-col w-1/12">Good</div>
+                <div className="flex flex-col w-1/12">Average</div>
+                <div className="flex flex-col w-1/12">Poor</div>
+                <div className="flex flex-col w-1/12">Very Poor</div>
+                <div className="flex flex-col w-1/12">Not Applicable</div>
+                {/* <div className="flex flex-col">Subjects</div>
+                <div className="flex flex-col">Subjects</div> */}
+                
+                </div>
       {Object.keys(columns).map((key_col) => {
         let value = columns[key_col];
         return (<>
-          <h4>{value}</h4>
+                <div className="flex flex-row justify-between mt-3">
+                <p className="w-1/12 text-sm font-bold text-blue-800 p-1">{value}</p>
+                {Object.keys(grade_opt).map((key_opt) => {
+                return (
+                  <div className="w-1/12 p-3 items-center">
+                  <input
+                  className={styles.options}
+                  className="bg-gray-100"
+                  type="radio"
+                  name={key_col}
+                  value={grade_opt[key_opt]}
+                  // checked={grade_opt[key_opt] == "Not Applicable" ? true : false} 
+                  />
+                  
+                  </div>
+                  )
+              })}
+                {/* <div className="flex flex-col">Subjects</div>
+                <div className="flex flex-col">Subjects</div> */}
+                
+                </div>
+                
+                
+          
           <div>
-            <ul className={styles.options}>
+            {/* <ul className={styles.options}>
               {Object.keys(grade_opt).map((key_opt) => {
                 return (
                   <li key={key_opt}>
@@ -29,10 +65,11 @@ const OptionComponent = ({ options, value, onChange, isVisible }) => {
                     <label htmlFor={key_col}>{grade_opt[key_opt]} </label>
                   </li>)
               })}
-            </ul>
+            </ul> */}
           </div>
         </>)
       })}
+      <br/>
     </div>
   )
 }
@@ -72,7 +109,7 @@ const CreateGrade = ({ bg, students }) => {
             }
           </div>
         </div>
-        <div className="flex flex-col border pl-20 pr-20">Sections
+        <div className="flex flex-col border pl-5 pr-5 w-5/6">Sections
           <div className="flex flex-row">
             <div className="flex flex-col border m-1 p-2" onClick={(e) => {
               e.preventDefault();
