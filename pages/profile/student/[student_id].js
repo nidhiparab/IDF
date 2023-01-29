@@ -36,9 +36,10 @@ const StudentProfile = ({ student, grades }) => {
 
         <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
           <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Results</h3>
-          <table className="table-auto w-5/6 mx-auto ">
+          
+          <table className="table-auto w-5/6 mx-auto">
             <thead>
-              <tr className="bg-gray-300 text-gray-700">
+              <tr className="bg-blue-600 text-gray-100">
                 <th className="px-4 py-2">Grade Id</th>
                 <th className="px-4 py-2">Balgurukul Id</th>
                 <th className="px-4 py-2">Exam</th>
@@ -49,7 +50,7 @@ const StudentProfile = ({ student, grades }) => {
             <tbody>
               {grades?.map((grade) => {
                 return (
-                  <tr key={grade.grade_id} className="bg-white text-gray-700">
+                  <tr key={grade.grade_id} className="bg-white text-gray-700 ">
                     <td className="border px-4 py-2"><Link href={`/balgurukul/grade/${grade.grade_id}`} >{ grade.grade_id }</Link></td>
                     <td className="border px-4 py-2"><Link href={`/balgurukul/${grade.bg_id}`} >{ grade.bg_id }</Link></td>
                     <td className="border px-4 py-2">{ grade.exam }</td>
