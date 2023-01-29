@@ -150,8 +150,8 @@ const CreateGrade = ({ bg, students }) => {
             <div className="flex flex-row ">
               <div className={studentDetails?"flex flex-col border m-1 p-2 bg-blue-600 text-white font-semibold rounded-xl text-sm":"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "studentDetails") }}>Student Details</div>
               <div className={qualities?"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white ":"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "qualities") }}>Qualities</div>
-              <div className={intrests?"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white ":"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "intrests") }}>Intrests</div>
               <div className={subject?"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white ":"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "subjects") }}>Academics</div>
+              <div className={intrests?"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white ":"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "intrests") }}>Intrests</div>
               <div className={specifics?"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white ":"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "specifics") }}>Specifics</div>
             </div>
             {/* <OptionComponent isVisible={studentDetails} value={'grade_studentDetails'} ></OptionComponent> */}
