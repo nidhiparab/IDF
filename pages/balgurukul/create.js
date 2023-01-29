@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import baseUrl from "../../helpers/baseUrl";
-import styles from '../../styles/Create.module.css'
+
 
 const Create = () => {
   //---------------------------all required fields------------------
@@ -55,11 +55,11 @@ const Create = () => {
   // console.log(bg_name, partnering_org, state, district, region, pincode, org_under_bg, phone, mail);
 
   return (
-    <div className="  mx-auto items-center shadow-2xl shadow-slate-700 rounded-2xl w-2/3">
+    <div className="mx-auto items-center shadow-2xl shadow-slate-700 rounded-2xl w-2/3">
       <form action="#" onSubmit={(e) => handleSubmit(e)}>
           
         <h4 className="font-bold">Details</h4>
-        <div className=" flex space-x-4  items-center  block text-sm font-medium mb-2">
+        <div className="flex space-x-4  items-center block text-sm font-medium mb-2">
         <input
             className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
