@@ -59,7 +59,10 @@ export default NextAuth({
           spoc:spocData.map(x => x.bg_id),
           teacher:teacherData.map(x => x.bg_id),
         }
+        console.log('user');
+        console.log(user);
         return user
+        
       },
     })
   ],
