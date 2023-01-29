@@ -52,6 +52,9 @@ const Navbar = () => {
               <Link className="nav-link" aria-current="page" href="/profile/students">
                 Students
               </Link>
+              <Link className="nav-link" aria-current="page" href="/grade">
+                Grades
+              </Link>
 
               {(() => {
                 if (session) {
