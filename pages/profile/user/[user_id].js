@@ -43,7 +43,7 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
               {spoc.length > 0 ? <span className='text-2xl font-bold text-blue-600  mt-auto mb-3 ml-5'> As SPOC</span> : <span></span>}
               {spoc.length > 0 && spoc.map((bg) => { return (<span className='mt-auto mb-2 ml-10' key={bg.bg_id}><Link href={`/balgurukul/${bg.bg_id}`}>{ bg.bg_name }</Link></span>)})}
               {teacher.length > 0 ? <span className='text-2xl font-bold text-blue-600  mt-auto mb-3 ml-5'> As Teacher</span> : <span></span>}
-              {teacher.length > 0 && hteachermap((bg) => { return (<span className='mt-auto mb-2 ml-10' key={bg.bg_id}><Link href={`/balgurukul/${bg.bg_id}`}>{ bg.bg_name }</Link></span>)})}
+              {teacher.length > 0 && teacher.map((bg) => { return (<span className='mt-auto mb-2 ml-10' key={bg.bg_id}><Link href={`/balgurukul/${bg.bg_id}`}>{ bg.bg_name }</Link></span>)})}
           </div>
           <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
             <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Qualification</h3>

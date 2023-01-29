@@ -6,8 +6,9 @@ import styles from '../../styles/Balgurukul.module.css'
 import Image from 'next/image'
 import AdminButtons from '../../components/Admin/balgurukul/info'
 import { SessionProvider, useSession } from "next-auth/react"
+import Manage from '../../components/Manage'
 
-const Product = ({ balgurukul }) => {
+const Product = ({ balgurukul, students, users_list }) => {
   const { data: session } = useSession()
   const [openModal, setOpenModal] = useState(false)
   const isHod = session?.user.hod.includes(balgurukul.bg_id)
@@ -31,8 +32,6 @@ const Product = ({ balgurukul }) => {
       console.log("Success")
     }
   }
-  console.log(session);
-  console.log(`Is HoD ${session?.user.hod.includes(balgurukul.bg_id)}`);
 
 
 
@@ -65,7 +64,7 @@ const Product = ({ balgurukul }) => {
               </div>)}
             {session?.user.isAdmin ?
               <div className='m-auto py-2'>
-                <button className='bg-slate-200 rounded-full font-bold mt-100 p-2 text-sm'>Manage</button>
+                <Manage user='hod' users={balgurukul.hod_users} users_list={users_list} bg_id={balgurukul.bg_id} ></Manage>
               </div>
               : <></>
             }
@@ -83,7 +82,7 @@ const Product = ({ balgurukul }) => {
               </div>)}
             {(isHod || session?.user.isAdmin) ?
               <div className='m-auto py-2'>
-                <button className='bg-slate-200 rounded-full font-bold mt-100 p-2 text-sm'>Manage</button>
+                <Manage user='spoc' users={balgurukul.spoc_users} users_list={users_list} bg_id={balgurukul.bg_id}></Manage>
               </div>
               : <></>
             }
@@ -101,7 +100,7 @@ const Product = ({ balgurukul }) => {
               </div>)}
             {(isHod || session?.user.isAdmin) ?
               <div className='m-auto py-2'>
-                <button className='bg-slate-200 rounded-full font-bold mt-100 p-2 text-sm'>Manage</button>
+                <Manage user='teacher' users={balgurukul.teacher_users} users_list={users_list} bg_id={balgurukul.bg_id}></Manage>
               </div>
               : <></>
             }
@@ -129,48 +128,39 @@ const Product = ({ balgurukul }) => {
             <span className='mt-auto mb-2'>{balgurukul.mail == "nan" ? <span></span> : 'Email: ' + balgurukul.mail}</span>
           </div>
 
+
+          <div className=' my-auto p-2 mr-auto w-auto pt-12 pl-12 flex flex-col justify-center items-start text-slate-900 text-3xl'>
+            <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Students</h3>
+            <table className="table-auto w-5/6 mx-auto ">
+              <thead>
+                <tr className="bg-gray-300 text-gray-700">
+                  <th className="px-4 py-2">Student Name</th>
+                  <th className="px-4 py-2">Class</th>
+                  <th className="px-4 py-2">Date Of Birth</th>
+                  <th className="px-4 py-2">Gender</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {students?.map((std) => {
+                  return (
+                    <tr key={std.student_id} className="bg-white text-gray-700">
+                      <td className="border px-4 py-2"><Link href={`/profile/student/${std.student_id}`} >{`${std.f_name} ${std.m_name} ${std.l_name}`}</Link></td>
+                      <td className="border px-4 py-2">{std.grade}</td>
+                      <td className="border px-4 py-2">{std.dob}</td>
+                      <td className="border px-4 py-2">{std.gender}</td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
           <button className='delete' onClick={() => setOpenModal(true)}>Delete</button>
           <Link href={`update/${balgurukul.bg_id}`} as={`update/${balgurukul.bg_id}`} className="btn btn-primary">Update this page</Link>
-
         </div>
-
       </div>
 
 
-      {/* <div className='mb-40 flex justify-center ' >
-        <div className='ml-8 mt-3 p-6 w-1/3'>
-          <div className='m-auto mt-3 p-6 bg-gradient-to-r from-blue-500 to-indigo-500 w-1/3 h-2/3 shadow-2xl shadow-slate-700 rounded-2xl'>
-            <div className='m-auto '>
-              <span className=' text-2xl text-white font-semibold roun'>HOD</span>
-            </div>
-            <br />
-            <div className='m-auto'>
-              <span className='bg-slate-200 rounded-full font-bold mt-100 p-2 text-sm'>Manage</span>
-            </div>
-          </div>
-        </div>
-
-
-
-        <div className='m-auto w-4/5'>
-          <div className='ml-8  mt-auto p-4'>
-            <h3 className='font-bold'>Partnering Organization</h3>
-            <div >{balgurukul.partnering_org}</div>
-            <br />
-            <br />
-            <h3 className='font-bold'>Address</h3>
-            <div >{balgurukul.address}</div>
-            <div >{balgurukul.district}</div>
-            <div >{balgurukul.state}</div>
-            <div >{balgurukul.pincode}</div>
-            <br />
-            <br />
-            <h3 className='font-bold'>Management Information</h3>
-            <div >HOD name</div>
-            <div >HOD email</div>
-            <div >HOD phone</div>
-          </div>
-        </div> */}
 
 
 
@@ -183,11 +173,14 @@ const Product = ({ balgurukul }) => {
 //--------------------------get all the data from api of that bgk------------------
 export async function getServerSideProps({ params: { id } }) {
   const res = await fetch(`${baseUrl}/api/balgurukul/${id}`)
+  const stdnt = await fetch(`${baseUrl}/api/student/bg/${id}`)
+  const users_list = await fetch(`${baseUrl}/api/user/users`)
   const data = await res.json()
   return {
     props: {
       balgurukul: data,
-      hod: data.hod_users
+      students: await stdnt.json(),
+      users_list: await users_list.json()
     },
   }
 }
