@@ -33,6 +33,7 @@ const OptionComponent = ({ options, value, onChange, isVisible }) => {
           </div>
         </>)
       })}
+      <br />
     </div>
   )
 }
