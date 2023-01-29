@@ -143,7 +143,7 @@ const CreateGrade = ({ bg, students }) => {
           </div>
         </div>
         <form onSubmit={formik.handleSubmit}>
-          <div className="flex flex-col p-20 shadow-xl shadow-slate-100 hover:shadow-slate-700 rounded-xl  ">
+          <div className="flex flex-col p-20 pt-10 shadow-xl shadow-slate-100 hover:shadow-slate-700 rounded-xl  ">
         <h3 className="font-extrabold text-blue-600 text-center justify-center">Sections</h3>
           
           
@@ -156,10 +156,10 @@ const CreateGrade = ({ bg, students }) => {
             </div>
             {/* <OptionComponent isVisible={studentDetails} value={'grade_studentDetails'} ></OptionComponent> */}
             {!studentDetails ? <></> :
-              <div>
+              <div className="justify-end">
                 <input type="text" hidden {...formik.getFieldProps('studentDetails.student_id')} />
                 <input type="text" hidden {...formik.getFieldProps('studentDetails.bg_id')} />
-                <label className="text-blue-600 font-bold text-lg"  htmlFor="name">Exam </label>
+                <label className=" text-blue-600 font-bold text-lg"  htmlFor="name">Exam </label>
                 <br />
                 <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.exam')} />
                 <br />
@@ -183,9 +183,12 @@ const CreateGrade = ({ bg, students }) => {
                 <br />
                 <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.gender')} />
                 <br />
-                <button onClick={(e) => { e.preventDefault(); setStudentDetails(false); setQualities(true) }}>
+                <div className="  flex justify-center">
+                <button className="border-2 border-blue-200 w-full hover:bg-gradient-to-r from-blue-500 to-indigo-500 rounded-md py-3 hover:text-gray-50 text-lg" onClick={(e) => { e.preventDefault(); setStudentDetails(false); setQualities(true) }}>
                   Next
                 </button>
+                </div>
+                
               </div>
             }
             {(() => {
@@ -220,7 +223,7 @@ const CreateGrade = ({ bg, students }) => {
 
                       </div>)
                     })}
-                    <button onClick={(e) => { e.preventDefault(); setQualities(false); setSubject(true) }}>
+                    <button className="border-2 mt-5 border-blue-200 w-full hover:bg-gradient-to-r from-blue-500 to-indigo-500 rounded-md py-3 hover:text-gray-50 text-lg" onClick={(e) => { e.preventDefault(); setQualities(false); setSubject(true) }}>
                       Next
                     </button>
                   </div>
@@ -260,7 +263,7 @@ const CreateGrade = ({ bg, students }) => {
 
                       </div>)
                     })}
-                    <button onClick={(e) => { e.preventDefault(); setSubject(false); setIntrests(true) }}>
+                    <button className="border-2 mt-5 border-blue-200 w-full hover:bg-gradient-to-r from-blue-500 to-indigo-500 rounded-md py-3 hover:text-gray-50 text-lg" onClick={(e) => { e.preventDefault(); setSubject(false); setIntrests(true) }}>
                       Next
                     </button>
                   </div>
@@ -299,7 +302,7 @@ const CreateGrade = ({ bg, students }) => {
 
                       </div>)
                     })}
-                    <button onClick={(e) => { e.preventDefault(); setIntrests(false); setSpecifics(true) }}>
+                    <button className="border-2 mt-5 border-blue-200 w-full hover:bg-gradient-to-r from-blue-500 to-indigo-500 rounded-md py-3 hover:text-gray-50 text-lg" onClick={(e) => { e.preventDefault(); setIntrests(false); setSpecifics(true) }}>
                       Next
                     </button>
 
@@ -310,19 +313,19 @@ const CreateGrade = ({ bg, students }) => {
             {/* <OptionComponent isVisible={specifics} value={'grade_specifics'} ></OptionComponent> */}
             {!specifics ? <></> :
               <div>
-                <label htmlFor="Q1">Is there any specific or extraordinary talent / quality in the child? Please specify. </label>
+                <label  className="text-blue-600 font-bold text-lg pt-4" htmlFor="Q1">Is there any specific or extraordinary talent / quality in the child? Please specify. </label>
+                
+                <input className={styles.inp} type="textarea" {...formik.getFieldProps('grade_specifics.Q1')} />
+                
+                <label  className="text-blue-600 font-bold text-lg pt-4" htmlFor="grade">Is there any specific or unusual challenge or problem faced by the child? Kindly explain.</label>
+                
+                <input className={styles.inp} type="textarea" {...formik.getFieldProps('grade_specifics.Q2')} />
+                
+                <label  className="text-blue-600 font-bold text-lg pt-4" htmlFor="grade">Any specific action plan or suggestion with regard to the child? Please share.</label>
+                
+                <input className={styles.inp} type="textarea" {...formik.getFieldProps('grade_specifics.Q3')} />
                 <br />
-                <input type="textarea" {...formik.getFieldProps('grade_specifics.Q1')} />
-                <br />
-                <label htmlFor="grade">Is there any specific or unusual challenge or problem faced by the child? Kindly explain.</label>
-                <br />
-                <input type="textarea" {...formik.getFieldProps('grade_specifics.Q2')} />
-                <br />
-                <label htmlFor="grade">Any specific action plan or suggestion with regard to the child? Please share.</label>
-                <br />
-                <input type="textarea" {...formik.getFieldProps('grade_specifics.Q3')} />
-                <br />
-                <button type='submit'>
+                <button className="border-2 border-blue-200 w-full hover:bg-emerald-600 rounded-md py-3 hover:text-gray-50 text-lg" type='submit'>
                   Submit
                 </button>
               </div>
