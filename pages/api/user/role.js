@@ -15,13 +15,14 @@ export default async function Test(req, res) {
     bg_id,
     user_id,
     add } = req.body;
-  console.log(session.user);
-
+  
   if ((role === 'hod' && !session.user.isAdmin)) {
     res.json({ message: "You don't have Permission of this action" })
+    console.log("hod");
     return;
   }
-  if (!session.user.hod?.includes(bg_id) || session.user.isAdmin) {
+  if (!session.user.hod?.includes(bg_id) && !session.user.isAdmin) {
+    console.log("not hod");
     res.json({ message: "You don't have Permission of this action" })
     return;
   }
@@ -40,7 +41,8 @@ export default async function Test(req, res) {
       query: "INSERT INTO `" + role + "` (`bg_id`, `user_id`) VALUES (?, ?);",
       values: [bg_id, parseInt(user_id)]
     })
-
+    console.log("insert");
+    console.log(insert);
 
   } else {
     //delete

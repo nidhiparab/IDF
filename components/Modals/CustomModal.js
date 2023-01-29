@@ -7,6 +7,7 @@ export default function CustomModal({ show, children, onClose,  top, left, right
       isOpen={show}
       onRequestClose={onClose}
       contentLabel="Example Modal"
+      ariaHideApp={false}
       style={{
         overlay: {
           position: 'fixed',
