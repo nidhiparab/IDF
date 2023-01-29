@@ -15,7 +15,6 @@ export default async function getGradeByStudentId(req, res) {
   if(dateLesser) condition += " AND `timestamp` <= " + `'${dateLesser}'`;
   if(dateGreater) condition += " AND `timestamp` >= " + `'${dateGreater}'`;
   
-  console.log("SELECT `grade_id` FROM `grade` WHERE " + condition + ";");
   let grades = await executeQuery({
     query: "SELECT *, DATE_FORMAT(`timestamp`, '%d-%m-%Y') as timestamp FROM `grade` WHERE " + condition + ";",
     values: []
@@ -31,7 +30,7 @@ export default async function getGradeByStudentId(req, res) {
       grade_specifics: {},
     }
     
-    if (min) {result = { ...grade };finalResult.push(result); break}
+    if (min) {result = { ...grade };finalResult.push(result); continue}
 
     result = {...grade, ...result}
     
