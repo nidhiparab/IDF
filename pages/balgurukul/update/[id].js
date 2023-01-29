@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import styles from '../../../styles/Create.module.css';
 import baseUrl from '../../../helpers/baseUrl';
 
 const Update = ({ balgurukul }) => {
