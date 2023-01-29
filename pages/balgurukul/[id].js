@@ -176,10 +176,12 @@ export async function getServerSideProps({ params: { id } }) {
   const stdnt = await fetch(`${baseUrl}/api/student/bg/${id}`)
   const users_list = await fetch(`${baseUrl}/api/user/users`)
   const data = await res.json()
+  const stdn = await stdnt.json()
+  console.log(stdn);
   return {
     props: {
       balgurukul: data,
-      students: await stdnt.json(),
+      students: stdn,
       users_list: await users_list.json()
     },
   }

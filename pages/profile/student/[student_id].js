@@ -51,7 +51,7 @@ const StudentProfile = ({ student, grades }) => {
               {grades?.map((grade) => {
                 return (
                   <tr key={grade.grade_id} className="bg-white text-gray-700 ">
-                    <td className="border px-4 py-2"><Link href={`/balgurukul/grade/${grade.grade_id}`} >{ grade.grade_id }</Link></td>
+                    <td className="border px-4 py-2"><Link href={`/grade/${grade.grade_id}`} >{ grade.grade_id }</Link></td>
                     <td className="border px-4 py-2"><Link href={`/balgurukul/${grade.bg_id}`} >{ grade.bg_id }</Link></td>
                     <td className="border px-4 py-2">{ grade.exam }</td>
                     <td className="border px-4 py-2">{ grade.grade }</td>

@@ -7,20 +7,20 @@ export default async function getGradeByStudentId(req, res) {
   let finalResult = [];
   let { student_id, bg_id, grade, grade_id, exam, dateLesser, dateGreater, min } = req.body;
   let condition = " 1 = 1 ";
-  if(student_id) condition += " AND `student_id` = " + `'${student_id}'`;
-  if(bg_id) condition += " AND `bg_id` = " + `'${bg_id}'`;
-  if(grade) condition += " AND `grade` = " + `'${grade}'`;
-  if(exam) condition += " AND `exam` = " + `'${exam}'`;
-  if(grade_id) condition += " AND `grade_id` = " + `'${grade_id}'`;
-  if(dateLesser) condition += " AND `timestamp` <= " + `'${dateLesser}'`;
-  if(dateGreater) condition += " AND `timestamp` >= " + `'${dateGreater}'`;
+  if(student_id) condition += " AND `grade.student_id` = " + `'${student_id}'`;
+  if(bg_id) condition += " AND `grade.bg_id` = " + `'${bg_id}'`;
+  if(grade) condition += " AND `grade.grade` = " + `'${grade}'`;
+  if(exam) condition += " AND `grade.exam` = " + `'${exam}'`;
+  if(grade_id) condition += " AND `grade.grade_id` = " + `'${grade_id}'`;
+  if(dateLesser) condition += " AND `grade.timestamp` <= " + `'${dateLesser}'`;
+  if(dateGreater) condition += " AND `grade.timestamp` >= " + `'${dateGreater}'`;
   
   let grades = await executeQuery({
-    query: "SELECT *, DATE_FORMAT(`timestamp`, '%d-%m-%Y') as timestamp FROM `grade` WHERE " + condition + ";",
+    query: "SELECT grade.*, bg.bg_name, student.*, DATE_FORMAT(`timestamp`, '%d-%m-%Y') as timestamp FROM `grade` JOIN `bg` ON grade.bg_id = bg.bg_id JOIN `student` ON grade.student_id = student.student_id WHERE " + condition + ";",
     values: []
   })
   
-
+  console.log(grades);
   for (const grade of grades) {
 
     let result = {

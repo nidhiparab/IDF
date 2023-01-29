@@ -29,13 +29,14 @@ export default function BG({ BG }) {
 
   }, [state, name]);
 
-                      //---------cards displayed
+
+  //---------cards displayed
   let bgkList = filterd.map(bg => {
     return (
       <div className={styles.card} key={bg.bg_id} >
         {/* <img src="..." class="card-img-top" alt="..."/> */}
         <div className="card-body">
-          <h5 className={ styles.card_title }>{bg.bg_name}</h5>
+          <h5 className={styles.card_title}>{bg.bg_name}</h5>
           <p className="card-text">{bg.state}</p>
           <p className="card-text">{bg.state_short}</p>
 
@@ -98,7 +99,7 @@ export default function BG({ BG }) {
           <option value="WB">West Bengal</option>
         </select>
 
-        <button className={ styles.Rbtn } name='Reset' onClick={() => { setState("");  setName("")}}>Reset Filters</button>
+        <button className={styles.Rbtn} name='Reset' onClick={() => { setState(""); setName("") }}>Reset Filters</button>
       </div>
       <div className="rootcard">
         {bgkList}

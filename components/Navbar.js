@@ -46,6 +46,12 @@ const Navbar = () => {
                   {/* <Link href="#">Link 3</Link> */}
                 </div>
               </div>
+              <Link className="nav-link" aria-current="page" href="/profile/users">
+                Users
+              </Link>
+              <Link className="nav-link" aria-current="page" href="/profile/students">
+                Students
+              </Link>
 
               {(() => {
                 if (session) {
