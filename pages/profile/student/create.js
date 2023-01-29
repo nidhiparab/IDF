@@ -37,6 +37,7 @@ const StudentRegistrationForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className=" mx-auto p-20 items-center shadow-2xl shadow-slate-700 rounded-2xl w-2/3">
+        <h1 className="text-center font-bold">Student Registration</h1>
         <label className="mx-auto px-5 block text-sm font-medium mb-2">
           First Name:
           <input

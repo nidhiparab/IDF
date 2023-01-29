@@ -55,12 +55,13 @@ const Create = () => {
   // console.log(bg_name, partnering_org, state, district, region, pincode, org_under_bg, phone, mail);
 
   return (
-    <div className={styles.container_crt}>
+    <div className="  mx-auto items-center shadow-2xl shadow-slate-700 rounded-2xl w-2/3">
       <form action="#" onSubmit={(e) => handleSubmit(e)}>
-        <h4 className={styles.title}>Details</h4>
-        <div className={styles.fields}>
-          <input
-            className={styles.input_field}
+          
+        <h4 className="font-bold">Details</h4>
+        <div className=" flex space-x-4  items-center  block text-sm font-medium mb-2">
+        <input
+            className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="bg_name"
             placeholder="Balgurukul Name"
@@ -69,9 +70,9 @@ const Create = () => {
               setName(e.target.value);
             }}
           />
-
-          <input
-            className={styles.input_field}
+ 
+<input
+            className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="partnering_org"
             placeholder="Partnering Organization"
@@ -84,11 +85,10 @@ const Create = () => {
 
         {/* --------------------------------------------------------------------------------- */}
 
-        <h4 className={styles.title}>Address</h4>
-
-        <div className={styles.fields}>
-          <input
-            className={styles.input_field}
+        <h4 className="font-bold">Address</h4>
+        <div className=" flex space-x-4  items-center  block text-sm font-medium mb-2">
+        <input
+            className="inline-block w-full py-3 px-4 my-2  border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="address"
             placeholder="Address"
@@ -97,8 +97,8 @@ const Create = () => {
               setAddr(e.target.value);
             }}
           />
-          <input
-            className={styles.input_field}
+         <input
+            className="inline-block w-full py-3 px-4 my-2 border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="district"
             placeholder="District"
@@ -109,9 +109,9 @@ const Create = () => {
           />
         </div>
 
-        <div className={styles.field_select}>
+        <div>
           <select
-            className={styles.input_field_select}
+           className="inline-block w-full py-3 px-4 my-2  border rounded-xl bg-slate-200 focus:outline-none border-none "
             id="state"
             name="state"
             value={state}
@@ -162,9 +162,9 @@ const Create = () => {
           </select>
         </div>
 
-        <div className={styles.fields}>
-          <input
-            className={styles.input_field}
+        <div className="  flex space-x-4  items-center  block text-sm font-medium mb-2">
+        <input
+            className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="region"
             placeholder="Region"
@@ -174,7 +174,7 @@ const Create = () => {
             }}
           />
           <input
-            className={styles.input_field}
+            className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="pincode"
             placeholder="Pin Code"
@@ -186,10 +186,10 @@ const Create = () => {
         </div>
 
         {/* ------------------------------------------------------------ */}
-        <h4 className={styles.title}>Incharge</h4>
-        <div className={styles.fields}>
-          <input
-            className={styles.input_field}
+        <h4 className="font-bold">Incharge</h4>
+        <div className="  flex space-x-4  items-center  block text-sm font-medium mb-2">
+        <input
+            className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="org_under_bg"
             placeholder="Organization"
@@ -198,8 +198,8 @@ const Create = () => {
               setOu(e.target.value);
             }}
           />
-          <input
-            className={styles.input_field}
+        <input
+            className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="mail"
             placeholder="Email"
@@ -210,9 +210,9 @@ const Create = () => {
           />
         </div>
 
-        <div className={styles.fields}>
-          <input
-            className={styles.input_field}
+        <div className="  flex space-x-4  items-center  block text-sm font-medium mb-2">
+        <input
+            className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="mob"
             placeholder="Mobile No."
@@ -221,8 +221,8 @@ const Create = () => {
               setMob(e.target.value);
             }}
           />
-          <input
-            className={styles.input_field}
+           <input
+            className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="tel"
             placeholder="Telephone No."
@@ -233,7 +233,7 @@ const Create = () => {
           />
         </div>
 
-        <button type="submit" className={styles.Rbtn_crt}>
+        <button type="submit"  className="items-center  w-full bg-indigo-500 text-white py-2 px-4 my-2 rounded-md hover:bg-indigo-600">
           Submit
         </button>
       </form>
