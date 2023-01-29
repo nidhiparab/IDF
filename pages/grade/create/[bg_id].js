@@ -120,9 +120,12 @@ const CreateGrade = ({ bg, students }) => {
 
   return (
     <FormikProvider value={formik}>
+    <div className='bg-blue-600 flex justify-center text-center h-60'>
+        <span className='m-auto text-5xl text-white font-extrabold'>Evaluate</span>
+      </div>
 
       <div className="flex flex-row justify-between m-5">
-        <div className="flex flex-col p-20 border">Student
+        <div className="flex flex-col p-20 shadow-xl shadow-slate-100 hover:shadow-slate-700 rounded-xl">Student
           <div>
             {!selected ? <></> : <>
               <div className="">
@@ -140,44 +143,45 @@ const CreateGrade = ({ bg, students }) => {
           </div>
         </div>
         <form onSubmit={formik.handleSubmit}>
-          <div className="flex flex-col border pl-20 pr-20">Sections
-            <div className="flex flex-row">
-              <div className="flex flex-col border m-1 p-2" onClick={(e) => { changeTab(e, "studentDetails") }}>Student Details</div>
-              <div className="flex flex-col border m-1 p-2" onClick={(e) => { changeTab(e, "qualities") }}>Qualities</div>
-              <div className="flex flex-col border m-1 p-2" onClick={(e) => { changeTab(e, "intrests") }}>Intrests</div>
-              <div className="flex flex-col border m-1 p-2" onClick={(e) => { changeTab(e, "subjects") }}>Academics</div>
-              <div className="flex flex-col border m-1 p-2" onClick={(e) => { changeTab(e, "specifics") }}>Specifics</div>
+          <div className="flex flex-col p-20 shadow-xl shadow-slate-100 hover:shadow-slate-700 rounded-xl  ">
+        <h3 className="font-extrabold text-blue-600 text-center justify-center">Sections</h3>
+          
+          
+            <div className="flex flex-row ">
+              <div className={studentDetails?"flex flex-col border m-1 p-2 bg-blue-600 text-white font-semibold rounded-xl text-sm":"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "studentDetails") }}>Student Details</div>
+              <div className={qualities?"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white ":"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "qualities") }}>Qualities</div>
+              <div className={intrests?"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white ":"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "intrests") }}>Intrests</div>
+              <div className={subject?"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white ":"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "subjects") }}>Academics</div>
+              <div className={specifics?"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white ":"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "specifics") }}>Specifics</div>
             </div>
             {/* <OptionComponent isVisible={studentDetails} value={'grade_studentDetails'} ></OptionComponent> */}
             {!studentDetails ? <></> :
               <div>
                 <input type="text" hidden {...formik.getFieldProps('studentDetails.student_id')} />
                 <input type="text" hidden {...formik.getFieldProps('studentDetails.bg_id')} />
-                <label htmlFor="name">Exam </label>
+                <label className="text-blue-600 font-bold text-lg"  htmlFor="name">Exam </label>
                 <br />
-                <input type="text" {...formik.getFieldProps('studentDetails.exam')} />
+                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.exam')} />
                 <br />
-                <label htmlFor="name">Name </label>
+                <label className="text-blue-600 font-bold text-lg" htmlFor="name">Name </label>
                 <br />
-                <input type="text" {...formik.getFieldProps('studentDetails.f_name')} />
+                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.f_name')} />
+                
+                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.m_name')} />
+            
+                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.l_name')} />
                 <br />
+                <label  className="text-blue-600 font-bold text-lg"htmlFor="grade">Grade</label>
                 <br />
-                <input type="text" {...formik.getFieldProps('studentDetails.m_name')} />
+                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.grade')} />
                 <br />
+                <label className="text-blue-600 font-bold text-lg" htmlFor="dob">DOB</label>
                 <br />
-                <input type="text" {...formik.getFieldProps('studentDetails.l_name')} />
+                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.dob')} />
                 <br />
-                <label htmlFor="grade">Grade</label>
+                <label className="text-blue-600 font-bold text-lg" htmlFor="gender">Gender</label>
                 <br />
-                <input type="text" {...formik.getFieldProps('studentDetails.grade')} />
-                <br />
-                <label htmlFor="dob">DOB</label>
-                <br />
-                <input type="text" {...formik.getFieldProps('studentDetails.dob')} />
-                <br />
-                <label htmlFor="gender">Gender</label>
-                <br />
-                <input type="text" {...formik.getFieldProps('studentDetails.gender')} />
+                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.gender')} />
                 <br />
                 <button onClick={(e) => { e.preventDefault(); setStudentDetails(false); setQualities(true) }}>
                   Next
@@ -199,16 +203,16 @@ const CreateGrade = ({ bg, students }) => {
                       return (<div key={key_col}>
                         <br />
                         <br />
-                        <h4>{value}</h4>
-                        <div>
-                          <ul className={styles.options}>
+                        <h4 className="text-blue-600 font-bold text-lg">{value}</h4>
+                        <div className="flex flex-row border-2 hover:border-blue-600 p-1">
+                          <ul >
                             {Object.keys(grade_opt).map((key_opt) => {
                               return (
-                                <li key={key_opt}>
-                                  <Field type="radio" name={`${obj}.${key_col}`} value={key_opt}>
-                                  </Field>
+                                <li className="flex flex-row " key={key_opt}>
+                                  <Field className="flex flex-col" type="radio" name={`${obj}.${key_col}`} value={key_opt}>
 
-                                  <label htmlFor={key_col}>{grade_opt[key_opt]} </label>
+                                  </Field>
+                                  <label className="flex flex-col pl-3 text-sm font-semibold " htmlFor={key_col}>{grade_opt[key_opt]} </label>
                                 </li>)
                             })}
                           </ul>
@@ -239,16 +243,16 @@ const CreateGrade = ({ bg, students }) => {
                       return (<div key={key_col}>
                         <br />
                         <br />
-                        <h4>{value}</h4>
-                        <div>
-                          <ul className={styles.options}>
+                        <h4 className="text-blue-600 font-bold text-lg">{value}</h4>
+                        <div className="flex flex-row border-2 hover:border-blue-600 p-1">
+                          <ul>
                             {Object.keys(grade_opt).map((key_opt) => {
                               return (
-                                <li key={key_opt}>
-                                  <Field type="radio" name={`${obj}.${key_col}`} value={key_opt}>
+                                <li className="flex flex-row" key={key_opt}>
+                                  <Field className="flex flex-col " type="radio" name={`${obj}.${key_col}`} value={key_opt}>
                                   </Field>
 
-                                  <label htmlFor={key_col}>{grade_opt[key_opt]} </label>
+                                  <label className="flex flex-col pl-3 text-sm" htmlFor={key_col}>{grade_opt[key_opt]} </label>
                                 </li>)
                             })}
                           </ul>
@@ -278,16 +282,16 @@ const CreateGrade = ({ bg, students }) => {
                       return (<div key={key_col}>
                         <br />
                         <br />
-                        <h4>{value}</h4>
-                        <div>
-                          <ul className={styles.options}>
+                        <h4 className="text-blue-600 font-bold text-lg">{value}</h4>
+                        <div className="flex flex-row border-2 hover:border-blue-600 p-1">
+                          <ul>
                             {Object.keys(grade_opt).map((key_opt) => {
                               return (
-                                <li key={key_opt}>
-                                  <Field type="radio" name={`${obj}.${key_col}`} value={key_opt}>
+                                <li className="flex flex-row" key={key_opt}>
+                                  <Field className="flex flex-col " type="radio" name={`${obj}.${key_col}`} value={key_opt}>
                                   </Field>
 
-                                  <label htmlFor={key_col}>{grade_opt[key_opt]} </label>
+                                  <label className="flex flex-col pl-3 text-sm" htmlFor={key_col}>{grade_opt[key_opt]} </label>
                                 </li>)
                             })}
                           </ul>
@@ -325,11 +329,14 @@ const CreateGrade = ({ bg, students }) => {
             }
           </div>
         </form>
-        <div className="flex flex-col mr-20 border p-10">All students
+        <div className="flex flex-col p-10 w-3/12 shadow-xl shadow-slate-100 hover:shadow-slate-700 rounded-xl">
+        <h3 className="font-extrabold text-blue-600 text-center justify-center">All students</h3>
+        <div className="overflow-y-auto h-30">
           {students?.map((student) => {
             return (<>
+                    
 
-              <div className="p-1 m-2 border" key={student.student_id} onClick={(e) => {
+              <div className="p-2 mb-2 bg-yellow-100  hover:bg-yellow-200 rounded-xl w-11/12 " key={student.student_id} onClick={(e) => {
                 e.preventDefault();
                 setSelected(student);
                 formik.setFieldValue('studentDetails.student_id', student.student_id);
@@ -340,15 +347,14 @@ const CreateGrade = ({ bg, students }) => {
                 formik.setFieldValue('studentDetails.grade', student.grade);
               }}>
 
-                <p className="text-blue-700"> {student.f_name} {student.m_name} {student.l_name}</p>
+                <p className="text-blue-700 font-semibold text-center"> {student.f_name} {student.m_name} {student.l_name}</p>
               </div>
+              
             </>
 
             )
           })}
-
-
-
+          </div>
         </div>
       </div>
     </FormikProvider>

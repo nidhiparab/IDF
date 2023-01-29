@@ -1,6 +1,7 @@
-.options {
+/* .options {
   accent-color: red;
-}
+  
+} */
 /* }
 
 .options li {
@@ -20,22 +21,18 @@
   right: 0;
   bottom: 0;
 } */
-
-.options input[type="radio"] {
-  accent-color: red;
+.inp{
+  background-color: white;
+  border: solid 0.2px;
+  border-radius: 5px;
+  width: 80%;
+  margin-bottom: 1%;
+  padding: 0.7%;
 }
 
-/* .options input[type="radio"]:checked+label {
-  background: yellow;
+.inp:hover{
+  border: solid 2px;
+  border-color:rgb(42,112,222);
 }
 
-.options label {
-  padding: 5px;
-  border: 1px solid #CCC;
-  cursor: pointer;
-  z-index: 90;
-}
 
-.options label:hover {
-  background: #DDD;
-} */ 
