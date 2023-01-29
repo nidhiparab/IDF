@@ -1,8 +1,7 @@
 .options {
-  list-style-type: none;
-  margin: 25px 0 0 0;
-  padding: 0;
+  accent-color: red;
 }
+/* }
 
 .options li {
   float: left;
@@ -12,7 +11,7 @@
   position: relative;
 }
 
-.options label,
+/* .options label,
 .options input {
   display: block;
   position: absolute;
@@ -20,14 +19,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-}
+} */
 
 .options input[type="radio"] {
-  opacity: 0.011;
-  z-index: 100;
+  accent-color: red;
 }
 
-.options input[type="radio"]:checked+label {
+/* .options input[type="radio"]:checked+label {
   background: yellow;
 }
 
@@ -40,4 +38,4 @@
 
 .options label:hover {
   background: #DDD;
-}
+} */ 
