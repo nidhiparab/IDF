@@ -54,12 +54,12 @@ const Product = ({ balgurukul, students, users_list }) => {
 
 
           {/* HOD */}
-          <div className='mx-auto w-full h-auto mt-1 mb-5 p-6 bg-gradient-to-r from-blue-500 to-indigo-500 shadow-2xl shadow-slate-700 rounded-2xl'>
+          <div className='mx-auto w-full h-auto mt-1 mb-5 p-6 bg-gradient-to-r from-blue-500 to-indigo-500 shadow-xl shadow-slate-700 rounded-xl'>
             <div className='m-auto py-2'>
-              <span className=' text-3xl text-white font-semibold roun'>HOD</span>
+              <span className=' text-xl text-white font-semibold roun'>HOD</span>
             </div>
             {balgurukul.hod_users?.map((user, i) =>
-              <div key={i} className='m-auto pl-7 py-3/2 text-2xl text-white font-semibold'>
+              <div key={i} className='m-auto pl-7 py-3/2 text-xl text-white font-semibold'>
                 {user.title} {user.f_name} {user.l_name}
               </div>)}
             {session?.user.isAdmin ?
@@ -72,12 +72,12 @@ const Product = ({ balgurukul, students, users_list }) => {
 
 
           {/* SPOC */}
-          <div className='mx-auto w-full h-auto mt-1 mb-5 p-6 bg-gradient-to-r from-blue-500 to-indigo-500 shadow-2xl shadow-slate-700 rounded-2xl'>
+          <div className='mx-auto w-full h-auto mt-1 mb-5 p-6 bg-gradient-to-r from-blue-500 to-indigo-500 shadow-xl shadow-slate-700 rounded-xl'>
             <div className='m-auto py-2'>
-              <span className=' text-3xl text-white font-semibold roun'>SPOC</span>
+              <span className=' text-xl text-white font-semibold roun'>SPOC</span>
             </div>
             {balgurukul.spoc_users?.map((user, i) =>
-              <div key={i} className='m-auto pl-7 py-1 text-2xl text-white font-semibold'>
+              <div key={i} className='m-auto pl-7 py-1 text-xl text-white font-semibold'>
                 {user.title} {user.f_name} {user.l_name}
               </div>)}
             {(isHod || session?.user.isAdmin) ?
@@ -90,12 +90,12 @@ const Product = ({ balgurukul, students, users_list }) => {
 
 
           {/* Teacher */}
-          <div className='mx-auto w-full h-auto mt-1 mb-5 p-6 bg-gradient-to-r from-blue-500 to-indigo-500 shadow-2xl shadow-slate-700 rounded-2xl'>
+          <div className='mx-auto w-full h-auto mt-1 mb-5 p-6 bg-gradient-to-r from-blue-500 to-indigo-500 shadow-xl shadow-slate-700 rounded-xl'>
             <div className='m-auto py-2'>
-              <span className=' text-3xl text-white font-semibold roun'>Teachers</span>
+              <span className=' text-xl text-white font-semibold roun'>Teachers</span>
             </div>
             {balgurukul.teacher_users?.map((user, i) =>
-              <div key={i} className='m-auto pl-7 py-3/2 text-2xl text-white font-semibold'>
+              <div key={i} className='m-auto pl-7 py-3/2 text-xl text-white font-semibold'>
                 {user.title} {user.f_name} {user.l_name}
               </div>)}
             {(isHod || session?.user.isAdmin) ?
@@ -109,30 +109,30 @@ const Product = ({ balgurukul, students, users_list }) => {
         </div>
 
 
-        <div className='mr-auto w-auto pt-12 pl-12 flex flex-col justify-center items-start text-slate-900 text-3xl'>
+        <div className='mr-auto w-auto pt-12 pl-12 flex flex-col justify-center items-start text-slate-900 text-xl'>
           <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
-            <h3 className='text-4xl font-bold text-blue-600  mt-auto mb-3'>Partnering Organization</h3>
+            <h3 className='text-xl font-bold text-blue-600  mt-auto mb-3'>Partnering Organization</h3>
             <span className='mt-auto mb-2'>{balgurukul.partnering_org}</span>
           </div>
           <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
-            <h3 className='text-4xl font-bold text-blue-600  mt-auto mb-3'>Address</h3>
+            <h3 className='text-xl font-bold text-blue-600  mt-auto mb-3'>Address</h3>
             <span className='mt-auto mb-2'>{balgurukul.address}</span>
             <span className='mt-auto mb-2'>{balgurukul.district}</span>
             <span className='mt-auto mb-2'>{balgurukul.state}</span>
             <span className='mt-auto mb-2'>{balgurukul.pincode}</span>
           </div>
           <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
-            <h3 className='text-4xl font-bold text-blue-600  mt-auto mb-3'>Management</h3>
+            <h3 className='text-xl font-bold text-blue-600  mt-auto mb-3'>Management</h3>
             <span className='mt-auto mb-2'>{balgurukul.org_under_bg == "nan" ? <span></span> : balgurukul.org_under_bg}</span>
             <span className='mt-auto mb-2'>{balgurukul.phone == "nan" ? <span></span> : balgurukul.phone}</span>
             <span className='mt-auto mb-2'>{balgurukul.mail == "nan" ? <span></span> : 'Email: ' + balgurukul.mail}</span>
           </div>
 
 
-          <div className=' my-auto p-2 mr-auto w-auto pt-12 pl-12 flex flex-col justify-center items-start text-slate-900 text-3xl'>
-            <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Students</h3>
-            <table className="table-auto w-5/6 mx-auto ">
-              <thead>
+          <div className=' my-auto p-2 mr-auto w-auto pt-12 pl-12 flex flex-col justify-center items-start text-slate-900 text-xl'>
+            <h3 className='text-xl font-bold text-blue-600  mt-auto mb-3'>Students</h3>
+            <table className="table-auto">
+              <thead className="text-lg">
                 <tr className="bg-gray-300 text-gray-700">
                   <th className="px-4 py-2">Student Name</th>
                   <th className="px-4 py-2">Class</th>
