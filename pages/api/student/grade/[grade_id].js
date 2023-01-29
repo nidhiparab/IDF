@@ -3,7 +3,7 @@ import gradeConstants from '../../../../lib/grades';
 
 export default async function getGradeById(req, res) {
   
-  let finalResult = [];
+    let finalResult = [];
   let { grade_id } = req.query;
   let grades = await executeQuery({
     query: "SELECT *, DATE_FORMAT(`timestamp`, '%d-%m-%Y') as timestamp FROM `grade` WHERE `grade_id` = ?;",

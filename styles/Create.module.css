@@ -1,6 +1,6 @@
-/* ------------Create form ------------*/
+/* ------------Create form ------------
 .container_crt {
-    /* display: flex; */
+
     position: relative;
     max-width: 75%;
     width: 100%;
@@ -11,8 +11,7 @@
   
   .container_crt form {
     position: relative;
-    /* display: flex; */
-    /* margin-top: 2%; */
+
     min-height: 595px;
     background-color: rgb(165, 207, 242);
     box-shadow: 10px 50px 100px rgba(0, 0, 0, 0.1);
@@ -25,7 +24,7 @@
     font-weight: 500;
 
     color: rgba(11, 11, 11, 0.889);
-    /* margin: 3% 5%; */
+
     margin-bottom: 1%;
   }
   .container_crt form .fields {
@@ -103,4 +102,4 @@
       justify-content: center;
     }
   }
-  
+   */
