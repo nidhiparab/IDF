@@ -46,7 +46,7 @@ content-type: application/json
 {
   "student_id": "1",
   "bg_id": "AP001",
-  "exam": "IA1",
+  "exam": "IA2",
   "grade": "7",
   "grade_qualities":["O7","O2","O1","O5","O1","O1","O1","O3","O1","O1","O7","O1"],
   "grade_subjects":["O1","O2","O3","O1","O9"],
@@ -61,5 +61,5 @@ User-Agent: rest-client
 content-type: application/json
 
 {
-  "student_id": "1"
+  "min": true
 }
