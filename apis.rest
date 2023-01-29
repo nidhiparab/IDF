@@ -56,10 +56,4 @@ content-type: application/json
 }
 
 ###
-POST http://localhost:3000/api/student/grade/get HTTP/1.1
-User-Agent: rest-client
-content-type: application/json
-
-{
-  "min": true
-}
+GET http://localhost:3000/api/student/grade/1 HTTP/1.1
