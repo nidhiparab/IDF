@@ -12,5 +12,5 @@ export default class Bg {
     })
     return result;
   }
-  
+ 
 }
