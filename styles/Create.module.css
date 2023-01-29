@@ -12,7 +12,7 @@
   .container_crt form {
     position: relative;
     /* display: flex; */
-    margin-top: 2%;
+    /* margin-top: 2%; */
     min-height: 595px;
     background-color: rgb(165, 207, 242);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -21,21 +21,18 @@
   
   .container_crt form .title {
     display: block;
-    margin-bottom: 8px;
-    font-size: 16px;
+    font-size: 30px;
     font-weight: 500;
-    margin: 2%;
-    color: rgb(134, 129, 129);
+
+    color: rgba(11, 11, 11, 0.889);
     margin: 3% 5%;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 1%;
+    /* margin-bottom: 1%; */
   }
   .container_crt form .fields {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-  
+
     justify-content: space-around;
   }
   
