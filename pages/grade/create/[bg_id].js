@@ -8,7 +8,8 @@ import { useFormik, Field, FormikProvider } from 'formik';
 
 const CreateGrade = ({ bg, students }) => {
 
-  const [selected, setSelected] = useState(students? students[0]: null);
+
+  const [selected, setSelected] = useState(students[0]);
   const [studentDetails, setStudentDetails] = useState(true);
   const [qualities, setQualities] = useState(false);
   const [subject, setSubject] = useState(false);
@@ -208,14 +209,14 @@ const CreateGrade = ({ bg, students }) => {
                         <br />
                         <h4 className="text-blue-600 font-bold text-lg">{value}</h4>
                         <div className="border-2 hover:border-blue-600 p-1">
-                          <div className={ styles.radio_toolbar }>
+                          <div className={styles.radio_toolbar}>
                             {Object.keys(grade_opt).map((key_opt) => {
                               return (
                                 <>
-                                  <Field type="radio" id={ key_opt } name={`${obj}.${key_col}`} value={key_opt} key={`${obj}.${key_opt}`}>
+                                  <Field type="radio" id={key_opt} name={`${obj}.${key_col}`} value={key_opt} key={`${obj}.${key_opt}`}>
 
                                   </Field>
-                                  <label htmlFor={ key_opt } key={key_opt}>{grade_opt[key_opt]} </label>
+                                  <label htmlFor={key_opt} key={key_opt}>{grade_opt[key_opt]} </label>
                                 </>)
                             })}
                           </div>
@@ -243,13 +244,13 @@ const CreateGrade = ({ bg, students }) => {
                   <div>
                     <div>
                       <h5>Grades for Subjects </h5>
-                        <div>
+                      <div>
                         {Object.keys(grade_opt).map((key_opt) => {
                           return (<><h6>{grade_opt[key_opt]}</h6></>)
                         })}
-                        </div>
+                      </div>
                     </div>
-                  
+
                     {Object.keys(columns).map((key_col) => {
                       let value = columns[key_col];
                       return (<div key={key_col}>
@@ -257,14 +258,14 @@ const CreateGrade = ({ bg, students }) => {
                         <br />
                         <h4 className="text-blue-600 font-bold text-lg">{value}</h4>
                         <div className="border-2 hover:border-blue-600 p-1">
-                          <div className={ styles.radio_toolbar }>
+                          <div className={styles.radio_toolbar}>
                             {Object.keys(grade_opt).map((key_opt) => {
                               return (
                                 <>
-                                  <Field type="radio" id={ key_opt } name={`${obj}.${key_col}`} value={key_opt} key={`${obj}.${key_opt}`}>
+                                  <Field type="radio" id={key_opt} name={`${obj}.${key_col}`} value={key_opt} key={`${obj}.${key_opt}`}>
 
                                   </Field>
-                                  <label htmlFor={ key_opt } key={key_opt}>{grade_opt[key_opt].split(" (")[0]} </label>
+                                  <label htmlFor={key_opt} key={key_opt}>{grade_opt[key_opt].split(" (")[0]} </label>
                                 </>)
                             })}
                           </div>
@@ -296,14 +297,14 @@ const CreateGrade = ({ bg, students }) => {
                         <br />
                         <h4 className="text-blue-600 font-bold text-lg">{value}</h4>
                         <div className="border-2 hover:border-blue-600 p-1">
-                          <div className={ styles.radio_toolbar }>
+                          <div className={styles.radio_toolbar}>
                             {Object.keys(grade_opt).map((key_opt) => {
                               return (
                                 <>
-                                  <Field type="radio" id={ key_opt } name={`${obj}.${key_col}`} value={key_opt} key={`${obj}.${key_opt}`}>
+                                  <Field type="radio" id={key_opt} name={`${obj}.${key_col}`} value={key_opt} key={`${obj}.${key_opt}`}>
 
                                   </Field>
-                                  <label htmlFor={ key_opt } key={key_opt}>{grade_opt[key_opt]} </label>
+                                  <label htmlFor={key_opt} key={key_opt}>{grade_opt[key_opt]} </label>
                                 </>)
                             })}
                           </div>
@@ -379,6 +380,15 @@ export async function getServerSideProps({ params: { bg_id } }) {
   const stdnt = await fetch(`${baseUrl}/api/student/bg/${bg_id}`)
   const bg = await bg_data.json()
   const stdn = await stdnt.json()
+  if (stdn.length == 0) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/balgurukul/" + bg_id,
+      },
+      props: {},
+    };
+  }
   return {
     props: {
       bg,
