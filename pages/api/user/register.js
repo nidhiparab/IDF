@@ -29,19 +29,19 @@ export default async function registerUser(req, res) {
     values: [email]
   })
   if (duplicateEmail.length > 0) {
-    res.json({
+    res.status(401).json({
       error: 'User with this Email Id already exists'
     }); return
   }
   let insertDataAuth, insertDataUser
-
+  // await hash(password, 10)
   insertDataAuth = await executeQuery({
     query: "INSERT INTO `auth`(`user_id`, `email`, `hash`) VALUES (?,?,?);",
-    values: [user_id, email, await hash(password, 10)]
+    values: [user_id, email, password]
   })
   if (insertDataAuth.error) {
 
-    res.json({
+    res.status(402).json({
       error: insertDataAuth.error.sqlMessage
     });
     return
@@ -57,7 +57,7 @@ export default async function registerUser(req, res) {
     })
     if (insertDataUser.error) {
 
-    res.json({
+    res.status(402).json({
       error: insertDataUser.error.sqlMessage
     });
     return
@@ -65,7 +65,7 @@ export default async function registerUser(req, res) {
   }
 
 
-  res.json({ error: '' })
+  res.status(200).json({ error: 'None' })
 
 
 

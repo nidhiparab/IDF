@@ -7,9 +7,13 @@ import printStyles from '../styles/Print.module.css'
 
 const Navbar = () => {
   let { data: session } = useSession();
+  let isAdmin = session ? session.user.isAdmin : false;
+  let isHod = session ? session.user.hod.length > 0 : false;
+  let isTeacher = session ? session.user.teacher.length > 0 : false;
+  let isSpoc = session ? session.user.spoc.length > 0 : false;
   return (
     <nav className={printStyles.no_print}>
-      <div className={ `${styles.container} container` }>
+      <div className={`${styles.container} container`}>
         <div className={`${styles.navbar} navbar navbar-expand-lg navbar-light row `}>
           <div className="col col-lg-2">
             <div className="navbar-brand row">
@@ -35,7 +39,7 @@ const Navbar = () => {
                 Home
               </Link>
 
-              <div className="dropdown">
+              {isAdmin ? <div className="dropdown">
                 <Link href="/balgurukul" className="nav-link dropbtn">Balgurukul</Link>
                 <div className="dropdown-content">
                   <Link className="nav-link" href="/balgurukul/create" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New Balgurukul">
@@ -43,19 +47,27 @@ const Navbar = () => {
                   </Link>
                   {/* <Link href="#">Link 3</Link> */}
                 </div>
-              </div>
+              </div> : <><Link className="nav-link" aria-current="page" href="/balgurukul">
+                Balgurukul
+              </Link></>}
+
+
+
               <Link className="nav-link" aria-current="page" href="/profile/users">
                 Users
               </Link>
-              <div className="dropdown">
+
+              {(isAdmin || isHod || isTeacher || isSpoc) ? <div className="dropdown">
                 <Link href="/profile/students" className="nav-link dropbtn">Students</Link>
                 <div className="dropdown-content">
                   <Link className="nav-link" href="/profile/student/create" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New Student">
                     Create Student
                   </Link>
-                  {/* <Link href="#">Link 3</Link> */}
                 </div>
-              </div>
+              </div> : <><Link className="nav-link" aria-current="page" href="/profile/students">
+                Students
+              </Link></>}
+
               <Link className="nav-link" aria-current="page" href="/grade">
                 Grades
               </Link>
