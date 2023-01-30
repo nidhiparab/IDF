@@ -18,13 +18,13 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
   const [newCP, setNewCP] = useState('');
   const [error, setError] = useState('');
   
-  const [desgination, setDesignation] = useState('');
-  const [title, setTitle] = useState('');
-  const [f_name, setF_name] = useState('');
-  const [m_name, setM_name] = useState('');
-  const [l_name, setL_name] = useState('');
-  const [mob, setMob] = useState('');
-  const [qualification, setQuali] = useState('');
+  const [desgination, setDesignation] = useState(user.desgination);
+  const [title, setTitle] = useState(user.title);
+  const [f_name, setF_name] = useState(user.f_name);
+  const [m_name, setM_name] = useState(user.m_name);
+  const [l_name, setL_name] = useState(user.l_name);
+  const [mob, setMob] = useState(user.mob);
+  const [qualification, setQuali] = useState(user.qualification);
   
 
   const handleResetPasswordSubmit = async (event) => {
@@ -56,7 +56,7 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
     setResetPass(false)
 
   };
-  const handlUpdateSubmit = async (event) => {
+  const handleUpdateSubmit = async (event) => {
     event.preventDefault();
 
     // Prepare data to send to server
@@ -64,7 +64,7 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
 
     // Use fetch to make a POST request to server endpoint
 
-    const response = await fetch("/api/user/resetPass", {
+    const response = await fetch("/api/user/update", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -122,13 +122,33 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
           </div>
         </form>
       </CustomModal>
+      
+      
       <CustomModal show={update} onClose={() => setUpdate(false)} top='30%' left='20%'>
         <form onSubmit={handleUpdateSubmit} >
           <div className='m-10'>
             <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Update Details</h3>
             <div>
               <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Designation</label>
-              <input type="text" value={old} onChange={(e) => setOld(e.target.value)} />
+              <input type="text" value={desgination} onChange={(e) => setDesignation(e.target.value)} />
+              <br />
+              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Title</label>
+              <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+              <br />
+              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>First Name</label>
+              <input type="text" value={f_name} onChange={(e) => setF_name(e.target.value)} />
+              <br />
+              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Middle Name</label>
+              <input type="text" value={l_name} onChange={(e) => setM_name(e.target.value)} />
+              <br />
+              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Last Name</label>
+              <input type="text" value={m_name} onChange={(e) => setL_name(e.target.value)} />
+              <br />
+              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Mobile Number</label>
+              <input type="text" value={mob} onChange={(e) => setMob(e.target.value)} />
+              <br />
+              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Qualification</label>
+              <input type="text" value={qualification} onChange={(e) => setQuali(e.target.value)} />
               <br />
               
               <button type='submit'>Submit</button>
@@ -171,6 +191,8 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
           </div>
           { session?.user.user_id === user.user_id? <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
             <button className='mt-auto mb-2 text-3xl font-bold text-blue-600 ' onClick={() => setResetPass(true)}>Reset Password</button>
+            <br />
+            <button className='mt-auto mb-2 text-3xl font-bold text-blue-600 ' onClick={() => setUpdate(true)}>Update Profile</button>
           </div> : <></> }
          
         </div>
