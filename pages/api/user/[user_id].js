@@ -1,4 +1,3 @@
-import { loadStaticPaths } from 'next/dist/server/dev/static-paths-worker'
 import executeQuery from '../../../lib/db'
 
 export default async function byUserId(req, res) {
