@@ -101,30 +101,49 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
   // Designation Title First Middle Last 
   return (
     <>
-      <CustomModal show={resetPass} onClose={() => setResetPass(false)} top='30%' left='20%'>
-        <form onSubmit={handleResetPasswordSubmit} >
-          <div className='m-10'>
-            <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Reset Password</h3>
-            <div>
-              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Enter Old Password</label>
-              <input type="text" value={old} onChange={(e) => setOld(e.target.value)} />
-              <br />
-              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Enter New Password</label>
-              <input type="text" value={newP} onChange={(e) => setNewP(e.target.value)} />
-              <br />
-              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Confirm New Password</label>
-              <input type="text" value={newCP} onChange={(e) => setNewCP(e.target.value)} />
-              <br />
-              <button type='submit'>Submit</button>
-              <br />
-              <span>{error}</span>
-            </div>
-          </div>
-        </form>
+      <CustomModal show={resetPass} onClose={() => setResetPass(false)} top='20%' left='30%'>
+       
+        <div className="fixed items-center w-1/3 bg-white shadow-lg">
+  <div className="p-6">
+    <h3 className="text-3xl font-bold text-blue-600 mb-3">Reset Password</h3>
+    <form onSubmit={handleResetPasswordSubmit}>
+      <div className="mb-4">
+        <label className="block text-xl font-bold text-blue-600 mb-2">Old Password</label>
+        <input 
+          className="border border-black-600 w-full p-2 bg-white" 
+          type="text" 
+          value={old} 
+          onChange={(e) => setOld(e.target.value)} 
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-xl font-bold text-blue-600 mb-2">New Password</label>
+        <input 
+           className="border border-black-600 w-full p-2 bg-white"  
+          type="text"  
+          value={newP} 
+          onChange={(e) => setNewP(e.target.value)} 
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-xl font-bold text-blue-600 mb-2">Confirm New Password</label>
+        <input 
+            className="border border-black-600 w-full p-2 bg-white" 
+          type="text"  
+          value={newCP} 
+          onChange={(e) => setNewCP(e.target.value)} 
+        />
+      </div>
+      <button className="bg-blue-600 text-white p-2 w-full hover:bg-blue-700">Submit</button>
+      <span>{error}</span>
+    </form>
+  </div>
+</div>
+        
       </CustomModal>
       
       
-      <CustomModal show={update} onClose={() => setUpdate(false)} top='30%' left='20%'>
+      <CustomModal show={update} onClose={() => setUpdate(false)} top='10%' left='30%'>
         <form onSubmit={handleUpdateSubmit} >
           <div className='m-10'>
             <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Update Details</h3>
@@ -190,7 +209,7 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
             <span className='mt-auto mb-2'>{user?.mob}</span>
           </div>
           { session?.user.user_id === user.user_id? <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
-            <button className='mt-auto mb-2 text-3xl font-bold text-blue-600 ' onClick={() => setResetPass(true)}>Reset Password</button>
+            <button className='mt-auto mb-2 text-3xl font-bold text-blue-600 border-20' onClick={() => setResetPass(true)}>Reset Password</button>
             <br />
             <button className='mt-auto mb-2 text-3xl font-bold text-blue-600 ' onClick={() => setUpdate(true)}>Update Profile</button>
           </div> : <></> }
@@ -215,3 +234,6 @@ export async function getServerSideProps({ params: { user_id } }) {
 }
 
 export default UserProfile;
+
+
+ 
