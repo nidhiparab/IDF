@@ -66,7 +66,7 @@ const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreate
 
 
       <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
-        <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Results</h3>
+        <h3 className='text-3xl font-bold text-blue-600 px-10 mt-auto mb-3'>Results</h3>
 
         <table className="table-auto w-5/6 mx-auto">
           <thead>
