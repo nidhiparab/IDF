@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-// import styles from "../../idf/styles/Footer.module.css"
+import styles from "../../idf/styles/Footer.module.css"
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
@@ -10,7 +10,7 @@ import { FaYoutube } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-      <div className={ styles.footer }>
+      <div className={styles.footer}>
         {/*------------- Social media icons----- */}
         {/* <ul>
                     <p className="text-gray-800 font-bold text-3xl pb-6">

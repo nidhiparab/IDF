@@ -4,13 +4,14 @@ import baseUrl from "../helpers/baseUrl"
 import { useSession } from "next-auth/react";
 import Herosection from "../components/herosection";
 import Gallery from '../components/gallery';
+import Footer from "../components/Footer";
 
 export default function Home() {
   const { data: session, status } = useSession()
   // if (session) console.log(session);
   return (
     <div >
-    {/* container mx-auto px-4 */}
+ 
       <div className=" container mx-auto px-4">
       <h1 className=" mt-10 text-6xl font-extrabold text-center text-gray-900 mb-8 drop-shadow-lg">IDF Bal Gurukul</h1>
 
@@ -30,7 +31,7 @@ Education is of prime importance. IDF Bal Gurukul projects are a success proven 
     <Gallery/>
     </div>
 </div>
-
+<Footer/>
  
               
            {/* <Herosection /> */}
