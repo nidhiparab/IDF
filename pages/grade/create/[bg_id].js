@@ -120,11 +120,11 @@ const CreateGrade = ({ bg, students }) => {
 
   return (
     <FormikProvider value={formik}>
-    <div className='bg-blue-600 flex justify-center text-center h-60'>
+      <div className='bg-blue-600 flex justify-center text-center h-60'>
         <span className='m-auto text-5xl text-white font-extrabold'>Evaluate</span>
       </div>
 
-      <div className="flex flex-row justify-between m-5">
+      <div className="flex flex-row justify-between m-5 w-auto">
         <div className="flex flex-col p-20 shadow-xl shadow-slate-100 hover:shadow-slate-700 rounded-xl">Student
           <div>
             {!selected ? <></> : <>
@@ -143,35 +143,35 @@ const CreateGrade = ({ bg, students }) => {
           </div>
         </div>
         <form onSubmit={formik.handleSubmit}>
-          <div className="flex flex-col p-20 pt-10 shadow-xl shadow-slate-100 hover:shadow-slate-700 rounded-xl  ">
-        <h3 className="font-extrabold text-blue-600 text-center justify-center">Sections</h3>
-          
-          
-            <div className="flex flex-row ">
-              <div className={studentDetails?"flex flex-col border m-1 p-2 bg-blue-600 text-white font-semibold rounded-xl text-sm":"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "studentDetails") }}>Student Details</div>
-              <div className={qualities?"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white ":"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "qualities") }}>Qualities</div>
-              <div className={subject?"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white ":"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "subjects") }}>Academics</div>
-              <div className={intrests?"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white ":"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "intrests") }}>Intrests</div>
-              <div className={specifics?"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white ":"flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "specifics") }}>Specifics</div>
+          <div className="flex flex-col p-20 pt-10 shadow-xl shadow-slate-100 hover:shadow-slate-700 rounded-xl  w-auto">
+            <h3 className="font-extrabold text-blue-600 text-center justify-center">Sections</h3>
+
+
+            <div className="flex flex-row  ">
+              <div className={studentDetails ? "flex flex-col border m-1 p-2 bg-blue-600 text-white font-semibold rounded-xl text-sm" : "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "studentDetails") }}>Student Details</div>
+              <div className={qualities ? "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white " : "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "qualities") }}>Qualities</div>
+              <div className={subject ? "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white " : "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "subjects") }}>Academics</div>
+              <div className={intrests ? "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white " : "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "intrests") }}>Intrests</div>
+              <div className={specifics ? "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white " : "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "specifics") }}>Specifics</div>
             </div>
             {/* <OptionComponent isVisible={studentDetails} value={'grade_studentDetails'} ></OptionComponent> */}
             {!studentDetails ? <></> :
               <div className="justify-end">
                 <input type="text" hidden {...formik.getFieldProps('studentDetails.student_id')} />
                 <input type="text" hidden {...formik.getFieldProps('studentDetails.bg_id')} />
-                <label className=" text-blue-600 font-bold text-lg"  htmlFor="name">Exam </label>
+                <label className=" text-blue-600 font-bold text-lg" htmlFor="name">Exam </label>
                 <br />
                 <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.exam')} />
                 <br />
                 <label className="text-blue-600 font-bold text-lg" htmlFor="name">Name </label>
                 <br />
                 <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.f_name')} />
-                
+
                 <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.m_name')} />
-            
+
                 <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.l_name')} />
                 <br />
-                <label  className="text-blue-600 font-bold text-lg"htmlFor="grade">Grade</label>
+                <label className="text-blue-600 font-bold text-lg" htmlFor="grade">Grade</label>
                 <br />
                 <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.grade')} />
                 <br />
@@ -184,11 +184,11 @@ const CreateGrade = ({ bg, students }) => {
                 <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.gender')} />
                 <br />
                 <div className="  flex justify-center">
-                <button className="border-2 border-blue-200 w-full hover:bg-gradient-to-r from-blue-500 to-indigo-500 rounded-md py-3 hover:text-gray-50 text-lg" onClick={(e) => { e.preventDefault(); setStudentDetails(false); setQualities(true) }}>
-                  Next
-                </button>
+                  <button className="border-2 border-blue-200 w-full hover:bg-gradient-to-r from-blue-500 to-indigo-500 rounded-md py-3 hover:text-gray-50 text-lg" onClick={(e) => { e.preventDefault(); setStudentDetails(false); setQualities(true) }}>
+                    Next
+                  </button>
                 </div>
-                
+
               </div>
             }
             {(() => {
@@ -313,16 +313,16 @@ const CreateGrade = ({ bg, students }) => {
             {/* <OptionComponent isVisible={specifics} value={'grade_specifics'} ></OptionComponent> */}
             {!specifics ? <></> :
               <div>
-                <label  className="text-blue-600 font-bold text-lg pt-4" htmlFor="Q1">Is there any specific or extraordinary talent / quality in the child? Please specify. </label>
-                
+                <label className="text-blue-600 font-bold text-lg pt-4" htmlFor="Q1">Is there any specific or extraordinary talent / quality in the child? Please specify. </label>
+
                 <input className={styles.inp} type="textarea" {...formik.getFieldProps('grade_specifics.Q1')} />
-                
-                <label  className="text-blue-600 font-bold text-lg pt-4" htmlFor="grade">Is there any specific or unusual challenge or problem faced by the child? Kindly explain.</label>
-                
+
+                <label className="text-blue-600 font-bold text-lg pt-4" htmlFor="grade">Is there any specific or unusual challenge or problem faced by the child? Kindly explain.</label>
+
                 <input className={styles.inp} type="textarea" {...formik.getFieldProps('grade_specifics.Q2')} />
-                
-                <label  className="text-blue-600 font-bold text-lg pt-4" htmlFor="grade">Any specific action plan or suggestion with regard to the child? Please share.</label>
-                
+
+                <label className="text-blue-600 font-bold text-lg pt-4" htmlFor="grade">Any specific action plan or suggestion with regard to the child? Please share.</label>
+
                 <input className={styles.inp} type="textarea" {...formik.getFieldProps('grade_specifics.Q3')} />
                 <br />
                 <button className="border-2 border-blue-200 w-full hover:bg-emerald-600 rounded-md py-3 hover:text-gray-50 text-lg" type='submit'>
@@ -333,30 +333,30 @@ const CreateGrade = ({ bg, students }) => {
           </div>
         </form>
         <div className="flex flex-col p-10 w-3/12 shadow-xl shadow-slate-100 hover:shadow-slate-700 rounded-xl">
-        <h3 className="font-extrabold text-blue-600 text-center justify-center">All students</h3>
-        <div className="overflow-y-auto h-30">
-          {students?.map((student) => {
-            return (<>
-                    
+          <h3 className="font-extrabold text-blue-600 text-center justify-center">All students</h3>
+          <div className="overflow-y-auto h-30">
+            {students?.map((student) => {
+              return (<>
 
-              <div className="p-2 mb-2 bg-yellow-100  hover:bg-yellow-200 rounded-xl w-11/12 " key={student.student_id} onClick={(e) => {
-                e.preventDefault();
-                setSelected(student);
-                formik.setFieldValue('studentDetails.student_id', student.student_id);
-                formik.setFieldValue('studentDetails.bg_id', student.bg_id);
-                formik.setFieldValue('studentDetails.f_name', student.f_name);
-                formik.setFieldValue('studentDetails.m_name', student.m_name);
-                formik.setFieldValue('studentDetails.dob', student.dob);
-                formik.setFieldValue('studentDetails.grade', student.grade);
-              }}>
 
-                <p className="text-blue-700 font-semibold text-center"> {student.f_name} {student.m_name} {student.l_name}</p>
-              </div>
-              
-            </>
+                <div className="p-2 mb-2 bg-yellow-100  hover:bg-yellow-200 rounded-xl w-11/12 " key={student.student_id} onClick={(e) => {
+                  e.preventDefault();
+                  setSelected(student);
+                  formik.setFieldValue('studentDetails.student_id', student.student_id);
+                  formik.setFieldValue('studentDetails.bg_id', student.bg_id);
+                  formik.setFieldValue('studentDetails.f_name', student.f_name);
+                  formik.setFieldValue('studentDetails.m_name', student.m_name);
+                  formik.setFieldValue('studentDetails.dob', student.dob);
+                  formik.setFieldValue('studentDetails.grade', student.grade);
+                }}>
 
-            )
-          })}
+                  <p className="text-blue-700 font-semibold text-center"> {student.f_name} {student.m_name} {student.l_name}</p>
+                </div>
+
+              </>
+
+              )
+            })}
           </div>
         </div>
       </div>

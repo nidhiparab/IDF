@@ -155,6 +155,7 @@ const Product = ({ balgurukul, students, users_list }) => {
               </tbody>
             </table>
           </div>
+          <Link href={`/grade/create/${balgurukul.bg_id}`} as={`/grade/create/${balgurukul.bg_id}`} className="btn btn-primary">Grade Students</Link>
           <button className='delete' onClick={() => setOpenModal(true)}>Delete</button>
           <Link href={`update/${balgurukul.bg_id}`} as={`update/${balgurukul.bg_id}`} className="btn btn-primary">Update this page</Link>
         </div>
