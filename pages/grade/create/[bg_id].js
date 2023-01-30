@@ -207,18 +207,18 @@ const CreateGrade = ({ bg, students }) => {
                         <br />
                         <br />
                         <h4 className="text-blue-600 font-bold text-lg">{value}</h4>
-                        <div className="flex flex-row border-2 hover:border-blue-600 p-1">
-                          <ul >
+                        <div className="border-2 hover:border-blue-600 p-1">
+                          <div className={ styles.radio_toolbar }>
                             {Object.keys(grade_opt).map((key_opt) => {
                               return (
-                                <li className="flex flex-row " key={key_opt}>
-                                  <Field className="flex flex-col" type="radio" name={`${obj}.${key_col}`} value={key_opt}>
+                                <>
+                                  <Field type="radio" id={ key_opt } name={`${obj}.${key_col}`} value={key_opt} key={`${obj}.${key_opt}`}>
 
                                   </Field>
-                                  <label className="flex flex-col pl-3 text-sm font-semibold " htmlFor={key_col}>{grade_opt[key_opt]} </label>
-                                </li>)
+                                  <label htmlFor={ key_opt } key={key_opt}>{grade_opt[key_opt]} </label>
+                                </>)
                             })}
-                          </ul>
+                          </div>
                         </div>
 
                       </div>)
@@ -241,24 +241,33 @@ const CreateGrade = ({ bg, students }) => {
                 let grade_opt = gradeOptions.options;
                 return (
                   <div>
+                    <div>
+                      <h5>Grades for Subjects </h5>
+                        <div>
+                        {Object.keys(grade_opt).map((key_opt) => {
+                          return (<><h6>{grade_opt[key_opt]}</h6></>)
+                        })}
+                        </div>
+                    </div>
+                  
                     {Object.keys(columns).map((key_col) => {
                       let value = columns[key_col];
                       return (<div key={key_col}>
                         <br />
                         <br />
                         <h4 className="text-blue-600 font-bold text-lg">{value}</h4>
-                        <div className="flex flex-row border-2 hover:border-blue-600 p-1">
-                          <ul>
+                        <div className="border-2 hover:border-blue-600 p-1">
+                          <div className={ styles.radio_toolbar }>
                             {Object.keys(grade_opt).map((key_opt) => {
                               return (
-                                <li className="flex flex-row" key={key_opt}>
-                                  <Field className="flex flex-col " type="radio" name={`${obj}.${key_col}`} value={key_opt}>
-                                  </Field>
+                                <>
+                                  <Field type="radio" id={ key_opt } name={`${obj}.${key_col}`} value={key_opt} key={`${obj}.${key_opt}`}>
 
-                                  <label className="flex flex-col pl-3 text-sm" htmlFor={key_col}>{grade_opt[key_opt]} </label>
-                                </li>)
+                                  </Field>
+                                  <label htmlFor={ key_opt } key={key_opt}>{grade_opt[key_opt].split(" (")[0]} </label>
+                                </>)
                             })}
-                          </ul>
+                          </div>
                         </div>
 
                       </div>)
@@ -286,18 +295,18 @@ const CreateGrade = ({ bg, students }) => {
                         <br />
                         <br />
                         <h4 className="text-blue-600 font-bold text-lg">{value}</h4>
-                        <div className="flex flex-row border-2 hover:border-blue-600 p-1">
-                          <ul>
+                        <div className="border-2 hover:border-blue-600 p-1">
+                          <div className={ styles.radio_toolbar }>
                             {Object.keys(grade_opt).map((key_opt) => {
                               return (
-                                <li className="flex flex-row" key={key_opt}>
-                                  <Field className="flex flex-col " type="radio" name={`${obj}.${key_col}`} value={key_opt}>
-                                  </Field>
+                                <>
+                                  <Field type="radio" id={ key_opt } name={`${obj}.${key_col}`} value={key_opt} key={`${obj}.${key_opt}`}>
 
-                                  <label className="flex flex-col pl-3 text-sm" htmlFor={key_col}>{grade_opt[key_opt]} </label>
-                                </li>)
+                                  </Field>
+                                  <label htmlFor={ key_opt } key={key_opt}>{grade_opt[key_opt]} </label>
+                                </>)
                             })}
-                          </ul>
+                          </div>
                         </div>
 
                       </div>)
