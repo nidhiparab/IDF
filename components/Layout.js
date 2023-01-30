@@ -2,6 +2,7 @@ import Navbar from "./Navbar"
 import Head from 'next/head'
 import Footer from "./Footer"
 import Herosection from "./herosection"
+import Home from "../pages"
 const Layout = ({ children }) => {
   return (
     <>
@@ -12,7 +13,6 @@ const Layout = ({ children }) => {
       </Head>
       <Navbar />
       {children}             {/*--------------content of the page----------------*/}
-     
       {/* <Footer /> */}
     </>
   )
