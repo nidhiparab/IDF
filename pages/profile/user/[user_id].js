@@ -1,8 +1,53 @@
 import React from 'react';
 import baseUrl from '../../../helpers/baseUrl';
 import Link from 'next/link';
+import { useSession } from "next-auth/react";
+import { useState } from 'react';
+
+import CustomModal from '../../../components/Modals/CustomModal';
+
 
 const UserProfile = ({ user, hod, spoc, teacher }) => {
+
+  const { data: session, status } = useSession()
+
+  const [resetPass, setResetPass] = useState(false);
+  const [update, setUpdate] = useState(false);
+  const [old, setOld] = useState('');
+  const [newP, setNewP] = useState('');
+  const [newCP, setNewCP] = useState('');
+  const [error, setError] = useState('');
+
+  const handleResetPasswordSubmit = async (event) => {
+    event.preventDefault();
+
+    if (newP !== newCP) return setError('New Password and Confirm Password do not match')
+    if (newP.length < 8) return setError('Password must be atleast 8 characters long')
+
+
+    // Prepare data to send to server
+    const data = { user_id: session.user.user_id, user_email: session.user.email, newPass: newP, oldPass: old };
+
+    // Use fetch to make a POST request to server endpoint
+
+    const response = await fetch("/api/user/resetPass", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    let res = await response.json();
+    
+    if(res.error) return setError(res.error)
+    
+    // Do something with successful response
+    setError('')
+    setOld('')
+    setNewP('')
+    setNewCP('')
+    setResetPass(false)
+
+  };
+
   // User Object
   //   desgination
   //   email
@@ -13,21 +58,40 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
   //   qualification
   //   title
   //   user_id
-  
+
   // hod Object
   //   bg_id
   //   bg_name
   // SAME FOR SPOC AND TEACHER
-  
+
   // Designation Title First Middle Last 
-    return (
+  return (
     <>
-    
-    <div className='bg-blue-600 flex justify-center text-center h-60'>
+      <CustomModal show={resetPass} onClose={() => setResetPass(false)} top='30%' left='20%'>
+        <form onSubmit={handleResetPasswordSubmit} >
+          <div className='m-10'>
+            <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Reset Password</h3>
+            <div>
+              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Enter Old Password</label>
+              <input type="text" value={old} onChange={(e) => setOld(e.target.value)} />
+              <br />
+              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Enter New Password</label>
+              <input type="text" value={newP} onChange={(e) => setNewP(e.target.value)} />
+              <br />
+              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Confirm New Password</label>
+              <input type="text" value={newCP} onChange={(e) => setNewCP(e.target.value)} />
+              <br />
+              <button type='submit'>Submit</button>
+              <span>{error}</span>
+            </div>
+          </div>
+        </form>
+      </CustomModal>
+      <div className='bg-blue-600 flex justify-center text-center h-60'>
         <span className='m-auto text-5xl text-white font-extrabold'>Profile Page</span>
       </div>
       <div className="m-20 p-20 items-center shadow-2xl shadow-slate-700 rounded-2xl">
-      <div className=' text-2xl'>
+        <div className=' text-2xl'>
           <div className='justify-between p-2'>
             <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Name</h3>
             <span className='mt-auto mb-2'>{user?.title} {user?.f_name} {user?.m_name} {user?.l_name}</span>
@@ -38,12 +102,12 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
           </div>
           <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
             <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Assigned Balgurukul</h3>
-              {hod.length > 0 ? <span className='text-2xl font-bold text-blue-600  mt-auto mb-3 ml-5'> As HOD</span> : <span></span>}
-              {hod.length > 0 && hod.map((bg) => { return (<span className='mt-auto mb-2 ml-10' key={bg.bg_id}><Link href={`/balgurukul/${bg.bg_id}`}>{ bg.bg_name }</Link></span>)})}
-              {spoc.length > 0 ? <span className='text-2xl font-bold text-blue-600  mt-auto mb-3 ml-5'> As SPOC</span> : <span></span>}
-              {spoc.length > 0 && spoc.map((bg) => { return (<span className='mt-auto mb-2 ml-10' key={bg.bg_id}><Link href={`/balgurukul/${bg.bg_id}`}>{ bg.bg_name }</Link></span>)})}
-              {teacher.length > 0 ? <span className='text-2xl font-bold text-blue-600  mt-auto mb-3 ml-5'> As Teacher</span> : <span></span>}
-              {teacher.length > 0 && teacher.map((bg) => { return (<span className='mt-auto mb-2 ml-10' key={bg.bg_id}><Link href={`/balgurukul/${bg.bg_id}`}>{ bg.bg_name }</Link></span>)})}
+            {hod.length > 0 ? <span className='text-2xl font-bold text-blue-600  mt-auto mb-3 ml-5'> As HOD</span> : <span></span>}
+            {hod.length > 0 && hod.map((bg) => { return (<span className='mt-auto mb-2 ml-10' key={bg.bg_id}><Link href={`/balgurukul/${bg.bg_id}`}>{bg.bg_name}</Link></span>) })}
+            {spoc.length > 0 ? <span className='text-2xl font-bold text-blue-600  mt-auto mb-3 ml-5'> As SPOC</span> : <span></span>}
+            {spoc.length > 0 && spoc.map((bg) => { return (<span className='mt-auto mb-2 ml-10' key={bg.bg_id}><Link href={`/balgurukul/${bg.bg_id}`}>{bg.bg_name}</Link></span>) })}
+            {teacher.length > 0 ? <span className='text-2xl font-bold text-blue-600  mt-auto mb-3 ml-5'> As Teacher</span> : <span></span>}
+            {teacher.length > 0 && teacher.map((bg) => { return (<span className='mt-auto mb-2 ml-10' key={bg.bg_id}><Link href={`/balgurukul/${bg.bg_id}`}>{bg.bg_name}</Link></span>) })}
           </div>
           <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
             <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Qualification</h3>
@@ -54,8 +118,12 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
             <span className='mt-auto mb-2'>{user?.email}</span>
             <span className='mt-auto mb-2'>{user?.mob}</span>
           </div>
-          </div>
-          </div>
+          { session?.user.user_id === user.user_id? <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
+            <button className='mt-auto mb-2 text-3xl font-bold text-blue-600 ' onClick={() => setResetPass(true)}>Reset Password</button>
+          </div> : <></> }
+         
+        </div>
+      </div>
     </>
   );
 }

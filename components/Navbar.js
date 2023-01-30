@@ -37,9 +37,6 @@ const Navbar = () => {
               <div className="dropdown">
                 <Link href="/balgurukul" className="nav-link dropbtn">Balgurukul</Link>
                 <div className="dropdown-content">
-                  <Link className="nav-link" href="/balgurukul">
-                    See all Balgurukuls
-                  </Link>
                   <Link className="nav-link" href="/balgurukul/create" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New Balgurukul">
                     Create Balgurukul
                   </Link>
@@ -49,9 +46,15 @@ const Navbar = () => {
               <Link className="nav-link" aria-current="page" href="/profile/users">
                 Users
               </Link>
-              <Link className="nav-link" aria-current="page" href="/profile/students">
-                Students
-              </Link>
+              <div className="dropdown">
+                <Link href="/profile/students" className="nav-link dropbtn">Students</Link>
+                <div className="dropdown-content">
+                  <Link className="nav-link" href="/profile/student/create" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New Student">
+                    Create Student
+                  </Link>
+                  {/* <Link href="#">Link 3</Link> */}
+                </div>
+              </div>
               <Link className="nav-link" aria-current="page" href="/grade">
                 Grades
               </Link>
