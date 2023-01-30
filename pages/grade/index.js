@@ -48,15 +48,15 @@ const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreate
   return (
     <div>
 <div className="p-4 d-inline-flex space-x-4">
-  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" value={student_id_val == null  || student_id_val == 'null'? '' : student_id_val} onChange={(e) => setStudent_id(e.target.value)} />
+  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" placeholder='Student Id' value={student_id_val == null  || student_id_val == 'null'? '' : student_id_val} onChange={(e) => setStudent_id(e.target.value)} />
   <br />
-  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" value={bg_id_val == null  || bg_id_val == 'null'? '' : bg_id_val} onChange={(e) => setBg_id(e.target.value)} />
+  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text"  placeholder='Balgurukul Id' value={bg_id_val == null  || bg_id_val == 'null'? '' : bg_id_val} onChange={(e) => setBg_id(e.target.value)} />
   <br />
-  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" value={exam_val == null  || exam_val == 'null'? '' : exam_val} onChange={(e) => setExam(e.target.value)} />
+  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" placeholder='Exam' value={exam_val == null  || exam_val == 'null'? '' : exam_val} onChange={(e) => setExam(e.target.value)} />
   <br />
-  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" value={grade_val == null  || grade_val == 'null'? '' : grade_val} onChange={(e) => setGrade(e.target.value)} />
+  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text"  placeholder='Class' value={grade_val == null  || grade_val == 'null'? '' : grade_val} onChange={(e) => setGrade(e.target.value)} />
   <br />
-  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="date" value={dateGreater_val == null  || dateGreater_val == 'null'? '' : dateGreater_val} onChange={(e) => setDateGreater(e.target.value)} />
+  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="date"  value={dateGreater_val == null  || dateGreater_val == 'null'? '' : dateGreater_val} onChange={(e) => setDateGreater(e.target.value)} />
   <br />
   <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="date" value={dateLesser_val == null  || dateLesser_val == 'null'? '' : dateLesser_val} onChange={(e) => setDateLesser(e.target.value)} />
   <br />
