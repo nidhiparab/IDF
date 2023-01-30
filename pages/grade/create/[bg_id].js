@@ -8,7 +8,7 @@ import { useFormik, Field, FormikProvider } from 'formik';
 
 const CreateGrade = ({ bg, students }) => {
 
-  const [selected, setSelected] = useState(students[0]);
+  const [selected, setSelected] = useState(students? students[0]: null);
   const [studentDetails, setStudentDetails] = useState(true);
   const [qualities, setQualities] = useState(false);
   const [subject, setSubject] = useState(false);
