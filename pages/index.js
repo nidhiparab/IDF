@@ -11,7 +11,7 @@ export default function Home() {
     <div >
     {/* container mx-auto px-4 */}
       <div className=" container mx-auto px-4">
-      <h1 className=" mt-10 text-6xl font-extrabold text-center text-gray-900 mb-8">IDF Bal Gurukul</h1>
+      <h1 className=" mt-10 text-6xl font-extrabold text-center text-gray-900 mb-8 drop-shadow-lg">IDF Bal Gurukul</h1>
 
 <div className="flex">
   <div className="w-1/2 mr-8 border-solid border-2 border-white">
