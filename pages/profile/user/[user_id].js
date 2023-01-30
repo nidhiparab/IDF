@@ -17,6 +17,15 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
   const [newP, setNewP] = useState('');
   const [newCP, setNewCP] = useState('');
   const [error, setError] = useState('');
+  
+  const [desgination, setDesignation] = useState('');
+  const [title, setTitle] = useState('');
+  const [f_name, setF_name] = useState('');
+  const [m_name, setM_name] = useState('');
+  const [l_name, setL_name] = useState('');
+  const [mob, setMob] = useState('');
+  const [qualification, setQuali] = useState('');
+  
 
   const handleResetPasswordSubmit = async (event) => {
     event.preventDefault();
@@ -27,6 +36,31 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
 
     // Prepare data to send to server
     const data = { user_id: session.user.user_id, user_email: session.user.email, newPass: newP, oldPass: old };
+
+    // Use fetch to make a POST request to server endpoint
+
+    const response = await fetch("/api/user/resetPass", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    let res = await response.json();
+    
+    if(res.error) return setError(res.error)
+    
+    // Do something with successful response
+    setError('')
+    setOld('')
+    setNewP('')
+    setNewCP('')
+    setResetPass(false)
+
+  };
+  const handlUpdateSubmit = async (event) => {
+    event.preventDefault();
+
+    // Prepare data to send to server
+    const data = { user_id: session.user.user_id, desgination, title, f_name, m_name, l_name, mob, qualification };
 
     // Use fetch to make a POST request to server endpoint
 
@@ -82,6 +116,23 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
               <input type="text" value={newCP} onChange={(e) => setNewCP(e.target.value)} />
               <br />
               <button type='submit'>Submit</button>
+              <br />
+              <span>{error}</span>
+            </div>
+          </div>
+        </form>
+      </CustomModal>
+      <CustomModal show={update} onClose={() => setUpdate(false)} top='30%' left='20%'>
+        <form onSubmit={handleUpdateSubmit} >
+          <div className='m-10'>
+            <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Update Details</h3>
+            <div>
+              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Designation</label>
+              <input type="text" value={old} onChange={(e) => setOld(e.target.value)} />
+              <br />
+              
+              <button type='submit'>Submit</button>
+              <br />
               <span>{error}</span>
             </div>
           </div>
