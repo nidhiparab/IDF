@@ -1,5 +1,5 @@
 import executeQuery from '../../../lib/db';
-import { getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/react';
 
 //------------API for adding new bg to database
 

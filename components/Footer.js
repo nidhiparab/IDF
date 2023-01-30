@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import styles from "../../idf/styles/Footer.module.css"
+// import styles from "../../idf/styles/Footer.module.css"
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
