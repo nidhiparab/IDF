@@ -9,7 +9,7 @@ const GradeId = ({ grade }) => {
 <>
 
 <div className='bg-blue-600 flex justify-center text-center h-60'>
-        <span className= 'm-auto text-5xl text-white font-extrabold'>Student's Details</span>
+        <span className='m-auto text-5xl text-white font-extrabold'>Student{`'`}s Details</span>
       </div>
 
 <div className="m-20 p-10 items-center shadow-xl shadow-slate-300 rounded-2xl">
@@ -30,7 +30,7 @@ const GradeId = ({ grade }) => {
  </div>
      
      <div className='m-20 p-10 items-center shadow-xl shadow-slate-300 rounded-2xl'>
-     <h1 className='text-center font-bold text-blue-600' >Student's Qualities and Abilities</h1>
+     <h1 className='text-center font-bold text-blue-600' >Student{`'`}s Qualities and Abilities</h1>
 <table className="table-auto w-full text-left mt-4">
   <thead className="bg-gray-800 text-black">
   <tr className="bg-blue-400 font-bold text-center ">
@@ -42,7 +42,7 @@ const GradeId = ({ grade }) => {
     {Object.keys(grade.grade_qualities).map(function (key) {
       let value = grade.grade_qualities[key];
       return (
-        <tr className="bg-white ">
+        <tr className="bg-white " key={key}>
             <td className="border px-4 py-2  font-bold">{key}</td>
           <td className="border px-4 py-2">{value}</td>
         </tr>
@@ -53,7 +53,7 @@ const GradeId = ({ grade }) => {
      </div>
 
      <div className='m-20 p-10 items-center shadow-xl shadow-slate-300 rounded-2xl'>
-       <h1 className='text-center font-bold text-blue-600' > Subject Knowledge - Based on previous exam or the teacher's observation</h1>
+       <h1 className='text-center font-bold text-blue-600' > Subject Knowledge - Based on previous exam or the teacher{`'`}s observation</h1>
      <table className="table-auto w-full text-left mt-4">
      <thead className="bg-gray-800 text-black">
      <tr className="bg-blue-400 font-bold text-center ">
@@ -65,7 +65,7 @@ const GradeId = ({ grade }) => {
     {Object.keys(grade.grade_subjects).map(function (key) {
       let value = grade.grade_subjects[key];
       return (
-        <tr className="bg-white ">
+        <tr className="bg-white " key={key}>
             <td className="border px-4 py-2  font-bold">{key}</td>
           <td className="border px-4 py-2">{value}</td>
         </tr>
@@ -87,7 +87,7 @@ const GradeId = ({ grade }) => {
     {Object.keys(grade.grade_intrests).map(function (key) {
       let value = grade.grade_intrests[key];
       return (
-        <tr className="bg-white ">
+        <tr className="bg-white " key={key}>
               <td className="border px-4 py-2  font-bold">{key}</td>
           <td className="border px-4 py-2">{value}</td>
         </tr>
