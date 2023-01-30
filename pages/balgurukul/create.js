@@ -55,7 +55,7 @@ const Create = () => {
   // console.log(bg_name, partnering_org, state, district, region, pincode, org_under_bg, phone, mail);
 
   return (
-    <div className="mx-auto items-center shadow-2xl shadow-slate-700 rounded-2xl w-2/3">
+    <div className="mx-auto p-20 items-center shadow-2xl shadow-slate-700 rounded-2xl w-2/3">
       <form action="#" onSubmit={(e) => handleSubmit(e)}>
           
         <h4 className="font-bold">Details</h4>
