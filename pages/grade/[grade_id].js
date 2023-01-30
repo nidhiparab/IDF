@@ -143,35 +143,3 @@ export async function getServerSideProps({ params: { grade_id } }) {
 export default GradeId;
 
 
-
- {/* <div>
-   <h1 className='text-center font-bold text-blue-600' >Student's Qualities and Abilities</h1>
-        {Object.keys(grade.grade_qualities).map(function (key) {
-          let value = grade.grade_qualities[key];
-          return <p key={key}>{key}: {value}</p>
-        })}
-      </div>
-      
-      
-      <div >
-      <h1 >Subject Knowledge - Based on previous exam or the teacher's observation</h1>
-        {Object.keys(grade.grade_subjects).map(function (key) {
-          let value = grade.grade_subjects[key];
-          return <p key={key} >{key}: {value}</p>
-        })}
-      </div>
-      <div >
-      <h1 >Interest and involvement in Co-curricular Activities</h1>
-        {Object.keys(grade.grade_intrests).map(function (key) {
-          let value = grade.grade_intrests[key];
-          return <p key={key} >{key}: {value}</p>
-        })}
-      </div>
-      <div >
-      <h1 >
-      
-        {Object.keys(grade.grade_specifics).map(function (key) {
-          let value = grade.grade_specifics[key];
-          return <p key={key}>{key}: {value}</p>
-        })}
-      </div> */}
