@@ -1,9 +1,9 @@
 import { getSession } from "next-auth/react"
 import executeQuery from "../../lib/db"
+import { hash } from 'bcryptjs';
+
+
 export default async function Test(req, res) {
-  let result = await executeQuery({
-    query: "SELECT *, DATE_FORMAT(`timestamp`, '%d-%m-%Y') as timestamp FROM `grade` WHERE `student_id` = '1';",
-    values: []
-  })
-  res.json(result)
+  let hashs = await hash("IDF@pass2023", 10)
+  res.json({hashs})
 }

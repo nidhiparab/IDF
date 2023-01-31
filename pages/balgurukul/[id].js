@@ -12,7 +12,9 @@ const Product = ({ balgurukul, students, users_list }) => {
   const { data: session } = useSession()
   const [openModal, setOpenModal] = useState(false)
   const isHod = session?.user.hod.includes(balgurukul.bg_id)
-
+  const isSpoc = session?.user.spoc.includes(balgurukul.bg_id)
+  const isAdmin = session?.user.isAdmin
+  const isTeacher = session?.user.teacher.includes(balgurukul.bg_id)
   const bgDelete = async (bg_id) => {
     const res = await fetch(`${baseUrl}/api/balgurukul/delete`, {
 
@@ -58,11 +60,13 @@ const Product = ({ balgurukul, students, users_list }) => {
             <div className='m-auto py-2'>
               <span className=' text-xl text-white font-semibold roun'>HOD</span>
             </div>
+            <div className='flex flex-col m-auto'>
             {balgurukul.hod_users?.map((user, i) =>
-              <div key={i} className='m-auto pl-7 py-3/2 text-xl text-white font-semibold'>
+              <Link key={i} href={`/profile/user/${user.user_id}`} className=' pl-7 py-3/2 text-xl text-white font-semibold'>
                 {user.title} {user.f_name} {user.l_name}
-              </div>)}
-            {session?.user.isAdmin ?
+              </Link>)}
+            </div>
+            {isAdmin ?
               <div className='m-auto py-2'>
                 <Manage user='hod' users={balgurukul.hod_users} users_list={users_list} bg_id={balgurukul.bg_id} ></Manage>
               </div>
@@ -76,11 +80,13 @@ const Product = ({ balgurukul, students, users_list }) => {
             <div className='m-auto py-2'>
               <span className=' text-xl text-white font-semibold roun'>SPOC</span>
             </div>
-            {balgurukul.spoc_users?.map((user, i) =>
-              <div key={i} className='m-auto pl-7 py-1 text-xl text-white font-semibold'>
-                {user.title} {user.f_name} {user.l_name}
-              </div>)}
-            {(isHod || session?.user.isAdmin) ?
+            <div className='flex flex-col m-auto'>
+              {balgurukul.spoc_users?.map((user, i) =>
+                <Link href={`/profile/user/${user.user_id}`} key={i} className=' pl-7 py-1 text-xl text-white font-semibold'>
+                  {user.title} {user.f_name} {user.l_name}
+                </Link>)}
+            </div>
+            {isAdmin || isHod ?
               <div className='m-auto py-2'>
                 <Manage user='spoc' users={balgurukul.spoc_users} users_list={users_list} bg_id={balgurukul.bg_id}></Manage>
               </div>
@@ -94,11 +100,13 @@ const Product = ({ balgurukul, students, users_list }) => {
             <div className='m-auto py-2'>
               <span className=' text-xl text-white font-semibold roun'>Teachers</span>
             </div>
+            <div className='flex flex-col m-auto'>
             {balgurukul.teacher_users?.map((user, i) =>
-              <div key={i} className='m-auto pl-7 py-3/2 text-xl text-white font-semibold'>
+              <Link href={`/profile/user/${user.user_id}`} key={i} className='pl-7 py-3/2 text-xl text-white font-semibold'>
                 {user.title} {user.f_name} {user.l_name}
-              </div>)}
-            {(isHod || session?.user.isAdmin) ?
+              </Link>)}
+            </div>
+            {isAdmin || isHod ?
               <div className='m-auto py-2'>
                 <Manage user='teacher' users={balgurukul.teacher_users} users_list={users_list} bg_id={balgurukul.bg_id}></Manage>
               </div>
@@ -155,9 +163,9 @@ const Product = ({ balgurukul, students, users_list }) => {
               </tbody>
             </table>
           </div>
-          <Link href={`/grade/create/${balgurukul.bg_id}`} as={`/grade/create/${balgurukul.bg_id}`} className="btn btn-primary">Grade Students</Link>
-          <button className='delete ' onClick={() => setOpenModal(true)}>Delete</button>
-          <Link href={`update/${balgurukul.bg_id}`} as={`update/${balgurukul.bg_id}`} className="btn btn-primary">Update this page</Link>
+          {isAdmin ? <button className='delete m-2' onClick={() => setOpenModal(true)}>Delete</button> : <></>}
+          {(isAdmin || isHod) ? <Link href={`update/${balgurukul.bg_id}`} as={`update/${balgurukul.bg_id}`} className="btn btn-primary  m-2">Update this Balgurukul</Link> : <></>}
+          {(isAdmin || isHod || isTeacher) ? <Link href={`/grade/create/${balgurukul.bg_id}`} as={`/grade/create/${balgurukul.bg_id}`} className="btn btn-primary  m-2">Grade Students</Link> : <></>}
         </div>
       </div>
 
