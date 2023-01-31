@@ -43,6 +43,7 @@ const StudentRegistrationForm = () => {
           <input
             className="  w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
+            placeholder="First Name"
             value={firstName}
             onChange={(event) => setFirstName(event.target.value)}
           />
@@ -53,6 +54,7 @@ const StudentRegistrationForm = () => {
           <input
             className="  w-full py-3 px-4  my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
+            placeholder="Middle Name"
             value={middleName}
             onChange={(event) => setMiddleName(event.target.value)}
           />
@@ -63,6 +65,7 @@ const StudentRegistrationForm = () => {
           <input
             className="  w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
+            placeholder="Last Name"
             value={lastName}
             onChange={(event) => setLastName(event.target.value)}
           />

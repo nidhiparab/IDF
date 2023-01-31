@@ -41,7 +41,7 @@ const GradeId = ({ grade }) => {
       </div>
       <div className={printStyles.padd2} ></div>
       <div className={`m-20 p-10 items-center shadow-xl shadow-slate-300 rounded-2xl ${printStyles.no_shadow} `}>
-        <h1 className='text-center font-bold text-blue-600' >Student{`'`}s Qualities and Abilities</h1>
+        <h1 className='text-center font-bold text-blue-600 text-justify ' >Student{`'`}s Qualities and Abilities</h1>
         <table className="table-auto w-full text-left mt-4">
           <thead className="bg-gray-800 text-black">
             <tr className="bg-blue-400 font-bold text-center ">
@@ -64,7 +64,7 @@ const GradeId = ({ grade }) => {
       </div>
       <div className={printStyles.padd3} ></div>
       <div className={`m-20 p-10 items-center shadow-xl shadow-slate-300 rounded-2xl ${printStyles.no_shadow} `}>
-        <h1 className='text-center font-bold text-blue-600' > Subject Knowledge - Based on previous exam or the teacher{`'`}s observation</h1>
+        <h1 className='text-center font-bold text-blue-600 text-justify' > Subject Knowledge - Based on previous exam or the teacher{`'`}s observation</h1>
         <table className="table-auto w-full text-left mt-4">
           <thead className="bg-gray-800 text-black">
             <tr className="bg-blue-400 font-bold text-center ">

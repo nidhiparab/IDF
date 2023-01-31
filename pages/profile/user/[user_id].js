@@ -101,7 +101,7 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
   // Designation Title First Middle Last 
   return (
     <>
-      <CustomModal show={resetPass} onClose={() => setResetPass(false)} top='20%' left='30%'>
+      <CustomModal show={resetPass} onClose={() => setResetPass(false)}  left='30%'>
        
         <div className="fixed items-center w-1/3 bg-white shadow-lg">
   <div className="p-6">
@@ -134,7 +134,7 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
           onChange={(e) => setNewCP(e.target.value)} 
         />
       </div>
-      <button className="bg-blue-600 text-white p-2 w-full hover:bg-blue-700">Submit</button>
+      <button className="bg-blue-500 text-white p-2 w-full hover:bg-blue-700">Submit</button>
       <span>{error}</span>
     </form>
   </div>
@@ -143,40 +143,54 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
       </CustomModal>
       
       
-      <CustomModal show={update} onClose={() => setUpdate(false)} top='10%' left='30%'>
+      <CustomModal show={update} onClose={() => setUpdate(false)} left='15%' >
+      <div className="fixed justify-center w-2/3 bg-white shadow-lg">
+  <div className="p-6      ">
+
+    <h3 className="text-3xl font-bold text-blue-600 mb-3">Update Details</h3>
+        
+        
+        
         <form onSubmit={handleUpdateSubmit} >
-          <div className='m-10'>
-            <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Update Details</h3>
-            <div>
-              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Designation</label>
-              <input type="text" value={desgination} onChange={(e) => setDesignation(e.target.value)} />
-              <br />
-              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Title</label>
-              <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-              <br />
-              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>First Name</label>
-              <input type="text" value={f_name} onChange={(e) => setF_name(e.target.value)} />
-              <br />
-              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Middle Name</label>
-              <input type="text" value={l_name} onChange={(e) => setM_name(e.target.value)} />
-              <br />
-              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Last Name</label>
-              <input type="text" value={m_name} onChange={(e) => setL_name(e.target.value)} />
-              <br />
-              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Mobile Number</label>
-              <input type="text" value={mob} onChange={(e) => setMob(e.target.value)} />
-              <br />
-              <label className='text-xl font-bold text-blue-600  mt-auto mb-3'>Qualification</label>
-              <input type="text" value={qualification} onChange={(e) => setQuali(e.target.value)} />
-              <br />
-              
-              <button type='submit'>Submit</button>
-              <br />
+
+<div className="flex flex-wrap  ">
+  <div className="w-1/2 pr-4">
+    <label className="text-xl font-bold text-blue-600 mb-2">Designation</label>
+    <input className="border border-black-600 w-full p-2 bg-white" type="text" value={desgination} onChange={(e) => setDesignation(e.target.value)} />
+  </div>
+  <div className="w-1/2 pl-4">
+    <label className="text-xl font-bold text-blue-600 mb-2">Title</label>
+    <input className="border border-black-600 w-full p-2 bg-white" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+  </div>
+  <div className="w-1/2 pr-4 mt-4">
+    <label className="text-xl font-bold text-blue-600 mb-2">First Name</label>
+    <input className="border border-black-600 w-full p-2 bg-white" type="text" value={f_name} onChange={(e) => setF_name(e.target.value)} />
+  </div>
+  <div className="w-1/2 pl-4 mt-4">
+    <label className="text-xl font-bold text-blue-600 mb-2">Middle Name</label>
+    <input className="border border-black-600 w-full p-2 bg-white" type="text" value={m_name} onChange={(e) => setM_name(e.target.value)} />
+  </div>
+  <div className="w-1/2 pr-4 mt-4">
+    <label className="text-xl font-bold text-blue-600 mb-2">Last Name</label>
+    <input className="border border-black-600 w-full p-2 bg-white" type="text" value={l_name} onChange={(e) => setL_name(e.target.value)} />
+  </div>
+  <div className="w-1/2 pl-4 mt-4">
+    <label className="text-xl font-bold text-blue-600 mb-2">Mobile Number</label>
+    <input className="border border-black-600 w-full p-2 bg-white" type="text" value={mob} onChange={(e) => setMob(e.target.value)} />
+  </div>
+  <div className="w-1/2 pr-4 mt-4">
+    <label className="text-xl font-bold text-blue-600 mb-2">Qualification</label>
+    <input className="border border-black-600 w-full p-2 bg-white" type="text" value={qualification} onChange={(e) => setQuali(e.target.value)} />
+  </div></div> <br/>
+              <button className="bg-blue-500 text-white p-2 w-full hover:bg-blue-700"  type='submit'>Submit</button>
+      
               <span>{error}</span>
-            </div>
-          </div>
+        
+      
         </form>
+        </div>    </div>
       </CustomModal>
+      
       <div className='bg-blue-600 flex justify-center text-center h-60'>
         <span className='m-auto text-5xl text-white font-extrabold'>Profile Page</span>
       </div>
@@ -209,9 +223,9 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
             <span className='mt-auto mb-2'>{user?.mob}</span>
           </div>
           { session?.user.user_id === user.user_id? <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
-            <button className='mt-auto mb-2 text-3xl font-bold text-blue-600 border-20' onClick={() => setResetPass(true)}>Reset Password</button>
+            <button className='mt-auto mb-2 text-2xl font-bold text-blue-600 border-2 border-blue-600 rounded-lg py-2 px-4 hover:bg-blue-600 hover:text-white' onClick={() => setResetPass(true)}>Reset Password</button>
             <br />
-            <button className='mt-auto mb-2 text-3xl font-bold text-blue-600 ' onClick={() => setUpdate(true)}>Update Profile</button>
+            <button className='mt-auto mb-2 text-2xl font-bold text-blue-600 border-2 border-blue-600 rounded-lg py-2 px-4 hover:bg-blue-600 hover:text-white' onClick={() => setUpdate(true)}>Update Profile</button>
           </div> : <></> }
          
         </div>

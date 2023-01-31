@@ -58,6 +58,6 @@
   transition: 0.3s;
 }
 .Rbtn:hover {
-  background-color: #417586;
-  color: white;
+  background-color:rgb(97, 147, 240);
+  color: #000;
 }

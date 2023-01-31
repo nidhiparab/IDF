@@ -21,7 +21,7 @@ export default function Home() {
   </div>
   <div className="  w-1/2">
     {/* <h2 className="text-xl font-medium text-gray-800 mb-4">Our Mission</h2> */}
-    <p className="text-gray-700 mb-4 text-xl">
+    <p className="text-gray-700 mb-4 text-xl text-justify">
 IDF Bal Gurukul
 Education is of prime importance. IDF Bal Gurukul projects are a success proven sustainable development model.  IDF in its diversified objectives has included village development and education programmes into its fold. development. From a humble beginning in tribal area in Maharashtra and also in Langadiyawas village in Rajasthan, IDF now has 300 plus Bal Gurukuls covering the length and breadth of our country. Before of April 2021 we had 300 plus Bal Gurukuls and by the March 2022 we have .currently 300 plus Bal Gurukuls. Primary donors are Blackstone Charitable Foundation supported 150 Bal Gurukuls and RBL bank Ltd. RBL bank sanctioned 130 Bal Gurukuls in this financial year. The rest are operational by virtue of individual donations.</p>
     
