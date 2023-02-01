@@ -162,27 +162,27 @@ const CreateGrade = ({ bg, students }) => {
                 <input type="text" hidden {...formik.getFieldProps('studentDetails.bg_id')} />
                 <label className=" text-blue-600 font-bold text-lg" htmlFor="name">Exam </label>
                 <br />
-                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.exam')} />
+                <input className="bg-white focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" {...formik.getFieldProps('studentDetails.exam')} />
                 <br />
                 <label className="text-blue-600 font-bold text-lg" htmlFor="name">Name </label>
                 <br />
-                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.f_name')} />
+                <input className="bg-white  focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" {...formik.getFieldProps('studentDetails.f_name')} />
 
-                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.m_name')} />
+                <input className="bg-white  focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" {...formik.getFieldProps('studentDetails.m_name')} />
 
-                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.l_name')} />
+                <input className="bg-white  focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" {...formik.getFieldProps('studentDetails.l_name')} />
                 <br />
                 <label className="text-blue-600 font-bold text-lg" htmlFor="grade">Grade</label>
                 <br />
-                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.grade')} />
+                <input className="bg-white  focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" {...formik.getFieldProps('studentDetails.grade')} />
                 <br />
                 <label className="text-blue-600 font-bold text-lg" htmlFor="dob">DOB</label>
                 <br />
-                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.dob')} />
+                <input className="bg-white  focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" {...formik.getFieldProps('studentDetails.dob')} />
                 <br />
                 <label className="text-blue-600 font-bold text-lg" htmlFor="gender">Gender</label>
                 <br />
-                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.gender')} />
+                <input className="bg-white  focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" {...formik.getFieldProps('studentDetails.gender')} />
                 <br />
                 <div className="  flex justify-center">
                   <button className="border-2 border-blue-200 w-full hover:bg-gradient-to-r from-blue-500 to-indigo-500 rounded-md py-3 hover:text-gray-50 text-lg" onClick={(e) => { e.preventDefault(); setStudentDetails(false); setQualities(true) }}>
@@ -325,15 +325,15 @@ const CreateGrade = ({ bg, students }) => {
               <div>
                 <label className="text-blue-600 font-bold text-lg pt-4" htmlFor="Q1">Is there any specific or extraordinary talent / quality in the child? Please specify. </label>
 
-                <input className={styles.inp} type="textarea" {...formik.getFieldProps('grade_specifics.Q1')} />
+                <input className="bg-white  focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="textarea" {...formik.getFieldProps('grade_specifics.Q1')} />
 
                 <label className="text-blue-600 font-bold text-lg pt-4" htmlFor="grade">Is there any specific or unusual challenge or problem faced by the child? Kindly explain.</label>
 
-                <input className={styles.inp} type="textarea" {...formik.getFieldProps('grade_specifics.Q2')} />
+                <input className="bg-white focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="textarea" {...formik.getFieldProps('grade_specifics.Q2')} />
 
                 <label className="text-blue-600 font-bold text-lg pt-4" htmlFor="grade">Any specific action plan or suggestion with regard to the child? Please share.</label>
 
-                <input className={styles.inp} type="textarea" {...formik.getFieldProps('grade_specifics.Q3')} />
+                <input className="bg-white focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="textarea" {...formik.getFieldProps('grade_specifics.Q3')} />
                 <br />
                 <button className="border-2 border-blue-200 w-full hover:bg-emerald-600 rounded-md py-3 hover:text-gray-50 text-lg" type='submit'>
                   Submit
