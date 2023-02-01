@@ -105,7 +105,7 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
        
         <div className="fixed items-center w-1/3 bg-white shadow-lg">
   <div className="p-6">
-    <h3 className="text-3xl font-bold text-blue-600 mb-3">Reset Password</h3>
+    <h3 className="text-3xl font-extrabold  text-blue-600 mb-2">Reset Password</h3>
     <form onSubmit={handleResetPasswordSubmit}>
       <div className="mb-4">
         <label className="block text-xl font-bold text-blue-600 mb-2">Old Password</label>
@@ -147,7 +147,7 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
       <div className="fixed justify-center w-2/3 bg-white shadow-lg">
   <div className="p-6      ">
 
-    <h3 className="text-3xl font-bold text-blue-600 mb-3">Update Details</h3>
+    <h3 className="text-3xl font-extrabold text-blue-600 mb-3">Update Details</h3>
         
         
         
