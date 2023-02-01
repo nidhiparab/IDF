@@ -67,6 +67,10 @@ const CreateGrade = ({ bg, students }) => {
         Q3: ''
       }
     },
+    validate: (values) => {
+      const errors = {};
+      
+    },
     onSubmit: async (values) => {
       let grade_qualities = []
       let grade_subjects = []
@@ -125,8 +129,9 @@ const CreateGrade = ({ bg, students }) => {
         <span className='m-auto text-5xl text-white font-extrabold'>Evaluate</span>
       </div>
 
-      <div className="flex flex-row justify-between m-5 w-auto">
-        <div className="flex flex-col p-20 shadow-xl shadow-slate-100 hover:shadow-slate-700 rounded-xl">Student
+      <div className="flex flex-row justify-content-center m-5 w-auto">
+        <div className="flex flex-col p-20 shadow-xl shadow-slate-100 hover:shadow-slate-700 rounded-xl">
+        <h3 className="font-extrabold text-blue-600 text-center justify-center">Student</h3>
           <div>
             {!selected ? <></> : <>
               <div className="">
@@ -162,27 +167,27 @@ const CreateGrade = ({ bg, students }) => {
                 <input type="text" hidden {...formik.getFieldProps('studentDetails.bg_id')} />
                 <label className=" text-blue-600 font-bold text-lg" htmlFor="name">Exam </label>
                 <br />
-                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.exam')} />
+                <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" placeholder='Exam' {...formik.getFieldProps('studentDetails.exam')} />
                 <br />
                 <label className="text-blue-600 font-bold text-lg" htmlFor="name">Name </label>
                 <br />
-                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.f_name')} />
+                <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" placeholder='First Name' {...formik.getFieldProps('studentDetails.f_name')} />
 
-                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.m_name')} />
+                <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" placeholder='Middle Name' {...formik.getFieldProps('studentDetails.m_name')} />
 
-                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.l_name')} />
+                <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" placeholder='Last Name' {...formik.getFieldProps('studentDetails.l_name')} />
                 <br />
                 <label className="text-blue-600 font-bold text-lg" htmlFor="grade">Grade</label>
                 <br />
-                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.grade')} />
+                <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" placeholder='Grade' {...formik.getFieldProps('studentDetails.grade')} />
                 <br />
                 <label className="text-blue-600 font-bold text-lg" htmlFor="dob">DOB</label>
                 <br />
-                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.dob')} />
+                <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" placeholder='D.O.B' {...formik.getFieldProps('studentDetails.dob')} />
                 <br />
                 <label className="text-blue-600 font-bold text-lg" htmlFor="gender">Gender</label>
                 <br />
-                <input className={styles.inp} type="text" {...formik.getFieldProps('studentDetails.gender')} />
+                <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" placeholder='Gender' {...formik.getFieldProps('studentDetails.gender')} />
                 <br />
                 <div className="  flex justify-center">
                   <button className="border-2 border-blue-200 w-full hover:bg-gradient-to-r from-blue-500 to-indigo-500 rounded-md py-3 hover:text-gray-50 text-lg" onClick={(e) => { e.preventDefault(); setStudentDetails(false); setQualities(true) }}>
