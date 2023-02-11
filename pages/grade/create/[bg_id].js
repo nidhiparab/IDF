@@ -69,7 +69,7 @@ const CreateGrade = ({ bg, students }) => {
     },
     validate: (values) => {
       const errors = {};
-      
+
     },
     onSubmit: async (values) => {
       let grade_qualities = []
@@ -131,7 +131,7 @@ const CreateGrade = ({ bg, students }) => {
 
       <div className="flex flex-row justify-content-center m-5 w-auto">
         <div className="flex flex-col p-20 shadow-xl shadow-slate-100 hover:shadow-slate-700 rounded-xl">
-        <h3 className="font-extrabold text-blue-600 text-center justify-center">Student</h3>
+          <h3 className="font-extrabold text-blue-600 text-center justify-center">Student</h3>
           <div>
             {!selected ? <></> : <>
               <div className="">
@@ -218,10 +218,8 @@ const CreateGrade = ({ bg, students }) => {
                             {Object.keys(grade_opt).map((key_opt) => {
                               return (
                                 <>
-                                  <Field type="radio" id={key_opt} name={`${obj}.${key_col}`} value={key_opt} key={`${obj}.${key_opt}`}>
-
-                                  </Field>
-                                  <label htmlFor={key_opt} key={key_opt}>{grade_opt[key_opt]} </label>
+                                  <Field type="radio" id={`${obj}.${key_col}.${key_opt}`} name={`${obj}.${key_col}`} value={key_opt} key={`${obj}.${key_opt}`}/>
+                                  <label htmlFor={`${obj}.${key_col}.${key_opt}`} key={key_opt}>{grade_opt[key_opt]} </label>
                                 </>)
                             })}
                           </div>
@@ -234,6 +232,9 @@ const CreateGrade = ({ bg, students }) => {
                     </button>
                   </div>
                 )
+
+                
+
               }
             })()}
 
