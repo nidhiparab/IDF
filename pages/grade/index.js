@@ -4,6 +4,9 @@ import Link from 'next/link';
 import Router, { useRouter, withRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
+
+
+
 const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreater } }) => {
   const [bg_id_val, setBg_id] = useState(bg_id ? bg_id : null);
   const [student_id_val, setStudent_id] = useState(student_id ? student_id : null);
@@ -56,12 +59,14 @@ const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreate
   <br />
   <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text"  placeholder='Class' value={grade_val == null  || grade_val == 'null'? '' : grade_val} onChange={(e) => setGrade(e.target.value)} />
   <br />
-  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal " type="date"  value={dateGreater_val == null  || dateGreater_val == 'null'? '' : dateGreater_val} onChange={(e) => setDateGreater(e.target.value)}   />
+  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal " type="date" placeholder='Blgurukul Ida'  value={dateGreater_val == null  || dateGreater_val == 'null'? '' : dateGreater_val} onChange={(e) => setDateGreater(e.target.value)}   />
 <br/>
-  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal placeholder-red-500" type="date"   value={dateLesser_val == null  || dateLesser_val == 'null'? '' : dateLesser_val} onChange={(e) => setDateLesser(e.target.value)} />
-
-  <br />
+  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal placeholder-red-500" type="date" placeholder='Balgurukul Id'  value={dateLesser_val == null  || dateLesser_val == 'null'? '' : dateLesser_val} onChange={(e) => setDateLesser(e.target.value)} />
+<br />
   <button className="bg-blue-900 hover:bg-blue-500 text-white font-bold px-4 rounded" name='Reset' onClick={() => { setStudent_id(null); setBg_id(null); setExam(null); setGrade(null); setDateGreater(null);setDateLesser(null) }}>Reset Filters</button>
+
+ 
+
 </div>
 
 
@@ -116,5 +121,6 @@ Index.getInitialProps = async ({ query }) => {
 //     },
 //   }
 // }
+
 
 export default Index;
