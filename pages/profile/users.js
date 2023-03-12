@@ -33,12 +33,11 @@ const Users = ({ users }) => {
   
   return (
     <>
-      <div>
-        <div className="ml-48 my-10 p-4 d-inline-flex space-x-4">
-          <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" placeholder='User Name' value={userName} onChange={(e) => setUserName(e.target.value)} />
-          <br />
+      <div >
+        <div className="ml-48 my-10 p-4 space-x-4">
+          <input className={styles.filter_name}  type="text" placeholder='User Name' value={userName} onChange={(e) => setUserName(e.target.value)} />
       
-          <button className="bg-blue-900 hover:bg-blue-500 text-white font-bold px-4 rounded" name='Reset' onClick={() => { setUserName('') }}>Reset Filters</button>
+          <button className={styles.Rbtn} name='Reset' onClick={() => { setUserName('') }}>Reset Filters</button>
         </div>
       </div>
         {filter.map(user => {
@@ -46,7 +45,7 @@ const Users = ({ users }) => {
             <>
 
 
-              <div className="mx-32 mb-7 px-5 py-4 items-center shadow-2xl shadow-slate-700 rounded-2xl" key={user.user_id}>
+              <div className="mx-32 mb-7 px-5 py-4 items-center shadow-l border-4 border-solid rounded-2xl" key={user.user_id}>
                 <div className=' text-l'>
                   <div className='justify-between p-2'>
                     <h3 className='text-l font-bold text-blue-600  mt-auto mb-1'>{user?.title} {user?.f_name} {user?.m_name} {user?.l_name}</h3>

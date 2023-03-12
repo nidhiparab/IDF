@@ -32,8 +32,8 @@ const Navbar = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row justify-center text-white items-center font">
-              <Link className="nav-link bg-blue-400 hover:bg-blue-600  hover:text-black p-2 px-4 w-30 rounded-3xl m-2 text-center" aria-current="page" href="/">
+            <div className="flex flex-row justify-center text-white font-bold items-center font">
+              <Link className="nav-link bg-blue-400 hover:bg-blue-600 p-2 px-4 w-30 rounded-3xl m-2 text-center" aria-current="page" href="/">
                 Home
               </Link>
 

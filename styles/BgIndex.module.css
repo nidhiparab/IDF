@@ -31,6 +31,7 @@
   line-height: 10px;
   border-radius: 6px;
   border: 1px solid #000;
+  padding: 0.5%;
   margin: 1% 1% 1% 4%;
   width: 40%;
   height: 4%;
@@ -38,6 +39,7 @@
   color: rgb(0, 0, 0);
 }
 .filter_state {
+  padding: 0.5%;
   line-height: 10px;
   border-radius: 6px;
   border: 1px solid #000;
@@ -48,16 +50,12 @@
   color: rgb(65, 63, 63);
 }
 .Rbtn {
+  @apply bg-blue-400 hover:bg-blue-600 rounded-3xl p-2 px-4;
   /* margin-top: 1%; */
  margin: 1% 1% 1% 1%;
  width: 10%;
   height: 4%;
   border: none;
-  background-color: rgb(33, 62, 140);
   color: white;
   transition: 0.3s;
-}
-.Rbtn:hover {
-  background-color:rgb(97, 147, 240);
-  color: #000;
 }
