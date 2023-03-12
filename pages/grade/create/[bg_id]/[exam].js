@@ -1,75 +1,65 @@
 import React from 'react';
-import baseUrl from '../../../helpers/baseUrl';
-import gradeConstants from '../../../lib/grades';
-import styles from '../../../styles/Grade.module.css';
+import baseUrl from '../../../../helpers/baseUrl';
+import gradeConstants from '../../../../lib/grades';
+import styles from '../../../../styles/Grade.module.css';
 import { useState } from 'react';
 import { useFormik, Field, FormikProvider } from 'formik';
 
 
-const CreateGrade = ({ bg, students }) => {
+const CreateGrade = ({ bg, students, exam }) => {
 
-
+  const gradeOptions = bg.grade_options
   const [selected, setSelected] = useState(students[0]);
-  const [studentDetails, setStudentDetails] = useState(true);
-  const [qualities, setQualities] = useState(false);
+  const [qualities, setQualities] = useState(true);
   const [subject, setSubject] = useState(false);
   const [intrests, setIntrests] = useState(false);
   const [specifics, setSpecifics] = useState(false);
 
   const formik = useFormik({
     initialValues: {
-      studentDetails: {
-        student_id: selected.student_id,
-        bg_id: selected.bg_id,
-        exam: '',
-        f_name: selected.f_name,
-        m_name: selected.m_name,
-        l_name: selected.l_name,
-        dob: selected.dob,
-        gender: selected.gender,
-        grade: selected.grade,
-      },
-      grade_qualities: {
-        Q1: 'O7',
-        Q2: 'O7',
-        Q3: 'O7',
-        Q4: 'O7',
-        Q5: 'O7',
-        Q6: 'O7',
-        Q7: 'O7',
-        Q8: 'O7',
-        Q9: 'O7',
-        Q10: 'O7',
-        Q11: 'O7',
-        Q12: 'O7'
-      },
-      grade_subjects: {
-        Q1: 'O9',
-        Q2: 'O9',
-        Q3: 'O9',
-        Q4: 'O9',
-        Q5: 'O9'
-      },
-      grade_intrests: {
-        Q1: 'O7',
-        Q2: 'O7',
-        Q3: 'O7',
-        Q4: 'O7',
-        Q5: 'O7',
-        Q6: 'O7',
-        Q7: 'O7',
-        Q8: 'O7',
-        Q9: 'O7',
-      },
-      grade_specifics: {
-        Q1: '',
-        Q2: '',
-        Q3: ''
+      grades: {
+        grade_qualities: {
+          Q1: 'O7',
+          Q2: 'O7',
+          Q3: 'O7',
+          Q4: 'O7',
+          Q5: 'O7',
+          Q6: 'O7',
+          Q7: 'O7',
+          Q8: 'O7',
+          Q9: 'O7',
+          Q10: 'O7',
+          Q11: 'O7',
+          Q12: 'O7'
+        },
+        grade_subjects: {
+          Q1: 'O9',
+          Q2: 'O9',
+          Q3: 'O9',
+          Q4: 'O9',
+          Q5: 'O9'
+        },
+        grade_intrests: {
+          Q1: 'O7',
+          Q2: 'O7',
+          Q3: 'O7',
+          Q4: 'O7',
+          Q5: 'O7',
+          Q6: 'O7',
+          Q7: 'O7',
+          Q8: 'O7',
+          Q9: 'O7',
+        },
+        grade_specifics: {
+          Q1: '',
+          Q2: '',
+          Q3: ''
+        }
       }
     },
     validate: (values) => {
       const errors = {};
-      
+
     },
     onSubmit: async (values) => {
       let grade_qualities = []
@@ -90,23 +80,21 @@ const CreateGrade = ({ bg, students }) => {
         grade_specifics.push(value)
       }
 
-      let res = await fetch(`${baseUrl}/api/student/grade/insert`, {
+      let res = await fetch(`${baseUrl}/api/student/grade/ins`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          student_id: values.studentDetails.student_id,
-          bg_id: values.studentDetails.bg_id,
-          exam: values.studentDetails.exam,
-          grade: values.studentDetails.grade,
-          grade_qualities,
-          grade_subjects,
-          grade_intrests,
-          grade_specifics
+          student_id: selected.student_id,
+          bg_id: selected.bg_id,
+          exam: exam,
+          grade: selected.grade,
+          grades: values.grades
         })
       })
+      alert("Submitted")
       let data = await res.json();
     }
   });
@@ -114,7 +102,6 @@ const CreateGrade = ({ bg, students }) => {
 
   function changeTab(e, tab) {
     e.preventDefault();
-    setStudentDetails(tab == 'studentDetails' ? true : false);
     setQualities(tab == 'qualities' ? true : false);
     setSubject(tab == 'subjects' ? true : false);
     setIntrests(tab == 'intrests' ? true : false);
@@ -126,22 +113,28 @@ const CreateGrade = ({ bg, students }) => {
   return (
     <FormikProvider value={formik}>
       <div className='bg-blue-600 flex justify-center text-center h-60'>
-        <span className='m-auto text-5xl text-white font-extrabold'>Evaluate</span>
+        <span className='m-auto text-5xl text-white font-extrabold'>Evaluation for {exam}</span>
       </div>
 
       <div className="flex flex-row justify-content-center m-5 w-auto">
         <div className="flex flex-col p-20 shadow-xl shadow-slate-100 hover:shadow-slate-700 rounded-xl">
-        <h3 className="font-extrabold text-blue-600 text-center justify-center">Student</h3>
+          <h3 className="font-extrabold text-blue-600 text-center justify-center">Student</h3>
           <div>
             {!selected ? <></> : <>
               <div className="">
                 <h1 className="text-blue-700">
                   {selected.f_name} {selected.m_name} {selected.l_name}
                 </h1>
-                <p>
-                  {selected.grade}<br />
-                  {selected.gender}
-                </p>
+                <div>
+                  <h2 className="text-blue-600 text-2xl">{selected.grade}
+                  </h2>
+
+                  <h2 className="text-blue-600 text-2xl">{selected.dob}
+                  </h2>
+
+                  <h2 className="text-blue-600 text-2xl">{selected.gender}
+                  </h2>
+                </div>
               </div>
 
             </>
@@ -154,49 +147,13 @@ const CreateGrade = ({ bg, students }) => {
 
 
             <div className="flex flex-row  ">
-              <div className={studentDetails ? "flex flex-col border m-1 p-2 bg-blue-600 text-white font-semibold rounded-xl text-sm" : "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "studentDetails") }}>Student Details</div>
               <div className={qualities ? "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white " : "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "qualities") }}>Qualities</div>
               <div className={subject ? "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white " : "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "subjects") }}>Academics</div>
               <div className={intrests ? "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white " : "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "intrests") }}>Intrests</div>
               <div className={specifics ? "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm  bg-blue-600 text-white " : "flex flex-col border m-1 p-2 font-semibold rounded-xl text-sm"} onClick={(e) => { changeTab(e, "specifics") }}>Specifics</div>
             </div>
             {/* <OptionComponent isVisible={studentDetails} value={'grade_studentDetails'} ></OptionComponent> */}
-            {!studentDetails ? <></> :
-              <div className="justify-end">
-                <input type="text" hidden {...formik.getFieldProps('studentDetails.student_id')} />
-                <input type="text" hidden {...formik.getFieldProps('studentDetails.bg_id')} />
-                <label className=" text-blue-600 font-bold text-lg" htmlFor="name">Exam </label>
-                <br />
-                <input className="bg-white focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" {...formik.getFieldProps('studentDetails.exam')} />
-                <br />
-                <label className="text-blue-600 font-bold text-lg" htmlFor="name">Name </label>
-                <br />
-                <input className="bg-white  focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" {...formik.getFieldProps('studentDetails.f_name')} />
 
-                <input className="bg-white  focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" {...formik.getFieldProps('studentDetails.m_name')} />
-
-                <input className="bg-white  focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" {...formik.getFieldProps('studentDetails.l_name')} />
-                <br />
-                <label className="text-blue-600 font-bold text-lg" htmlFor="grade">Grade</label>
-                <br />
-                <input className="bg-white  focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" {...formik.getFieldProps('studentDetails.grade')} />
-                <br />
-                <label className="text-blue-600 font-bold text-lg" htmlFor="dob">DOB</label>
-                <br />
-                <input className="bg-white  focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" {...formik.getFieldProps('studentDetails.dob')} />
-                <br />
-                <label className="text-blue-600 font-bold text-lg" htmlFor="gender">Gender</label>
-                <br />
-                <input className="bg-white  focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" {...formik.getFieldProps('studentDetails.gender')} />
-                <br />
-                <div className="  flex justify-center">
-                  <button className="border-2 border-blue-200 w-full hover:bg-gradient-to-r from-blue-500 to-indigo-500 rounded-md py-3 hover:text-gray-50 text-lg" onClick={(e) => { e.preventDefault(); setStudentDetails(false); setQualities(true) }}>
-                    Next
-                  </button>
-                </div>
-
-              </div>
-            }
             {(() => {
               if (!qualities)
                 return (<></>)
@@ -218,10 +175,8 @@ const CreateGrade = ({ bg, students }) => {
                             {Object.keys(grade_opt).map((key_opt) => {
                               return (
                                 <>
-                                  <Field type="radio" id={key_opt} name={`${obj}.${key_col}`} value={key_opt} key={`${obj}.${key_opt}`}>
-
-                                  </Field>
-                                  <label htmlFor={key_opt} key={key_opt}>{grade_opt[key_opt]} </label>
+                                  <Field key={`${obj}.${key_opt}`} type="radio" id={`grades.${obj}.${key_col}.${key_opt}`} name={`grades.${obj}.${key_col}`} value={key_opt} />
+                                  <label key={`${obj}.${key_opt}l`} htmlFor={`grades.${obj}.${key_col}.${key_opt}`}>{grade_opt[key_opt]} </label>
                                 </>)
                             })}
                           </div>
@@ -234,6 +189,9 @@ const CreateGrade = ({ bg, students }) => {
                     </button>
                   </div>
                 )
+
+
+
               }
             })()}
 
@@ -251,7 +209,7 @@ const CreateGrade = ({ bg, students }) => {
                       <h5>Grades for Subjects </h5>
                       <div>
                         {Object.keys(grade_opt).map((key_opt) => {
-                          return (<><h6>{grade_opt[key_opt]}</h6></>)
+                          return (<h6 key={grade_opt[key_opt]}>{grade_opt[key_opt]}</h6>)
                         })}
                       </div>
                     </div>
@@ -267,10 +225,10 @@ const CreateGrade = ({ bg, students }) => {
                             {Object.keys(grade_opt).map((key_opt) => {
                               return (
                                 <>
-                                  <Field type="radio" id={key_opt} name={`${obj}.${key_col}`} value={key_opt} key={`${obj}.${key_opt}`}>
+                                  <Field key={`${obj}.${key_opt}`} type="radio" id={`grades.${obj}.${key_col}.${key_opt}`} name={`grades.${obj}.${key_col}`} value={key_opt} >
 
                                   </Field>
-                                  <label htmlFor={key_opt} key={key_opt}>{grade_opt[key_opt].split(" (")[0]} </label>
+                                  <label key={`${obj}.${key_opt}l`} htmlFor={`grades.${obj}.${key_col}.${key_opt}`}>{grade_opt[key_opt].split(" (")[0]} </label>
                                 </>)
                             })}
                           </div>
@@ -306,10 +264,10 @@ const CreateGrade = ({ bg, students }) => {
                             {Object.keys(grade_opt).map((key_opt) => {
                               return (
                                 <>
-                                  <Field type="radio" id={key_opt} name={`${obj}.${key_col}`} value={key_opt} key={`${obj}.${key_opt}`}>
+                                  <Field key={`${obj}.${key_opt}`} type="radio" id={`grades.${obj}.${key_col}.${key_opt}`} name={`grades.${obj}.${key_col}`} value={key_opt} >
 
                                   </Field>
-                                  <label htmlFor={key_opt} key={key_opt}>{grade_opt[key_opt]} </label>
+                                  <label key={`${obj}.${key_opt}l`} htmlFor={`grades.${obj}.${key_col}.${key_opt}`}>{grade_opt[key_opt]} </label>
                                 </>)
                             })}
                           </div>
@@ -351,25 +309,13 @@ const CreateGrade = ({ bg, students }) => {
           <h3 className="font-extrabold text-blue-600 text-center justify-center">All students</h3>
           <div className="overflow-y-auto h-30">
             {students?.map((student) => {
-              return (<>
-
-
+              return (
                 <div className="p-2 mb-2 bg-yellow-100  hover:bg-yellow-200 rounded-xl w-11/12 " key={student.student_id} onClick={(e) => {
                   e.preventDefault();
                   setSelected(student);
-                  formik.setFieldValue('studentDetails.student_id', student.student_id);
-                  formik.setFieldValue('studentDetails.bg_id', student.bg_id);
-                  formik.setFieldValue('studentDetails.f_name', student.f_name);
-                  formik.setFieldValue('studentDetails.m_name', student.m_name);
-                  formik.setFieldValue('studentDetails.dob', student.dob);
-                  formik.setFieldValue('studentDetails.grade', student.grade);
                 }}>
-
                   <p className="text-blue-700 font-semibold text-center"> {student.f_name} {student.m_name} {student.l_name}</p>
                 </div>
-
-              </>
-
               )
             })}
           </div>
@@ -379,7 +325,7 @@ const CreateGrade = ({ bg, students }) => {
   );
 }
 
-export async function getServerSideProps({ params: { bg_id } }) {
+export async function getServerSideProps({ params: { bg_id, exam } }) {
 
   const bg_data = await fetch(`${baseUrl}/api/balgurukul/${bg_id}`)
   const stdnt = await fetch(`${baseUrl}/api/student/bg/${bg_id}`)
@@ -398,6 +344,7 @@ export async function getServerSideProps({ params: { bg_id } }) {
     props: {
       bg,
       students: stdn,
+      exam
     },
   }
 }

@@ -31,7 +31,7 @@ const StudentRegistrationForm = ({ bgs }) => {
     if (res.error) console.log(res.error);
     else {
       alert(res.message);
-      router.push("/profile/student")
+      router.push(`/profile/student/${res.student_id}`)
     }
     // Do something with successful response
 
@@ -79,11 +79,10 @@ const StudentRegistrationForm = ({ bgs }) => {
           <select
             className="  w-full py-3 px-4 my-2border rounded-xl bg-slate-200 focus:outline-none border-none "
             value={bg_id}
-            onChange={(event) => setGender(event.target.value)}
+            onChange={(event) => setBg_id(event.target.value)}
           >
             <option value="">Select a Balgurukul</option>
-            <option value="Female">Female</option>
-            {bgs.map((bg) => { return <><option value={bg.bg_id} key={bg.bg_id }>{bg.bg_name}</option></> })}
+            {bgs.map((bg) => { return <option value={bg.bg_id} key={bg.bg_id }>{bg.bg_name}</option> })}
           </select>
         </label>
 

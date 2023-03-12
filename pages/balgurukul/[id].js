@@ -7,10 +7,14 @@ import Image from 'next/image'
 import AdminButtons from '../../components/Admin/balgurukul/info'
 import { SessionProvider, useSession } from "next-auth/react"
 import Manage from '../../components/Manage'
+import { useRouter } from 'next/router'
 
 const Product = ({ balgurukul, students, users_list }) => {
+  const router = useRouter()
   const { data: session } = useSession()
   const [openModal, setOpenModal] = useState(false)
+  const [exam, setExam] = useState('')
+  const [openModalGrade, setOpenModalGrade] = useState(false)
   const isHod = session?.user.hod.includes(balgurukul.bg_id)
   const isSpoc = session?.user.spoc.includes(balgurukul.bg_id)
   const isAdmin = session?.user.isAdmin
@@ -47,6 +51,22 @@ const Product = ({ balgurukul, students, users_list }) => {
         <button className='cancel' onClick={() => setOpenModal(false)}>Cancel</button>
 
       </CustomModal>
+      <CustomModal show={openModalGrade} onClose={() => { setOpenModalGrade(false) }} top='10%' left='30%'>
+          <div className='bg-blue-600 flex flex-col justify-center text-center h-20 text-white font-extrabold px-2'>
+            <h1 className='m-auto text-5xl text-white font-extrabold'>Grade Students</h1>
+            <h2 className='m-auto text-3xl text-white font-extrabold'>Examination</h2>
+          </div>
+        <div className="p-5 text-center pt-2">
+
+          <div className='px-5 pt-5'>
+            <input type="text" className='bg-white border-2 h-10 w-100 text-2xl text-center font-bold' placeholder='Exam' id="exam" value={exam} onChange={(e) => setExam(e.target.value)} />
+          </div>
+          <div className='grid grid-cols-2 p-5 pb-1'>
+            <button className='btn btn-primary  m-2 text-2xl' disabled={ exam == '' } onClick={() => { (exam == '') ? alert("Exam cannot be empty") : router.push(`/grade/create/${balgurukul.bg_id}/${exam}`) }}>Proceed</button>
+            <button className='btn btn-primary  m-2 text-2xl' onClick={() => setOpenModalGrade(false)}>Cancel</button>
+          </div>
+        </div>
+      </CustomModal>
       <div className='bg-blue-600 flex justify-center text-center h-60'>
         <span className='m-auto text-5xl text-white font-extrabold'>{balgurukul.bg_name}</span>
       </div>
@@ -61,10 +81,10 @@ const Product = ({ balgurukul, students, users_list }) => {
               <span className=' text-xl text-white font-semibold roun'>HOD</span>
             </div>
             <div className='flex flex-col m-auto'>
-            {balgurukul.hod_users?.map((user, i) =>
-              <Link key={i} href={`/profile/user/${user.user_id}`} className=' pl-7 py-3/2 text-xl text-white font-semibold'>
-                {user.title} {user.f_name} {user.l_name}
-              </Link>)}
+              {balgurukul.hod_users?.map((user, i) =>
+                <Link key={i} href={`/profile/user/${user.user_id}`} className=' pl-7 py-3/2 text-xl text-white font-semibold'>
+                  {user.title} {user.f_name} {user.l_name}
+                </Link>)}
             </div>
             {isAdmin ?
               <div className='m-auto py-2'>
@@ -101,10 +121,10 @@ const Product = ({ balgurukul, students, users_list }) => {
               <span className=' text-xl text-white font-semibold roun'>Teachers</span>
             </div>
             <div className='flex flex-col m-auto'>
-            {balgurukul.teacher_users?.map((user, i) =>
-              <Link href={`/profile/user/${user.user_id}`} key={i} className='pl-7 py-3/2 text-xl text-white font-semibold'>
-                {user.title} {user.f_name} {user.l_name}
-              </Link>)}
+              {balgurukul.teacher_users?.map((user, i) =>
+                <Link href={`/profile/user/${user.user_id}`} key={i} className='pl-7 py-3/2 text-xl text-white font-semibold'>
+                  {user.title} {user.f_name} {user.l_name}
+                </Link>)}
             </div>
             {isAdmin || isHod ?
               <div className='m-auto py-2'>
@@ -164,15 +184,11 @@ const Product = ({ balgurukul, students, users_list }) => {
             </table>
           </div>
           {isAdmin ? <button className='delete m-2' onClick={() => setOpenModal(true)}>Delete</button> : <></>}
+          {(isAdmin || isHod || isTeacher) ? <button className='btn btn-primary  m-2' onClick={() => setOpenModalGrade(true)}>Grade</button> : <></>}
           {(isAdmin || isHod) ? <Link href={`update/${balgurukul.bg_id}`} as={`update/${balgurukul.bg_id}`} className="btn btn-primary  m-2">Update this Balgurukul</Link> : <></>}
-          {(isAdmin || isHod || isTeacher) ? <Link href={`/grade/create/${balgurukul.bg_id}`} as={`/grade/create/${balgurukul.bg_id}`} className="btn btn-primary  m-2">Grade Students</Link> : <></>}
+
         </div>
       </div>
-
-
-
-
-
 
       {/* <AdminButtons modal={setOpenModal} bg_id={balgurukul.bg_id}></AdminButtons> */}
     </>
