@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal'
 
-export default function CustomModal({ show, children, onClose,  top, left, right, bottom }) {
+export default function CustomModal({ show, children, onClose, top, left, right, bottom }) {
   return (
     <Modal
       isOpen={show}
@@ -19,9 +19,17 @@ export default function CustomModal({ show, children, onClose,  top, left, right
         },
         content: {
           position: 'absolute',
-          top,
-          left,
-          right,
+          // top,
+          // left,
+          // top: '50 %',
+          // left: '50 %',
+          // transform: 'translate(-50 %, -50 %)',
+          left: 0,
+          right: 0,
+          'margin-left': 'auto',
+          'margin-right': 'auto',
+          // right,
+          width: 'max-content',
           bottom,
           border: '2px solid #E0E0E0',
           background: '#fff',

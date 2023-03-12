@@ -44,8 +44,4 @@ export default async function addBG(req, res) {
   })
   
   res.json(updateCount, insertData)
-  
-
-
-
 }

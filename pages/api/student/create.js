@@ -19,5 +19,5 @@ export default async function createStudent(req, res) {
     query: "INSERT INTO `student`(`student_id`, `bg_id`, `f_name`, `m_name`, `l_name`, `dob`, `gender`, `grade`) VALUES (?,?,?,?,?,?,?,?);",
     values: [student_id.toString(), bg_id, f_name, m_name, l_name, dob, gender, grade]
   })
-  res.json({message: student.affectedRows == 1 ? "Student added successfully" : "Error adding student"})
+  res.json({message: student.affectedRows == 1 ? "Student added successfully" : "Error adding student", student_id})
 }

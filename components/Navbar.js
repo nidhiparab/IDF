@@ -3,7 +3,7 @@ import Image from 'next/image';
 import logo from '../public/images/idf-logo.png'
 import { useSession, signOut } from 'next-auth/react'
 // import styles from '../styles/Navbar.module.css'
-// import printStyles from '../styles/Print.module.css'
+import printStyles from '../styles/Print.module.css'
 
 const Navbar = () => {
   let { data: session } = useSession();
@@ -12,7 +12,7 @@ const Navbar = () => {
   let isTeacher = session ? session.user.teacher.length > 0 : false;
   let isSpoc = session ? session.user.spoc.length > 0 : false;
   return (
-    <div className="flex flex-col">
+    <div className={`flex flex-col ${ printStyles.no_print }`}>
         <div className="flex flex-row justify-center">
               <Link className="flex flex-col m-2" href="https://www.idf.org.in" passHref>
                 <Image
@@ -32,15 +32,15 @@ const Navbar = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row justify-center text-white items-center font-extrabold">
-              <Link className="nav-link bg-blue-400 p-2 w-30 rounded-3xl m-2 text-center" aria-current="page" href="/">
+            <div className="flex flex-row justify-center text-black items-center font">
+              <Link className="nav-link bg-blue-400 hover:bg-blue-600 hover:text-white p-2 px-4 w-30 rounded-3xl m-2 text-center" aria-current="page" href="/">
                 Home
               </Link>
 
-              {isAdmin ? <div className="dropdown nav-link bg-blue-400 p-2 w-30 rounded-3xl m-2 text-center">
+              {isAdmin ? <div className="dropdown nav-link bg-blue-400 hover:bg-blue-600 px-4 p-2 w-30 rounded-3xl m-2 text-center">
                 <Link href="/balgurukul" className="nav-link dropbtn ">Balgurukul</Link>
                 <div className="dropdown-content ">
-                  <Link className="nav-link" href="/balgurukul/create" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New Balgurukul">
+                  <Link className="nav-link  bg-blue-400 hover:bg-blue-600 px-4 p-2 w-30 rounded-3xl m-2 text-center " href="/balgurukul/create" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New Balgurukul">
                     Create Balgurukul
                   </Link>
                   {/* <Link href="#">Link 3</Link> */}
@@ -51,14 +51,14 @@ const Navbar = () => {
 
 
 
-              <Link className="nav-link nav-link bg-blue-400 p-2 w-30 rounded-3xl m-2 text-center" aria-current="page" href="/profile/users">
+              <Link className="nav-link nav-link bg-blue-400 hover:bg-blue-600 px-4 p-2 w-30 rounded-3xl m-2 text-center" aria-current="page" href="/profile/users">
                 Users
               </Link>
 
-              {(isAdmin || isHod || isTeacher || isSpoc) ? <div className="dropdown  bg-blue-400 p-2 w-30 rounded-3xl m-2 text-center">
+              {(isAdmin || isHod || isTeacher || isSpoc) ? <div className="dropdown  bg-blue-400 hover:bg-blue-600 px-4 p-2 w-30 rounded-3xl m-2 text-center">
                 <Link href="/profile/students" className="nav-link dropbtn">Students</Link>
                 <div className="dropdown-content">
-                  <Link className="nav-link" href="/profile/student/create" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New Student">
+                  <Link className="nav-link  bg-blue-400 hover:bg-blue-600 px-4 p-2 w-30 rounded-3xl m-2 text-center " href="/profile/student/create" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New Student">
                     Create Student
                   </Link>
                 </div>
@@ -66,7 +66,7 @@ const Navbar = () => {
                 Students
               </Link></>}
 
-              <Link className="nav-link nav-link bg-blue-400 p-2 w-30 rounded-3xl m-2 text-center" aria-current="page" href="/grade">
+              <Link className="nav-link nav-link bg-blue-400 hover:bg-blue-600 px-4 p-2 w-30 rounded-3xl m-2 text-center" aria-current="page" href="/grade">
                 Grades
               </Link>
 
@@ -74,10 +74,10 @@ const Navbar = () => {
                 if (session) {
                   return (
                     <>
-                      <Link className="nav-link  bg-blue-400 p-2 w-30 rounded-3xl m-2 text-center" href={`/profile/user/${session.user.user_id}`}>
+                      <Link className="nav-link  bg-blue-400 hover:bg-blue-600 px-4 p-2 w-30 rounded-3xl m-2 text-center" href={`/profile/user/${session.user.user_id}`}>
                         {session.user?.f_name}
                       </Link>
-                      <Link className="nav-link  bg-blue-400 p-2 w-30 rounded-3xl m-2 text-center" href="/" onClick={() => { signOut() }}>
+                      <Link className="nav-link  bg-blue-400 hover:bg-blue-600 px-4 p-2 w-30 rounded-3xl m-2 text-center" href="/" onClick={() => { signOut() }}>
                         SignOut
                       </Link>
                     </>
@@ -86,10 +86,10 @@ const Navbar = () => {
                 else {
                   return (
                     <>
-                      <Link className="nav-link  bg-blue-400 p-2 w-30 rounded-3xl m-2 text-center" href="/auth/login">
+                      <Link className="nav-link  bg-blue-400 hover:bg-blue-600 px-4 p-2 w-30 rounded-3xl m-2 text-center" href="/auth/login">
                         Login
                       </Link>
-                      <Link className="nav-link  bg-blue-400 p-2 w-30 rounded-3xl m-2 text-center" href="/auth/register">
+                      <Link className="nav-link  bg-blue-400 hover:bg-blue-600 px-4 p-2 w-30 rounded-3xl m-2 text-center" href="/auth/register">
                         Register
                       </Link>
 
