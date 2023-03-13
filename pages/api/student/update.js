@@ -2,7 +2,7 @@ import { getSession } from "next-auth/react"
 import executeQuery from '../../../lib/db'
 
 export default async function updateStudent(req, res) {
-  
+  console.log(req.body);
   if(req.method !== 'POST') return res.status(405).json({message: "Method not allowed"})
   
   const session = await getSession({ req })

@@ -10,7 +10,7 @@ import CustomModal from '../../../components/Modals/CustomModal';
 const UserProfile = ({ user, hod, spoc, teacher }) => {
 
   const { data: session, status } = useSession()
-
+  
   const [resetPass, setResetPass] = useState(false);
   const [update, setUpdate] = useState(false);
   const [old, setOld] = useState('');
@@ -225,7 +225,7 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
           { session?.user.user_id === user.user_id? <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
             <button className='mt-auto mb-2 text-2xl font-bold text-blue-600 border-2 border-blue-600 rounded-lg py-2 px-4 hover:bg-blue-600 hover:text-white' onClick={() => setResetPass(true)}>Reset Password</button>
             <br />
-            <button className='mt-auto mb-2 text-2xl font-bold text-blue-600 border-2 border-blue-600 rounded-lg py-2 px-4 hover:bg-blue-600 hover:text-white' onClick={() => setUpdate(true)}>Update Profile</button>
+            
           </div> : <></> }
          
         </div>
