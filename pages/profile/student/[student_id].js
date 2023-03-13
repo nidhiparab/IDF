@@ -40,7 +40,15 @@ const StudentProfile = ({ student, grades }) => {
     event.preventDefault();
 
     // Prepare data to send to server
-    const data = { student_id: student.student_id, f_name, m_name, l_name, dob, gender, grade };
+    const data = {
+      student_id: student.student_id,
+      f_name: Formf_name,
+      m_name: Formm_name,
+      l_name: Forml_name,
+      dob: Formdob,
+      gender: Formgender,
+      grade: Formgrade
+    };
 
     // Use fetch to make a POST request to server endpoint
 
@@ -55,12 +63,12 @@ const StudentProfile = ({ student, grades }) => {
     else {
       alert('Updated Successfully')
       setUpdate(false)
-      setF_name(f_name)
-      setM_name(m_name)
-      setL_name(l_name)
-      setGrade(grade)
-      setGender(gender)
-      setDob(dob)
+      setF_name(Formf_name)
+      setM_name(Formm_name)
+      setL_name(Forml_name)
+      setGrade(Formgrade)
+      setGender(Formgender)
+      setDob(Formdob)
 
     }
 
@@ -95,13 +103,17 @@ const StudentProfile = ({ student, grades }) => {
                   <label className="text-xl font-bold text-blue-600 mb-2">Last Name</label>
                   <input className="border border-black-600 w-full p-2 bg-white" type="text" value={Forml_name} onChange={(e) => setFormL_name(e.target.value)} />
                 </div>
-                <div className="w-1/2 pl-4 mt-4">
+                <div className="w-1/2 pr-4 mt-4">
                   <label className="text-xl font-bold text-blue-600 mb-2">DOB</label>
                   <input className="border border-black-600 w-full p-2 bg-white" type="date" value={Formdob} onChange={(e) => setFormDob(e.target.value)} />
                 </div>
-                <div className="w-1/2 pl-4 mt-4">
+                <div className="w-1/2 pr-4 mt-4">
                   <label className="text-xl font-bold text-blue-600 mb-2">Gender</label>
-                  <input className="border border-black-600 w-full p-2 bg-white" type="text" value={Formgender} onChange={(e) => setFormGender(e.target.value)} />
+                  <select className="border border-black-600 w-full p-2 bg-white" value={Formgender} onChange={(e) => setFormGender(e.target.value)} >
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                  </select>
                 </div>
                 <div className="w-1/2 pr-4 mt-4">
                   <label className="text-xl font-bold text-blue-600 mb-2">Class</label>
@@ -142,7 +154,7 @@ const StudentProfile = ({ student, grades }) => {
         </div>
         <div>
           {(isHod || session?.user?.isAdmin) ? <button className='mt-auto mb-2 text-2xl font-bold text-blue-600 border-2 border-blue-600 rounded-lg py-2 px-4 hover:bg-blue-600 hover:text-white' onClick={() => {
-            setUpdate(true); 
+            setUpdate(true);
             setFormF_name(f_name);
             setFormM_name(m_name);
             setFormL_name(l_name);
@@ -170,9 +182,10 @@ const StudentProfile = ({ student, grades }) => {
                 return (
                   <tr key={grade.grade_id} className="bg-white text-gray-700 ">
                     <td className="border px-4 py-2"><Link href={`/grade/${grade.grade_id}`} >{grade.grade_id}</Link></td>
-                    <td className="border px-4 py-2"><Link href={`/balgurukul/${grade.bg_id}`} >{grade.bg_id}</Link></td>
+                    <td className="border px-4 py-2"><Link href={`/balgurukul/${grade.bg_id}`} >{grade.bg_name}</Link></td>
                     <td className="border px-4 py-2">{grade.exam}</td>
                     <td className="border px-4 py-2">{grade.grade}</td>
+                    {console.log(grade)}
                   </tr>
                 )
               })}

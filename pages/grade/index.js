@@ -22,6 +22,18 @@ const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreate
       
       Router.push(`/grade?bg_id=${bg_id_val}&student_id=${student_id_val}&grade=${grade_val}&exam=${exam_val}&dateLesser=${dateLesser_val}&dateGreater=${dateGreater_val}`)
       
+      if(bg_id_val === '')
+        setBg_id(null);
+      if(student_id_val === '')
+        setStudent_id(null);
+      if(grade_val === '')
+        setGrade(null);
+      if(exam_val === '')
+        setExam(null);
+      if(dateLesser_val === '')
+        setDateLesser(null);
+      if(dateGreater_val === '')
+        setDateGreater(null);
       
       const res = await fetch(`${baseUrl}/api/student/grade/get`, {
 

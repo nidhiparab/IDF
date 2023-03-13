@@ -18,19 +18,33 @@ export default function CustomModal({ show, children, onClose, top, left, right,
           backgroundColor: 'rgba(255, 255, 255, 0.7)'
         },
         content: {
+          // position: 'absolute',
+          // // top,
+          // // left,
+          // // top: '50 %',
+          // // left: '50 %',
+          // // transform: 'translate(-50 %, -50 %)',
+          // left: 0,
+          // right: 0,
+          // 'margin-left': 'auto',
+          // 'margin-right': 'auto',
+          // // right,
+          // // width: 'max-content',
+          // bottom,
+          // border: '2px solid #E0E0E0',
+          // background: '#fff',
+          // overflow: 'auto',
+          // WebkitOverflowScrolling: 'touch',
+          // // borderRadius: '4px',
+          // outline: 'none',
+          // padding: '20px'
+          
+          
           position: 'absolute',
-          // top,
-          // left,
-          // top: '50 %',
-          // left: '50 %',
-          // transform: 'translate(-50 %, -50 %)',
-          left: 0,
-          right: 0,
-          'margin-left': 'auto',
-          'margin-right': 'auto',
-          // right,
-          // width: 'max-content',
-          bottom,
+          top: top,
+          left: left,
+          right: right,
+          bottom: bottom,
           border: '2px solid #E0E0E0',
           background: '#fff',
           overflow: 'auto',
@@ -38,6 +52,7 @@ export default function CustomModal({ show, children, onClose, top, left, right,
           // borderRadius: '4px',
           outline: 'none',
           padding: '20px'
+          
         }
       }}
     >
