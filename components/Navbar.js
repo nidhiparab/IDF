@@ -32,8 +32,8 @@ const Navbar = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row justify-center text-black items-center font">
-              <Link className="nav-link bg-blue-400 hover:bg-blue-600 hover:text-white p-2 px-4 w-30 rounded-3xl m-2 text-center" aria-current="page" href="/">
+            <div className="flex flex-row justify-center text-white font-bold items-center font">
+              <Link className="nav-link bg-blue-400 hover:bg-blue-600 p-2 px-4 w-30 rounded-3xl m-2 text-center" aria-current="page" href="/">
                 Home
               </Link>
 
@@ -45,7 +45,7 @@ const Navbar = () => {
                   </Link>
                   {/* <Link href="#">Link 3</Link> */}
                 </div>
-              </div> : <><Link className="nav-link " aria-current="page" href="/balgurukul">
+              </div> : <><Link className="dropdown nav-link bg-blue-400 hover:bg-blue-600 px-4 p-2 w-30 rounded-3xl m-2 text-center" aria-current="page" href="/balgurukul">
                 Balgurukul
               </Link></>}
 
@@ -62,7 +62,7 @@ const Navbar = () => {
                     Create Student
                   </Link>
                 </div>
-              </div> : <><Link className="nav-link " aria-current="page" href="/profile/students">
+              </div> : <><Link className="dropdown nav-link bg-blue-400 hover:bg-blue-600 px-4 p-2 w-30 rounded-3xl m-2 text-center" aria-current="page" href="/profile/students">
                 Students
               </Link></>}
 

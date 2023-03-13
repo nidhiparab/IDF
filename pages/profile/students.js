@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import styles from '../../styles/StudentId.module.css'
 import baseUrl from '../../helpers/baseUrl';
 import { useState, useEffect } from 'react';
 
@@ -31,18 +32,16 @@ const Students = ({ students }) => {
   
   return (
     <>
-      <div>
-        <div className="ml-48 my-10 p-4 d-inline-flex space-x-4">
-          <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" placeholder='Student Name' value={userName} onChange={(e) => setUserName(e.target.value)} />
-          <br />
-      
-          <button className="bg-blue-900 hover:bg-blue-500 text-white font-bold px-4 rounded" name='Reset' onClick={() => { setUserName('') }}>Reset Filters</button>
-        </div>
+      <div className="justify-content-center ml-48 my-10">
+          <input className={styles.filter_name} type="text" placeholder='Student Name' value={userName} onChange={(e) => setUserName(e.target.value)} />
+          <button className={styles.Rbtn} name='Reset' onClick={() => { setUserName('') }}>Reset Filters</button>
       </div>
+      
+      
       {filter.map(student => {
         return (<>
 
-          <div className="mx-32 mb-7 px-5 py-4 items-center shadow-2xl shadow-slate-700 rounded-2xl" key={student.student_id}>
+          <div className="mx-32 mb-7 px-5 py-4 items-center shadow-l border-4 border-solid rounded-2xl" key={student.student_id}>
             <div className=' text-l flex flex-row justify-evenly'>
               <div className='flex flex-row justify-start align-items-center'>
                 <h3 className=' font-bold text-blue-600  mb-2 self-center'>{student?.f_name} {student?.m_name} {student?.l_name}</h3>

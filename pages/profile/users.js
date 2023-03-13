@@ -33,31 +33,30 @@ const Users = ({ users }) => {
   
   return (
     <>
-      <div>
-        <div className="ml-48 my-10 p-4 d-inline-flex space-x-4">
-          <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" placeholder='User Name' value={userName} onChange={(e) => setUserName(e.target.value)} />
-          <br />
-      
-          <button className="bg-blue-900 hover:bg-blue-500 text-white font-bold px-4 rounded" name='Reset' onClick={() => { setUserName('') }}>Reset Filters</button>
-        </div>
+      <div className="justify-content-center ml-48 my-10">
+          <input className={styles.filter_name} type="text" placeholder='Student Name' value={userName} onChange={(e) => setUserName(e.target.value)} />
+          <button className={styles.Rbtn} name='Reset' onClick={() => { setUserName('') }}>Reset Filters</button>
       </div>
+      
+      
         {filter.map(user => {
           return (
             <>
 
 
-              <div className="mx-32 mb-7 px-5 py-4 items-center shadow-2xl shadow-slate-700 rounded-2xl" key={user.user_id}>
+                <Link href={`/profile/user/${user.user_id}`} className='text-decoration-none ml-2' > 
+              <div className="mx-32 mb-7 px-5 py-4 items-center shadow-l hover:bg-blue-600 hover:text-white border-4 border-solid rounded-2xl" key={user.user_id}>
                 <div className=' text-l'>
                   <div className='justify-between p-2'>
-                    <h3 className='text-l font-bold text-blue-600  mt-auto mb-1'>{user?.title} {user?.f_name} {user?.m_name} {user?.l_name}</h3>
+                    <h4 className='text-l  font-extrabold mt-auto mb-1'>{user?.title} {user?.f_name} {user?.m_name} {user?.l_name}</h4>
                   </div>
                   <div className=' my-auto w-auto flex flex-col items-start justify-between'>
-                    <h3 className='text-m text-blue-500  mt-auto mb-3 ml-10'>{user.desgination}</h3>
+                  <h6 className='text-l font-extrabold mt-auto mb-4 ml-2'><span className="font-bold text-blue-200 text-sm font-mono">Designation:</span> {user.desgination}</h6>
                   </div>
 
                 </div>
-                <Link href={`/profile/user/${user.user_id}`} className='btn btn-primary ml-10' > Details </Link>
               </div>
+                </Link>
             </>)
         })}
       </>

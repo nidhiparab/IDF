@@ -10,7 +10,8 @@ const GradeId = ({ grade }) => {
     <>
 
       <div className={`bg-blue-600 flex justify-center text-center h-60 ${printStyles.no_print}`}>
-        <span className='m-auto text-5xl text-white font-extrabold'>Student{`'`}s Details</span>
+        <span className='m-auto text-5xl text-white font-extrabold'>Student{`'`}s Details
+        </span>
       </div>
       
       <div className={printStyles.padd1} ></div>
