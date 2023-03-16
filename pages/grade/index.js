@@ -1,11 +1,9 @@
 import React from 'react';
 import baseUrl from '../../helpers/baseUrl';
 import Link from 'next/link';
+import styles from '../../styles/GradeTable.module.css'
 import Router, { useRouter, withRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-
-
-
 
 const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreater } }) => {
   const [bg_id_val, setBg_id] = useState(bg_id ? bg_id : null);
@@ -22,18 +20,6 @@ const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreate
       
       Router.push(`/grade?bg_id=${bg_id_val}&student_id=${student_id_val}&grade=${grade_val}&exam=${exam_val}&dateLesser=${dateLesser_val}&dateGreater=${dateGreater_val}`)
       
-      if(bg_id_val === '')
-        setBg_id(null);
-      if(student_id_val === '')
-        setStudent_id(null);
-      if(grade_val === '')
-        setGrade(null);
-      if(exam_val === '')
-        setExam(null);
-      if(dateLesser_val === '')
-        setDateLesser(null);
-      if(dateGreater_val === '')
-        setDateGreater(null);
       
       const res = await fetch(`${baseUrl}/api/student/grade/get`, {
 
@@ -62,24 +48,16 @@ const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreate
 
   return (
     <div>
-<div className="p-4 d-inline-flex space-x-4">
-  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" placeholder='Student Id' value={student_id_val == null  || student_id_val == 'null'? '' : student_id_val} onChange={(e) => setStudent_id(e.target.value)} />
-  <br />
-  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text"  placeholder='Balgurukul Id' value={bg_id_val == null  || bg_id_val == 'null'? '' : bg_id_val} onChange={(e) => setBg_id(e.target.value)} />
-  <br />
-  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" placeholder='Exam' value={exam_val == null  || exam_val == 'null'? '' : exam_val} onChange={(e) => setExam(e.target.value)} />
-  <br />
-  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text"  placeholder='Class' value={grade_val == null  || grade_val == 'null'? '' : grade_val} onChange={(e) => setGrade(e.target.value)} />
-  <br />
-  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal " type="date" placeholder='Blgurukul Ida'  value={dateGreater_val == null  || dateGreater_val == 'null'? '' : dateGreater_val} onChange={(e) => setDateGreater(e.target.value)}   />
-<br/>
-  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal placeholder-red-500" type="date" placeholder='Balgurukul Id'  value={dateLesser_val == null  || dateLesser_val == 'null'? '' : dateLesser_val} onChange={(e) => setDateLesser(e.target.value)} />
-<br />
-  <button className="bg-blue-900 hover:bg-blue-500 text-white font-bold px-4 rounded" name='Reset' onClick={() => { setStudent_id(null); setBg_id(null); setExam(null); setGrade(null); setDateGreater(null);setDateLesser(null) }}>Reset Filters</button>
-
- 
-
+<div className="p-4 flex space-x-4">
+  <input className="w-full px-3 py-2 border rounded bg-white placeholder-gray-500 text-black" type="text" placeholder="Student Id" value={student_id_val == null || student_id_val == 'null' ? '' : student_id_val} onChange={(e) => setStudent_id(e.target.value)} />
+  <input className="w-full px-3 py-2 border rounded bg-white placeholder-gray-500 text-black" type="text" placeholder="Balgurukul Id" value={bg_id_val == null || bg_id_val == 'null' ? '' : bg_id_val} onChange={(e) => setBg_id(e.target.value)} />
+  <input className="w-full px-3 py-2 border rounded bg-white placeholder-gray-500 text-black" type="text" placeholder="Exam" value={exam_val == null || exam_val == 'null' ? '' : exam_val} onChange={(e) => setExam(e.target.value)} />
+  <input className="w-full px-3 py-2 border rounded bg-white placeholder-gray-500 text-black" type="text" placeholder="Class" value={grade_val == null || grade_val == 'null' ? '' : grade_val} onChange={(e) => setGrade(e.target.value)} />
+  <input className="w-full px-3 py-2 border rounded bg-white placeholder-gray-500 text-black" type="date" value={dateGreater_val == null || dateGreater_val == 'null' ? '' : dateGreater_val} onChange={(e) => setDateGreater(e.target.value)} />
+  <input className="w-full px-3 py-2 border rounded bg-white placeholder-gray-500 text-black" type="date" value={dateLesser_val == null || dateLesser_val == 'null' ? '' : dateLesser_val} onChange={(e) => setDateLesser(e.target.value)} />
+  <button className="bg-blue-400 hover:bg-blue-600 rounded-3xl p-1 px-1 font-bold w-full text-white" name="Reset" onClick={() => { setStudent_id(null); setBg_id(null); setExam(null); setGrade(null); setDateGreater(null); setDateLesser(null) }}>Reset Filters</button>
 </div>
+
 
 
 
@@ -133,6 +111,5 @@ Index.getInitialProps = async ({ query }) => {
 //     },
 //   }
 // }
-
 
 export default Index;

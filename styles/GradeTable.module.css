@@ -1,0 +1,20 @@
+.filter_name {
+    line-height: 15px;
+    border-radius: 6px;
+    border: 1px solid #000;
+    padding: 0.5%;
+    margin: 1% 1% 1% 4%;
+    width: 60%;
+    height: 4%;
+    background-color: #ffff;
+    color: rgb(139, 138, 138);
+  }
+
+  .Rbtn {
+    @apply bg-blue-400 hover:bg-blue-600 rounded-3xl p-1 px-1 font-bold;
+    /* margin-top: 1%; */
+    width: 40%;
+    border: none;
+    color: white;
+    transition: 0.3s;
+  }

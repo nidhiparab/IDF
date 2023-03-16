@@ -12,8 +12,7 @@ const GradeId = ({ grade }) => {
     <>
 
       <div className={`bg-blue-600 flex justify-center text-center h-60 ${printStyles.no_print}`}>
-        <span className='m-auto text-5xl text-white font-extrabold'>Student{`'`}s Details
-        </span>
+        <span className='m-auto text-5xl text-white font-extrabold'>Student{`'`}s Details</span>
       </div>
       <div className={`flex flex-col ${printStyles.header}`} >
         <div className={`flex flex-row justify-center `}>
@@ -156,7 +155,7 @@ const GradeId = ({ grade }) => {
 
 
       </div>
-      <div className={`m-20 p-10 items-center shadow-xl shadow-slate-300 rounded-2xl ${printStyles.no_shadow} ${printStyles.no_print} `}>
+      <div className={`m-20 p-10 items-center border-4 border-solid rounded-2xl ${printStyles.no_shadow} ${printStyles.no_print} `}>
         <h1 className='text-center font-bold text-blue-600 cursor-pointer ' onClick={() => { window.print() }} >Print</h1>
       </div>
 
