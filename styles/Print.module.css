@@ -14,7 +14,6 @@
   .padd2 {
     padding-top: 100px !important;
     padding-bottom: 25px !important;
-    
   }
   .padd3 {
     padding-top: 70px !important;
@@ -25,4 +24,11 @@
   .padd5 {
     padding-top: 250px !important;
   }
+
+  .header {
+    display: block !important;
+  }
+}
+.header {
+  display: none;
 }
