@@ -48,21 +48,16 @@ const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreate
 
   return (
     <div>
-<div className="p-4 d-inline-flex space-x-4">
-  <input className={styles.filter_name} type="text" placeholder='Student Id' value={student_id_val == null  || student_id_val == 'null'? '' : student_id_val} onChange={(e) => setStudent_id(e.target.value)} />
-  <br />
-  <input className={styles.filter_name} type="text"  placeholder='Balgurukul Id' value={bg_id_val == null  || bg_id_val == 'null'? '' : bg_id_val} onChange={(e) => setBg_id(e.target.value)} />
-  <br />
-  <input className={styles.filter_name} type="text" placeholder='Exam' value={exam_val == null  || exam_val == 'null'? '' : exam_val} onChange={(e) => setExam(e.target.value)} />
-  <br />
-  <input className={styles.filter_name} type="text"  placeholder='Class' value={grade_val == null  || grade_val == 'null'? '' : grade_val} onChange={(e) => setGrade(e.target.value)} />
-  <br />
-  <input className="py-2 px-4 block w-full appearance-none leading-normal" type="date" type="date"  value={dateGreater_val == null  || dateGreater_val == 'null'? '' : dateGreater_val} onChange={(e) => setDateGreater(e.target.value)} />
-  <br />
-  <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="date" value={dateLesser_val == null  || dateLesser_val == 'null'? '' : dateLesser_val} onChange={(e) => setDateLesser(e.target.value)} />
-  <br />
-  <button className="bg-blue-900 hover:bg-blue-500 text-white font-bold px-4 rounded" name='Reset' onClick={() => { setStudent_id(null); setBg_id(null); setExam(null); setGrade(null); setDateGreater(null);setDateLesser(null) }}>Reset Filters</button>
+<div className="p-4 flex space-x-4">
+  <input className="w-full px-3 py-2 border rounded bg-white placeholder-gray-500 text-black" type="text" placeholder="Student Id" value={student_id_val == null || student_id_val == 'null' ? '' : student_id_val} onChange={(e) => setStudent_id(e.target.value)} />
+  <input className="w-full px-3 py-2 border rounded bg-white placeholder-gray-500 text-black" type="text" placeholder="Balgurukul Id" value={bg_id_val == null || bg_id_val == 'null' ? '' : bg_id_val} onChange={(e) => setBg_id(e.target.value)} />
+  <input className="w-full px-3 py-2 border rounded bg-white placeholder-gray-500 text-black" type="text" placeholder="Exam" value={exam_val == null || exam_val == 'null' ? '' : exam_val} onChange={(e) => setExam(e.target.value)} />
+  <input className="w-full px-3 py-2 border rounded bg-white placeholder-gray-500 text-black" type="text" placeholder="Class" value={grade_val == null || grade_val == 'null' ? '' : grade_val} onChange={(e) => setGrade(e.target.value)} />
+  <input className="w-full px-3 py-2 border rounded bg-white placeholder-gray-500 text-black" type="date" value={dateGreater_val == null || dateGreater_val == 'null' ? '' : dateGreater_val} onChange={(e) => setDateGreater(e.target.value)} />
+  <input className="w-full px-3 py-2 border rounded bg-white placeholder-gray-500 text-black" type="date" value={dateLesser_val == null || dateLesser_val == 'null' ? '' : dateLesser_val} onChange={(e) => setDateLesser(e.target.value)} />
+  <button className="bg-blue-400 hover:bg-blue-600 rounded-3xl p-1 px-1 font-bold w-full text-white" name="Reset" onClick={() => { setStudent_id(null); setBg_id(null); setExam(null); setGrade(null); setDateGreater(null); setDateLesser(null) }}>Reset Filters</button>
 </div>
+
 
 
 
