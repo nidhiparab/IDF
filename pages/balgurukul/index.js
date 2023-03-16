@@ -33,17 +33,31 @@ export default function BG({ BG }) {
   //---------cards displayed
   let bgkList = filterd.map(bg => {
     return (
-      <div className={styles.card} key={bg.bg_id} >
-        {/* <img src="..." class="card-img-top" alt="..."/> */}
-        <div className="card-body">
-          <h5 className={styles.card_title}>{bg.bg_name}</h5>
-          <p className="card-text">{bg.state}</p>
-          <p className="card-text">{bg.state_short}</p>
+      // <div className={styles.card} key={bg.bg_id} >
+      //   <div className="card-body">
+      //     <h5 className={styles.card_title}>{bg.bg_name}</h5>
+      //     <p className="card-text">{bg.state}</p>
+      //     <p className="card-text">{bg.state_short}</p>
 
-          {/* --------------------get every bg detail----------------- */}
-          <Link href={'/balgurukul/[id]'} as={`/balgurukul/${bg.bg_id}`} className="btn btn-primary">Know More</Link>
-        </div>
-      </div>
+      //     {/* --------------------get every bg detail----------------- */}
+      //     <Link href={'/balgurukul/[id]'} as={`/balgurukul/${bg.bg_id}`} className="btn btn-primary">Know More</Link>
+      //   </div>
+      // </div>
+      
+      <Link href={'/balgurukul/[id]'} as={`/balgurukul/${bg.bg_id}`} className='text-decoration-none ml-2' > 
+              <div className="mx-32 mb-7 px-5 py-4 items-center shadow-l hover:bg-blue-600 hover:text-white border-4 border-solid rounded-2xl" key={bg.bg_id}>
+                <div className=' text-l'>
+                  <div className='justify-between p-2'>
+                    <h4 className='text-l  font-extrabold mt-auto mb-1'>{bg.bg_name}</h4>
+                  </div>
+                  <div className=' my-auto w-auto flex flex-col items-start justify-between'>
+                  <h6 className='text-l font-extrabold mt-auto ml-2'><span className="font-bold text-sm font-mono">State:</span> {bg.state}</h6>
+                  <h6 className='text-l font-extrabold mb-4 ml-2'><span className="font-bold text-sm font-mono">State Short:</span> {bg.state_short}</h6>
+                  </div>
+
+                </div>
+              </div>
+                </Link>
     )
   })
   return (

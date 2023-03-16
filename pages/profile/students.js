@@ -41,19 +41,22 @@ const Students = ({ students }) => {
       {filter.map(student => {
         return (<>
 
-          <div className="mx-32 mb-7 px-5 py-4 items-center shadow-l border-4 border-solid rounded-2xl" key={student.student_id}>
-            <div className=' text-l flex flex-row justify-evenly'>
-              <div className='flex flex-row justify-start align-items-center'>
-                <h3 className=' font-bold text-blue-600  mb-2 self-center'>{student?.f_name} {student?.m_name} {student?.l_name}</h3>
+              
+              <Link href={`/profile/student/${student.student_id}`} className='text-decoration-none ml-2' > 
+              <div className="mx-32 mb-7 px-5 py-4 items-center shadow-l hover:bg-blue-600 hover:text-white border-4 border-solid rounded-2xl" key={student.student_id}>
+                <div className=' text-l'>
+                  <div className='justify-between p-2'>
+                    <h2 className='text-l  font-extrabold mt-auto mb-1'>{student?.f_name} {student?.m_name} {student?.l_name}</h2>
+                  </div>
+                  <div className=' my-auto w-auto flex flex-col items-start justify-between '>
+                        <h4 className='text-sm font-extrabold mt-auto mb-4 ml-2'><span className="font-bold font-mono text-sm">Balgurukul:</span> {student.bg_name}</h4>
+                  </div>
+        
+
+                </div>
               </div>
-              <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
-              <Link href={`/balgurukul/${student.bg_id}`} className='mt-auto mb-2' passHref>
-                <h3 className='text-m font-bold text-blue-600 mt-auto mb-3'>{student.bg_name}</h3>
                 </Link>
-              </div >
-              <Link href={ `/profile/student/${student.student_id}` } className='btn btn-primary h-2/3' > Details </Link>
-            </div>
-          </div>
+
 
         </>)
       })}

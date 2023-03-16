@@ -51,7 +51,7 @@ const Users = ({ users }) => {
                     <h4 className='text-l  font-extrabold mt-auto mb-1'>{user?.title} {user?.f_name} {user?.m_name} {user?.l_name}</h4>
                   </div>
                   <div className=' my-auto w-auto flex flex-col items-start justify-between'>
-                  <h6 className='text-l font-extrabold mt-auto mb-4 ml-2'><span className="font-bold text-blue-200 text-sm font-mono">Designation:</span> {user.desgination}</h6>
+                  <h6 className='text-l font-extrabold mt-auto mb-4 ml-2'><span className="font-bold text-sm font-mono">Designation:</span> {user.desgination}</h6>
                   </div>
 
                 </div>
