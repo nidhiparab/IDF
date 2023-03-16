@@ -10,12 +10,12 @@ export default async function getGradeByStudentId(req, res) {
   if(student_id != null && student_id != 'null') condition += " AND grade.student_id = " + `'${student_id }'`;
   if(bg_id != null && bg_id != 'null') condition += " AND grade.bg_id = " + `'${bg_id }'`;
   if(grade != null && grade != 'null') condition += " AND grade.grade = " + `'${grade }'`;
-  if(exam != null && exam != 'null') condition += " AND grade.exam = " + `'${exam }'`;
+  if(exam != null && exam != 'null') condition += " AND grade.exam LIKE " + `'${exam }'`;
   if(grade_id != null && grade_id != 'null') condition += " AND grade.grade_id = " + `'${grade_id }'`;
   if(dateLesser != null && dateLesser != 'null') condition += " AND grade.timestamp <= " + `'${dateLesser }'`;
   if(dateGreater != null && dateGreater != 'null') condition += " AND grade.timestamp >= " + `'${dateGreater }'`;
   let grades = await executeQuery({
-    query: "SELECT grade.*, bg.bg_name, student.*, DATE_FORMAT(`timestamp`, '%d-%m-%Y') as timestamp FROM `grade` JOIN `bg` ON grade.bg_id = bg.bg_id JOIN `student` ON grade.student_id = student.student_id WHERE " + condition + ";",
+    query: "SELECT student.*, bg.bg_name, grade.*, DATE_FORMAT(`timestamp`, '%d-%m-%Y') as timestamp FROM `grade` JOIN `bg` ON grade.bg_id = bg.bg_id JOIN `student` ON grade.student_id = student.student_id WHERE " + condition + ";",
     values: []
   })
   
@@ -27,7 +27,7 @@ export default async function getGradeByStudentId(req, res) {
       grade_intrests: {},
       grade_specifics: {},
     }
-    
+    console.log(grade.grade_id, grade.grade);
     if (min) {result = { ...grade };finalResult.push(result); continue}
 
     result = {...grade, ...result}

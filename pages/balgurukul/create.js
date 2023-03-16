@@ -57,10 +57,10 @@ const Create = () => {
   return (
     <div className="mx-auto p-20 items-center shadow-2xl shadow-slate-700 rounded-2xl w-2/3">
       <form action="#" onSubmit={(e) => handleSubmit(e)}>
-          
+
         <h4 className="font-bold">Details</h4>
         <div className="flex space-x-4  items-center block text-sm font-medium mb-2">
-        <input
+          <input
             className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="bg_name"
@@ -70,8 +70,8 @@ const Create = () => {
               setName(e.target.value);
             }}
           />
- 
-<input
+
+          <input
             className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="partnering_org"
@@ -87,7 +87,7 @@ const Create = () => {
 
         <h4 className="font-bold">Address</h4>
         <div className=" flex space-x-4  items-center  block text-sm font-medium mb-2">
-        <input
+          <input
             className="inline-block w-full py-3 px-4 my-2  border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="address"
@@ -97,7 +97,7 @@ const Create = () => {
               setAddr(e.target.value);
             }}
           />
-         <input
+          <input
             className="inline-block w-full py-3 px-4 my-2 border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="district"
@@ -111,7 +111,7 @@ const Create = () => {
 
         <div>
           <select
-           className="inline-block w-full py-3 px-4 my-2  border rounded-xl bg-slate-200 focus:outline-none border-none "
+            className="inline-block w-full py-3 px-4 my-2  border rounded-xl bg-slate-200 focus:outline-none border-none "
             id="state"
             name="state"
             value={state}
@@ -163,14 +163,14 @@ const Create = () => {
         </div>
 
         <div className="  flex space-x-4  items-center  block text-sm font-medium mb-2">
-        <input
+          <input
             className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="region"
             placeholder="Region"
             value={region}
             onChange={(e) => {
-              setRegion("SR");
+              setRegion(e.target.value);
             }}
           />
           <input
@@ -188,7 +188,7 @@ const Create = () => {
         {/* ------------------------------------------------------------ */}
         <h4 className="font-bold">Incharge</h4>
         <div className="  flex space-x-4  items-center  block text-sm font-medium mb-2">
-        <input
+          <input
             className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="org_under_bg"
@@ -198,7 +198,7 @@ const Create = () => {
               setOu(e.target.value);
             }}
           />
-        <input
+          <input
             className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="mail"
@@ -211,7 +211,7 @@ const Create = () => {
         </div>
 
         <div className="  flex space-x-4  items-center  block text-sm font-medium mb-2">
-        <input
+          <input
             className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="mob"
@@ -221,7 +221,7 @@ const Create = () => {
               setMob(e.target.value);
             }}
           />
-           <input
+          <input
             className="inline-block w-full py-3 px-4 my-2   border rounded-xl bg-slate-200 focus:outline-none border-none "
             type="text"
             name="tel"
@@ -233,7 +233,7 @@ const Create = () => {
           />
         </div>
 
-        <button type="submit"  className="items-center  w-full bg-indigo-500 text-white py-2 px-4 my-2 rounded-md hover:bg-indigo-600">
+        <button type="submit" className="items-center  w-full bg-indigo-500 text-white py-2 px-4 my-2 rounded-md hover:bg-indigo-600">
           Submit
         </button>
       </form>

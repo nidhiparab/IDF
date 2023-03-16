@@ -17,7 +17,7 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
   const [newP, setNewP] = useState('');
   const [newCP, setNewCP] = useState('');
   const [error, setError] = useState('');
-  
+
   const [desgination, setDesignation] = useState(user.desgination);
   const [title, setTitle] = useState(user.title);
   const [f_name, setF_name] = useState(user.f_name);
@@ -25,7 +25,7 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
   const [l_name, setL_name] = useState(user.l_name);
   const [mob, setMob] = useState(user.mob);
   const [qualification, setQuali] = useState(user.qualification);
-  
+
 
   const handleResetPasswordSubmit = async (event) => {
     event.preventDefault();
@@ -45,9 +45,9 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
       body: JSON.stringify(data),
     });
     let res = await response.json();
-    
-    if(res.error) return setError(res.error)
-    
+
+    if (res.error) return setError(res.error)
+
     // Do something with successful response
     setError('')
     setOld('')
@@ -70,9 +70,9 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
       body: JSON.stringify(data),
     });
     let res = await response.json();
-    
-    if(res.error) return setError(res.error)
-    
+
+    if (res.error) return setError(res.error)
+
     // Do something with successful response
     setError('')
     setOld('')
@@ -101,96 +101,111 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
   // Designation Title First Middle Last 
   return (
     <>
-      <CustomModal show={resetPass} onClose={() => setResetPass(false)}  left='30%'>
-       
+      <CustomModal show={resetPass} onClose={() => setResetPass(false)} left='30%'>
+
         <div className="fixed items-center w-1/3 bg-white shadow-lg">
-  <div className="p-6">
-    <h3 className="text-3xl font-extrabold  text-blue-600 mb-2">Reset Password</h3>
-    <form onSubmit={handleResetPasswordSubmit}>
-      <div className="mb-4">
-        <label className="block text-xl font-bold text-blue-600 mb-2">Old Password</label>
-        <input 
-          className="border border-black-600 w-full p-2 bg-white" 
-          type="text" 
-          value={old} 
-          onChange={(e) => setOld(e.target.value)} 
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-xl font-bold text-blue-600 mb-2">New Password</label>
-        <input 
-           className="border border-black-600 w-full p-2 bg-white"  
-          type="text"  
-          value={newP} 
-          onChange={(e) => setNewP(e.target.value)} 
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-xl font-bold text-blue-600 mb-2">Confirm New Password</label>
-        <input 
-            className="border border-black-600 w-full p-2 bg-white" 
-          type="text"  
-          value={newCP} 
-          onChange={(e) => setNewCP(e.target.value)} 
-        />
-      </div>
-      <button className="bg-blue-500 text-white p-2 w-full hover:bg-blue-700">Submit</button>
-      <span>{error}</span>
-    </form>
-  </div>
-</div>
-        
-      </CustomModal>
-      
-      
-      <CustomModal show={update} onClose={() => setUpdate(false)} left='15%' >
-      <div className="fixed justify-center w-2/3 bg-white shadow-lg">
-  <div className="p-6      ">
-
-    <h3 className="text-3xl font-extrabold text-blue-600 mb-3">Update Details</h3>
-        
-        
-        
-        <form onSubmit={handleUpdateSubmit} >
-
-<div className="flex flex-wrap  ">
-  <div className="w-1/2 pr-4">
-    <label className="text-xl font-bold text-blue-600 mb-2">Designation</label>
-    <input className="border border-black-600 w-full p-2 bg-white" type="text" value={desgination} onChange={(e) => setDesignation(e.target.value)} />
-  </div>
-  <div className="w-1/2 pl-4">
-    <label className="text-xl font-bold text-blue-600 mb-2">Title</label>
-    <input className="border border-black-600 w-full p-2 bg-white" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-  </div>
-  <div className="w-1/2 pr-4 mt-4">
-    <label className="text-xl font-bold text-blue-600 mb-2">First Name</label>
-    <input className="border border-black-600 w-full p-2 bg-white" type="text" value={f_name} onChange={(e) => setF_name(e.target.value)} />
-  </div>
-  <div className="w-1/2 pl-4 mt-4">
-    <label className="text-xl font-bold text-blue-600 mb-2">Middle Name</label>
-    <input className="border border-black-600 w-full p-2 bg-white" type="text" value={m_name} onChange={(e) => setM_name(e.target.value)} />
-  </div>
-  <div className="w-1/2 pr-4 mt-4">
-    <label className="text-xl font-bold text-blue-600 mb-2">Last Name</label>
-    <input className="border border-black-600 w-full p-2 bg-white" type="text" value={l_name} onChange={(e) => setL_name(e.target.value)} />
-  </div>
-  <div className="w-1/2 pl-4 mt-4">
-    <label className="text-xl font-bold text-blue-600 mb-2">Mobile Number</label>
-    <input className="border border-black-600 w-full p-2 bg-white" type="text" value={mob} onChange={(e) => setMob(e.target.value)} />
-  </div>
-  <div className="w-1/2 pr-4 mt-4">
-    <label className="text-xl font-bold text-blue-600 mb-2">Qualification</label>
-    <input className="border border-black-600 w-full p-2 bg-white" type="text" value={qualification} onChange={(e) => setQuali(e.target.value)} />
-  </div></div> <br/>
-              <button className="bg-blue-500 text-white p-2 w-full hover:bg-blue-700"  type='submit'>Submit</button>
-      
+          <div className="p-6">
+            <h3 className="text-3xl font-extrabold  text-blue-600 mb-2">Reset Password</h3>
+            <form onSubmit={handleResetPasswordSubmit}>
+              <div className="mb-4">
+                <label className="block text-xl font-bold text-blue-600 mb-2">Old Password</label>
+                <input
+                  className="border border-black-600 w-full p-2 bg-white"
+                  type="text"
+                  value={old}
+                  onChange={(e) => setOld(e.target.value)}
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-xl font-bold text-blue-600 mb-2">New Password</label>
+                <input
+                  className="border border-black-600 w-full p-2 bg-white"
+                  type="text"
+                  value={newP}
+                  onChange={(e) => setNewP(e.target.value)}
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-xl font-bold text-blue-600 mb-2">Confirm New Password</label>
+                <input
+                  className="border border-black-600 w-full p-2 bg-white"
+                  type="text"
+                  value={newCP}
+                  onChange={(e) => setNewCP(e.target.value)}
+                />
+              </div>
+              <button className="bg-blue-500 text-white p-2 w-full hover:bg-blue-700">Submit</button>
               <span>{error}</span>
-        
-      
-        </form>
-        </div>    </div>
+            </form>
+          </div>
+        </div>
+
       </CustomModal>
-      
+
+
+      <CustomModal show={update} onClose={() => setUpdate(false)} left='15%' >
+        <div className="fixed justify-center w-2/3 bg-white shadow-lg">
+          <div className="p-6      ">
+
+            <h3 className="text-3xl font-extrabold text-blue-600 mb-3">Update Details</h3>
+
+
+
+            <form onSubmit={handleUpdateSubmit} >
+
+              <div className="flex flex-wrap  ">
+                <div className="w-1/2 pr-4">
+                  <label className="text-xl font-bold text-blue-600 mb-2">Designation</label>
+                  <input className="border border-black-600 w-full p-2 bg-white" type="text" value={desgination} onChange={(e) => setDesignation(e.target.value)} />
+                </div>
+                <div className="w-1/2 pl-4">
+                  <label className="text-xl font-bold text-blue-600 mb-2">Title</label>
+                  <select
+                    name='title'
+                    placeholder='Title'
+                    default=''
+                    className="border border-black-600 w-full p-2 bg-white"
+                    value={title} onChange={(e) => setTitle(e.target.value)}
+
+                  >
+                    <option value="" className="">Title</option>
+                    <option value="Mr" className="">Mr</option>
+                    <option value="Miss" className="">Miss</option>
+                    <option value="Mrs" className="">Mrs</option>
+                    <option value="Dr" className="">Dr</option>
+                    <option value="Fr" className="">Fr</option>
+                    <option value="Sr" className="">Sr</option>
+                  </select>
+                </div>
+                <div className="w-1/2 pr-4 mt-4">
+                  <label className="text-xl font-bold text-blue-600 mb-2">First Name</label>
+                  <input className="border border-black-600 w-full p-2 bg-white" type="text" value={f_name} onChange={(e) => setF_name(e.target.value)} />
+                </div>
+                <div className="w-1/2 pl-4 mt-4">
+                  <label className="text-xl font-bold text-blue-600 mb-2">Middle Name</label>
+                  <input className="border border-black-600 w-full p-2 bg-white" type="text" value={m_name} onChange={(e) => setM_name(e.target.value)} />
+                </div>
+                <div className="w-1/2 pr-4 mt-4">
+                  <label className="text-xl font-bold text-blue-600 mb-2">Last Name</label>
+                  <input className="border border-black-600 w-full p-2 bg-white" type="text" value={l_name} onChange={(e) => setL_name(e.target.value)} />
+                </div>
+                <div className="w-1/2 pl-4 mt-4">
+                  <label className="text-xl font-bold text-blue-600 mb-2">Mobile Number</label>
+                  <input className="border border-black-600 w-full p-2 bg-white" type="text" value={mob} onChange={(e) => setMob(e.target.value)} />
+                </div>
+                <div className="w-1/2 pr-4 mt-4">
+                  <label className="text-xl font-bold text-blue-600 mb-2">Qualification</label>
+                  <input className="border border-black-600 w-full p-2 bg-white" type="text" value={qualification} onChange={(e) => setQuali(e.target.value)} />
+                </div></div> <br />
+              <button className="bg-blue-500 text-white p-2 w-full hover:bg-blue-700" type='submit'>Submit</button>
+
+              <span>{error}</span>
+
+
+            </form>
+          </div>    </div>
+      </CustomModal>
+
       <div className='bg-blue-600 flex justify-center text-center h-60'>
         <span className='m-auto text-5xl text-white font-extrabold'>Profile Page</span>
       </div>
@@ -222,12 +237,14 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
             <span className='mt-auto mb-2'>{user?.email}</span>
             <span className='mt-auto mb-2'>{user?.mob}</span>
           </div>
-          { session?.user.user_id === user.user_id? <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
+          {session?.user.user_id === user.user_id ? <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
             <button className='mt-auto mb-2 text-2xl font-bold text-blue-600 border-2 border-blue-600 rounded-lg py-2 px-4 hover:bg-blue-600 hover:text-white' onClick={() => setResetPass(true)}>Reset Password</button>
             <br />
             <button className='mt-auto mb-2 text-2xl font-bold text-blue-600 border-2 border-blue-600 rounded-lg py-2 px-4 hover:bg-blue-600 hover:text-white' onClick={() => setUpdate(true)}>Update Profile</button>
-          </div> : <></> }
-         
+            <br />
+
+          </div> : <></>}
+
         </div>
       </div>
     </>
@@ -250,4 +267,3 @@ export async function getServerSideProps({ params: { user_id } }) {
 export default UserProfile;
 
 
- 
