@@ -145,13 +145,8 @@ form .fields .input-field {
   margin-top: 20px;
   margin-bottom: 20px;
   font-size: medium;
-  /* background-image:linear-gradient(rgba(205, 241, 252, 0.52), #ABCBFF); */
 }
-/* .name{
-  font-weight: 750;
-  font-size: 35px;
-  color: #870026;
-} */
+
 
 .org {
   color: #2a70de;
