@@ -2,7 +2,9 @@ import baseUrl from '../../helpers/baseUrl';
 import React from 'react';
 import student from '../profile/student/[student_id]';
 import printStyles from '../../styles/Print.module.css';
-
+import Link from 'next/link';
+import Image from 'next/image';
+import logo from '../../public/images/idf-logo.png'
 
 const GradeId = ({ grade }) => {
   // console.log(grade.grade_subjects);
@@ -12,7 +14,27 @@ const GradeId = ({ grade }) => {
       <div className={`bg-blue-600 flex justify-center text-center h-60 ${printStyles.no_print}`}>
         <span className='m-auto text-5xl text-white font-extrabold'>Student{`'`}s Details</span>
       </div>
-      
+      <div className={`flex flex-col ${printStyles.header}`} >
+        <div className={`flex flex-row justify-center `}>
+          <Link className="flex flex-col m-2" href="https://www.idf.org.in" passHref>
+            <Image
+              className="w-16 h-20 "
+              src={logo}
+              alt="idf-logo.png"
+            />
+          </Link>
+          <div className="flex flex-col ">
+            <h1 className="flex flex-row m-0 font-bold">Indian Development Foundation</h1>
+            <p className="flex flex-row m-0 text-sm">
+              A National NGO committed to Health, Education, and Development
+            </p>
+            <p className="flex flex-row text-sm">
+              IDF - Organization in Special Consultative Status with the Economic and Social
+              Council since 2012.
+            </p>
+          </div>
+        </div>
+      </div>
       <div className={printStyles.padd1} ></div>
 
       <div className={`m-20 p-10 items-center shadow-xl shadow-slate-300 rounded-2xl ${printStyles.no_shadow}`}>
@@ -22,7 +44,7 @@ const GradeId = ({ grade }) => {
             <span className='mt-auto mb-2'>{grade?.f_name} {grade?.m_name} {grade?.l_name}</span>
           </div>
           <div className='justify-between p-2'>
-            <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Balgurukul Name</h3>
+            <h3 className='text-3xl font-bold text-blue-600  mt-auto mb-3'>Balgurukul</h3>
             <span className='mt-auto mb-2'>{grade?.bg_name}</span>
           </div>
           <div className=' my-auto w-auto flex flex-col items-start justify-between p-2'>
