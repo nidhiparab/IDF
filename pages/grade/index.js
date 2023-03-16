@@ -67,8 +67,8 @@ const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreate
         <table className="table-auto w-5/6 mx-auto">
           <thead>
             <tr className="bg-blue-600 text-gray-100">
-              <th className="px-4 py-2">Grade Id</th>
-              <th className="px-4 py-2">Balgurukul Id</th>
+              <th className="px-4 py-2 w-1">Balgurukul Id</th>
+              <th className="px-4 py-2 ">Grade</th>
               <th className="px-4 py-2">Student Id</th>
               <th className="px-4 py-2">Exam</th>
               <th className="px-4 py-2">Class</th>
@@ -80,9 +80,9 @@ const Index = ({ query: { bg_id, student_id, grade, exam, dateLesser, dateGreate
             {grades?.map((grade) => {
               return (
                 <tr key={grade.grade_id} className="bg-white text-gray-700 ">
-                  <td className="border px-4 py-2"><Link href={`/grade/${grade.grade_id}`} >{grade.grade_id}</Link></td>
-                  <td className="border px-4 py-2"><Link href={`/balgurukul/${grade.bg_id}`} >{grade.bg_name}</Link></td>
-                  <td className="border px-4 py-2"><Link href={`/profile/student/${grade.student_id}`} >{grade.f_name} {grade.m_name} {grade.l_name}</Link></td>
+                  <td className="border px-4 py-2 font-bold "><Link href={`/balgurukul/${grade.bg_id}`} className="text-decoration-none">{grade.bg_name}</Link></td>
+                  <td className="border px-4 py-2 font-bold "><Link href={`/grade/${grade.grade_id}`} className="text-decoration-none" >{grade.f_name} {grade.m_name} {grade.l_name} - {grade.exam}</Link></td>
+                  <td className="border px-4 py-2 font-bold"><Link href={`/profile/student/${grade.student_id}`} className="text-decoration-none">{grade.f_name} {grade.m_name} {grade.l_name}</Link></td>
                   <td className="border px-4 py-2">{grade.exam}</td>
                   <td className="border px-4 py-2">{grade.grade}</td>
                   <td className="border px-4 py-2">{grade.timestamp}</td>
