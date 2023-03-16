@@ -27,7 +27,7 @@ Education is of prime importance. IDF Bal Gurukul projects are a success proven 
     
   </div>
 </div>
-<div className='mt-10 items-center'>
+<div className='mt-10 items-center mb-10'>
     <Gallery/>
     </div>
 </div>
