@@ -137,10 +137,10 @@ const CreateGrade = ({ bg, students, exam }) => {
 
   function changeTab(e, tab) {
     e.preventDefault();
-    setQualities(tab == 'qualities' ? true : false);
-    setSubject(tab == 'subjects' ? true : false);
-    setIntrests(tab == 'intrests' ? true : false);
-    setSpecifics(tab == 'specifics' ? true : false);
+    setQualities(tab == 'qualities');
+    setSubject(tab == 'subjects');
+    setIntrests(tab == 'intrests');
+    setSpecifics(tab == 'specifics');
   }
 
 
