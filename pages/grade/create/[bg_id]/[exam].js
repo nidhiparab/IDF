@@ -20,42 +20,42 @@ const CreateGrade = ({ bg, students, exam }) => {
     setSubject(false);
     setIntrests(false);
     setSpecifics(false);
-    
+
   }
   const formik = useFormik({
     initialValues: {
       grades: {
         grade_qualities: {
           Q1: '',
-          Q2: '',
-          Q3: '',
-          Q4: '',
-          Q5: '',
-          Q6: '',
-          Q7: '',
-          Q8: '',
-          Q9: '',
-          Q10: '', // O7
-          Q11: '',
-          Q12: ''
+          Q2: 'O7',
+          Q3: 'O7',
+          Q4: 'O7',
+          Q5: 'O7',
+          Q6: 'O7',
+          Q7: 'O7',
+          Q8: 'O7',
+          Q9: 'O7',
+          Q10: 'O7', // O7
+          Q11: 'O7',
+          Q12: 'O7'
         },
         grade_subjects: {
-          Q1: '', // O9
-          Q2: '',
-          Q3: '',
-          Q4: '',
-          Q5: ''
+          Q1: 'O9', // O9
+          Q2: 'O9',
+          Q3: 'O9',
+          Q4: 'O9',
+          Q5: 'O9'
         },
         grade_intrests: {
-          Q1: '', // O7
-          Q2: '',
-          Q3: '',
-          Q4: '',
-          Q5: '',
-          Q6: '',
-          Q7: '',
-          Q8: '',
-          Q9: '',
+          Q1: 'O7', // O7
+          Q2: 'O7',
+          Q3: 'O7',
+          Q4: 'O7',
+          Q5: 'O7',
+          Q6: 'O7',
+          Q7: 'O7',
+          Q8: 'O7',
+          Q9: 'O7',
         },
         grade_specifics: {
           Q1: '', // ''
@@ -65,30 +65,37 @@ const CreateGrade = ({ bg, students, exam }) => {
       }
     },
     validate: (values) => {
-      const errors = {grades:{grade_qualities:{}, grade_subjects:{}, grade_intrests:{}, grade_specifics:{}}};
-      
+      const errors = {};
+      const grade_qualities = {}, grade_subjects = {}, grade_intrests = {}, grade_specifics = {}
       for (const [key, value] of Object.entries(values.grades.grade_qualities)) {
-        if(value === '') errors.grades.grade_qualities[key] = 'Required'
+        if (value === '') grade_qualities[key] = 'Required'
       }
-      
+
       for (const [key, value] of Object.entries(values.grades.grade_subjects)) {
-        if(value === '') errors.grades.grade_subjects[key] = 'Required'
+        if (value === '') grade_subjects[key] = 'Required'
       }
-      
-      for(const [key, value] of Object.entries(values.grades.grade_intrests)){
-        if(value === '') errors.grades.grade_intrests[key] = 'Required'
+
+      for (const [key, value] of Object.entries(values.grades.grade_intrests)) {
+        if (value === '') grade_intrests[key] = 'Required'
       }
-      
-      
-      if(values.grades.grade_specifics.Q1 === ''){
-        errors.grades.grade_specifics.Q1 = 'Required'
+
+
+      if (values.grades.grade_specifics.Q1 === '') {
+        grade_specifics.Q1 = 'Required'
       }
-      if(values.grades.grade_specifics.Q2 === ''){
-        errors.grades.grade_specifics.Q2 = 'Required'
+      if (values.grades.grade_specifics.Q2 === '') {
+        grade_specifics.Q2 = 'Required'
       }
-      if(values.grades.grade_specifics.Q3 === ''){
-        errors.grades.grade_specifics.Q3 = 'Required'
+      if (values.grades.grade_specifics.Q3 === '') {
+        grade_specifics.Q3 = 'Required'
       }
+      const grades = {}
+      if (Object.keys(grade_qualities).length > 0) grades.grade_qualities = grade_qualities
+      if (Object.keys(grade_subjects).length > 0) grades.grade_subjects = grade_subjects
+      if (Object.keys(grade_intrests).length > 0) grades.grade_intrests = grade_intrests
+      if (Object.keys(grade_specifics).length > 0) grades.grade_specifics = grade_specifics
+      if (Object.keys(grades).length > 0) errors.grades = grades
+
       return errors;
     },
     onSubmit: async (values) => {
@@ -97,20 +104,23 @@ const CreateGrade = ({ bg, students, exam }) => {
       let grade_intrests = []
       let grade_specifics = []
 
-      for (const [key, value] of Object.entries(values.grade_qualities)) {
+      for (let [key, value] of Object.entries(values.grades.grade_qualities)) {
+        console.log(key, value);
         grade_qualities.push(value)
       }
-      for (const [key, value] of Object.entries(values.grade_subjects)) {
+
+      for (let [key, value] of Object.entries(values.grades.grade_subjects)) {
         grade_subjects.push(value)
       }
-      for (const [key, value] of Object.entries(values.grade_intrests)) {
+      for (let [key, value] of Object.entries(values.grades.grade_intrests)) {
         grade_intrests.push(value)
       }
-      for (const [key, value] of Object.entries(values.grade_specifics)) {
+      for (let [key, value] of Object.entries(values.grades.grade_specifics)) {
         grade_specifics.push(value)
       }
 
-      let res = await fetch(`${baseUrl}/api/student/grade/ins`, {
+      console.log("res");
+      let res = await fetch(`${baseUrl}/api/student/grade/insert`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -121,16 +131,21 @@ const CreateGrade = ({ bg, students, exam }) => {
           bg_id: selected.bg_id,
           exam: exam,
           grade: selected.grade,
-          grades: values.grades
+          grade_qualities,
+          grade_subjects,
+          grade_intrests,
+          grade_specifics,
         })
       })
-      if(res.error){
-        alert(res.error)
-      }else{
+      console.log(res);
+      let data = await res.json();
+      console.log(data);
+      if (data.error != null) {
+        alert(data.message)
+      } else {
         alert("Submitted")
         reset()
       }
-      let data = await res.json();
     }
   });
 
@@ -205,7 +220,7 @@ const CreateGrade = ({ bg, students, exam }) => {
                         <br />
                         <br />
                         <h4 className="text-blue-600 font-bold text-lg">{value}</h4>
-                        { formik.errors.grades?.[obj]?.[key_col] && formik.touched.grades?.[obj]?.[key_col] ? <div className="text-red-500">{formik.errors.grades[obj][key_col]}</div> : null}
+                        {formik.errors.grades?.[obj]?.[key_col] && formik.touched.grades?.[obj]?.[key_col] ? <div className="text-red-500">{formik.errors.grades[obj][key_col]}</div> : null}
                         <div className="border-2 hover:border-blue-600 p-1">
                           <div className={styles.radio_toolbar}>
                             {Object.keys(grade_opt).map((key_opt) => {
@@ -256,7 +271,7 @@ const CreateGrade = ({ bg, students, exam }) => {
                         <br />
                         <br />
                         <h4 className="text-blue-600 font-bold text-lg">{value}</h4>
-                        { formik.errors.grades?.[obj]?.[key_col] && formik.touched.grades?.[obj]?.[key_col] ? <div className="text-red-500">{formik.errors.grades[obj][key_col]}</div> : null}
+                        {formik.errors.grades?.[obj]?.[key_col] && formik.touched.grades?.[obj]?.[key_col] ? <div className="text-red-500">{formik.errors.grades[obj][key_col]}</div> : null}
                         <div className="border-2 hover:border-blue-600 p-1">
                           <div className={styles.radio_toolbar}>
                             {Object.keys(grade_opt).map((key_opt) => {
@@ -296,7 +311,7 @@ const CreateGrade = ({ bg, students, exam }) => {
                         <br />
                         <br />
                         <h4 className="text-blue-600 font-bold text-lg">{value}</h4>
-                        { formik.errors.grades?.[obj]?.[key_col] && formik.touched.grades?.[obj]?.[key_col] ? <div className="text-red-500">{formik.errors.grades[obj][key_col]}</div> : null}
+                        {formik.errors.grades?.[obj]?.[key_col] && formik.touched.grades?.[obj]?.[key_col] ? <div className="text-red-500">{formik.errors.grades[obj][key_col]}</div> : null}
                         <div className="border-2 hover:border-blue-600 p-1">
                           <div className={styles.radio_toolbar}>
                             {Object.keys(grade_opt).map((key_opt) => {
@@ -327,18 +342,18 @@ const CreateGrade = ({ bg, students, exam }) => {
                 <label className="text-blue-600 font-bold text-lg pt-4" htmlFor="Q1">Is there any specific or extraordinary talent / quality in the child? Please specify. </label>
 
                 <input className="bg-white  focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="textarea" {...formik.getFieldProps('grades.grade_specifics.Q1')} />
-                { formik.errors?.grades?.grade_specifics?.Q1 && formik.touched?.grades?.grade_specifics?.Q1 ? <div className="text-red-500">{formik.errors.grades.grade_specifics.Q1}</div> : null}
+                {formik.errors?.grades?.grade_specifics?.Q1 && formik.touched?.grades?.grade_specifics?.Q1 ? <div className="text-red-500">{formik.errors.grades.grade_specifics.Q1}</div> : null}
                 <label className="text-blue-600 font-bold text-lg pt-4" htmlFor="grade">Is there any specific or unusual challenge or problem faced by the child? Kindly explain.</label>
 
                 <input className="bg-white focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="textarea" {...formik.getFieldProps('grades.grade_specifics.Q2')} />
-                { formik.errors?.grades?.grade_specifics?.Q2 && formik.touched?.grades?.grade_specifics?.Q2 ? <div className="text-red-500">{formik.errors.grades.grade_specifics.Q2}</div> : null}
+                {formik.errors?.grades?.grade_specifics?.Q2 && formik.touched?.grades?.grade_specifics?.Q2 ? <div className="text-red-500">{formik.errors.grades.grade_specifics.Q2}</div> : null}
 
                 <label className="text-blue-600 font-bold text-lg pt-4" htmlFor="grade">Any specific action plan or suggestion with regard to the child? Please share.</label>
 
                 <input className="bg-white focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="textarea" {...formik.getFieldProps('grades.grade_specifics.Q3')} />
-                { formik.errors?.grades?.grade_specifics?.Q3 && formik.touched?.grades?.grade_specifics?.Q3 ? <div className="text-red-500">{formik.errors.grades.grade_specifics.Q3}</div> : null}
+                {formik.errors?.grades?.grade_specifics?.Q3 && formik.touched?.grades?.grade_specifics?.Q3 ? <div className="text-red-500">{formik.errors.grades.grade_specifics.Q3}</div> : null}
                 <br />
-                <button className="border-2 border-blue-200 w-full hover:bg-emerald-600 rounded-md py-3 hover:text-gray-50 text-lg" type='submit'>
+                <button className="border-2 border-blue-200 w-full hover:bg-emerald-600 rounded-md py-3 hover:text-gray-50 text-lg" type='submit' onClick={formik.handleSubmit}>
                   Submit
                 </button>
               </div>

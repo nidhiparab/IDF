@@ -3,13 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "server": "node server.js",
+    "dev": "node server.js",
     "build": "next build",
-    "export": "next build && next export",
-    "start": "node server.js",
-    "lint": "next lint"
-    
+    "start": "NODE_ENV=production node server.js",
+    "export": "next export"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.3.0",

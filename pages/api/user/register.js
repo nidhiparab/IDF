@@ -34,10 +34,10 @@ export default async function registerUser(req, res) {
     }); return
   }
   let insertDataAuth, insertDataUser
-  // await hash(password, 10)
+  
   insertDataAuth = await executeQuery({
     query: "INSERT INTO `auth`(`user_id`, `email`, `hash`) VALUES (?,?,?);",
-    values: [user_id, email, password]
+    values: [user_id, email, await hash(password, 10)]
   })
   if (insertDataAuth.error) {
 
@@ -65,7 +65,7 @@ export default async function registerUser(req, res) {
   }
 
 
-  res.status(200).json({ error: 'None' })
+  res.status(200).json({ error: null })
 
 
 

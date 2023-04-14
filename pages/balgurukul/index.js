@@ -12,7 +12,7 @@ export default function BG({ BG }) {
   const [state, setState] = useState("");
   const [name, setName] = useState("");
 
-
+  
   //implement filter update bg cards
   useEffect(() => {
     if (state || name) {
@@ -28,7 +28,7 @@ export default function BG({ BG }) {
     }
 
   }, [state, name]);
-
+  console.log(filterd);
   console.log(filterd.error);
   //---------cards displayed
   let bgkList = filterd.map(bg => {

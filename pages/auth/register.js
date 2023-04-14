@@ -113,8 +113,8 @@ const Register = () => {
         qualification: values.qualification,
       })
     }).then(res => res.json())
-      .then(res => {
-        if (res.error)
+      .then(data => {
+        if (data.error != null)
           setError(res.error);
         else
           router.push('/auth/login');
