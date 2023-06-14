@@ -74,7 +74,7 @@ const Footer = () => {
         <p>
            Copyright © 2023 All Rights Reserved
           <br></br>
-          <a href="">Developed and Designed by Shah & Anchor Kutchhi Engineering College</a>
+          <a href="/copyright">Developed and Designed by Shah & Anchor Kutchhi Engineering College</a>
         </p>
       </div>
     </>
