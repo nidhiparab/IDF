@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
       </Head>
       <Navbar />
       {children}             {/*--------------content of the page----------------*/}
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }
