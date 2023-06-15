@@ -36,7 +36,7 @@ Education is of prime importance. IDF Bal Gurukul projects are a success proven 
 {/* <Footer/> */}
  
               
-           {/* <Herosection /> */}
+      
 
 
        </div>

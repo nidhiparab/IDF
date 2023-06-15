@@ -62,6 +62,23 @@ const Gallery = () => {
             grid-template-rows: repeat(3, 1fr);
             grid-gap: 10px;
           }
+          @media (min-width: 640px) {
+            .scroll-container {
+              grid-template-columns: repeat(2, 1fr);
+            }
+          }
+        
+          @media (min-width: 768px) {
+            .scroll-container {
+              grid-template-columns: repeat(3, 1fr);
+            }
+          }
+        
+          // @media (min-width: 1024px) {
+          //   .scroll-container {
+          //     grid-template-columns: repeat(4, 1fr);
+          //   }
+          // } 
           .scroll-item {
             position: relative;
             width: 100%;
@@ -122,6 +139,7 @@ const Gallery = () => {
             outline: none;
             cursor: pointer;
             z-index: 1100; 
+           
           }
           
           .arrow-button {
@@ -161,17 +179,17 @@ const Gallery = () => {
 
       {selectedImage && (
         <div className="fullscreen-overlay">
-          <button className="close-button" onClick={toggleFullScreen}>
+          <button className="close-button px-4 rounded-3xl m-2 text-bold" onClick={toggleFullScreen} >
             Close
           </button>
           <button
-            className="arrow-button arrow-button-left"
+            className="arrow-button arrow-button-left px-4 rounded-3xl m-2"
             onClick={() => handleArrowClick('prev')}
           >
             &lt;
           </button>
           <button
-            className="arrow-button arrow-button-right"
+            className="arrow-button arrow-button-right px-4 rounded-3xl m-2"
             onClick={() => handleArrowClick('next')}
           >
             &gt;
