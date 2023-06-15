@@ -242,6 +242,7 @@ const UserProfile = ({ user, hod, spoc, teacher }) => {
             <br />
             <button className='mt-auto mb-2 text-2xl font-bold text-blue-600 border-2 border-blue-600 rounded-lg py-2 px-4 hover:bg-blue-600 hover:text-white' onClick={() => setUpdate(true)}>Update Profile</button>
             <br />
+            {session?.user.isAdmin ? <><Link href={`/api/makeAdmin/${user.user_id}`} className='mt-auto mb-2 text-2xl font-bold text-blue-600 border-2 border-blue-600 rounded-lg py-2 px-4 hover:bg-blue-600 hover:text-white text-decoration-none' > Make an Admin</Link><br /> <Link href={`/api/removeAdmin/${user.user_id}`} className='mt-auto mb-2 text-2xl font-bold text-blue-600 border-2 border-blue-600 rounded-lg py-2 px-4 hover:bg-blue-600 hover:text-white text-decoration-none' > Remove as Admin</Link></> : <></>}
 
           </div> : <></>}
 

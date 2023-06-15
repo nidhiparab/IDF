@@ -2,7 +2,7 @@ import { getSession } from "next-auth/react"
 import executeQuery from '../../../../lib/db'
 
 export default async function createStudent(req, res) {
-
+  console.log("in api");
   if (req.method !== 'POST') return res.status(405).json({ message: "Method not allowed" })
   let { student_id, bg_id, exam, grade, grade_qualities, grade_subjects, grade_intrests, grade_specifics } = req.body;
 
@@ -16,7 +16,7 @@ export default async function createStudent(req, res) {
     query: "SELECT * FROM `grade` WHERE `student_id` = ? AND `bg_id` = ? AND `exam` = ? AND `grade` = ?;",
     values: [student_id, bg_id, exam, grade]
   })
-  if(exists.length > 0) return res.status(500).json({ message: "Grade already exists", error: exists })
+  if(exists.length > 0) return res.status(500).json({ message: "Grade already exists", error: "exists" })
 
   let count = await executeQuery({
     query: "SELECT COUNT(*) FROM `grade`;",
@@ -54,7 +54,7 @@ export default async function createStudent(req, res) {
 
 
 
-  res.json({ message: specificsInsert.affectedRows == 1 ? "Student graded successfully" : "Error grading student" })
+  res.json({ message: specificsInsert.affectedRows == 1 ? "Student graded successfully" : "Error grading student", error: null })
 }
 
 // Delete Query:

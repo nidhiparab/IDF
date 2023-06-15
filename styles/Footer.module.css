@@ -58,9 +58,23 @@
 .end {
   justify-content: center;
   text-align: center;
+  padding: 2%;
   background-color: #213e8c;
   font-size: 13px;
   color: #fff;
+}
+
+.end a{
+  text-decoration: none;
+  color: #fff;
+}
+.end a:hover{
+  text-decoration: underline;
+  transition: 0.5s;
+  /* padding: 1%; */
+  /* font-weight: 500; */
+  color: #f5a1b6;
+  font-size: 14px;
 }
 .subs {
   background-color: #c84869;

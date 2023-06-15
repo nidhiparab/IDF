@@ -34,7 +34,7 @@ const Users = ({ users }) => {
   return (
     <>
       <div className="justify-content-center ml-48 my-10">
-          <input className={styles.filter_name} type="text" placeholder='Student Name' value={userName} onChange={(e) => setUserName(e.target.value)} />
+          <input className={styles.filter_name} type="text" placeholder='User Name' value={userName} onChange={(e) => setUserName(e.target.value)} />
           <button className={styles.Rbtn} name='Reset' onClick={() => { setUserName('') }}>Reset Filters</button>
       </div>
       
@@ -44,9 +44,9 @@ const Users = ({ users }) => {
             <>
 
 
-                <Link href={`/profile/user/${user.user_id}`} className='text-decoration-none ml-2' > 
-              <div className="mx-32 mb-7 px-5 py-4 items-center shadow-l hover:bg-blue-600 hover:text-white border-4 border-solid rounded-2xl" key={user.user_id}>
-                <div className=' text-l'>
+              <div className="mx-32 mb-7 p-4 items-center shadow-l hover:bg-blue-600 hover:text-white border-4 border-solid rounded-2xl" key={user.user_id}>
+                <Link href={`/profile/user/${user.user_id}`} className='text-decoration-none  px-5 py-4  hover:bg-blue-600 hover:text-white' > 
+                  <div className=' text-l  hover:bg-blue-600 hover:text-white'>
                   <div className='justify-between p-2'>
                     <h4 className='text-l  font-extrabold mt-auto mb-1'>{user?.title} {user?.f_name} {user?.m_name} {user?.l_name}</h4>
                   </div>
@@ -55,8 +55,8 @@ const Users = ({ users }) => {
                   </div>
 
                 </div>
-              </div>
                 </Link>
+              </div>
             </>)
         })}
       </>

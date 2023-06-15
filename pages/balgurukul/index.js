@@ -12,7 +12,7 @@ export default function BG({ BG }) {
   const [state, setState] = useState("");
   const [name, setName] = useState("");
 
-
+  
   //implement filter update bg cards
   useEffect(() => {
     if (state || name) {
@@ -28,8 +28,8 @@ export default function BG({ BG }) {
     }
 
   }, [state, name]);
-
-
+  console.log(filterd);
+  console.log(filterd.error);
   //---------cards displayed
   let bgkList = filterd.map(bg => {
     return (
@@ -44,9 +44,9 @@ export default function BG({ BG }) {
       //   </div>
       // </div>
 
-      <Link href={'/balgurukul/[id]'} as={`/balgurukul/${bg.bg_id}`} className='text-decoration-none ml-2' key={bg.bg_id} >
-        <div className="mx-32 mb-7 px-5 py-4 items-center shadow-l hover:bg-blue-600 hover:text-white border-4 border-solid rounded-2xl" key={bg.bg_id}>
-          <div className=' text-l'>
+      <div className="mx-32 mb-7 p-4   items-center shadow-l hover:bg-blue-600 hover:text-white border-4 border-solid rounded-2xl" key={bg.bg_id}>
+        <Link href={'/balgurukul/[id]'} as={`/balgurukul/${bg.bg_id}`} className='text-decoration-none px-5 py-4  hover:bg-blue-600 hover:text-white' key={bg.bg_id} >
+          <div className=' text-l  hover:bg-blue-600 hover:text-white'>
             <div className='justify-between p-2'>
               <h4 className='text-l  font-extrabold mt-auto mb-1'>{bg.bg_name}</h4>
             </div>
@@ -56,8 +56,8 @@ export default function BG({ BG }) {
             </div>
 
           </div>
-        </div>
       </Link>
+        </div>
     )
   })
   return (
