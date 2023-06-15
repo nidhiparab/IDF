@@ -3,6 +3,7 @@ import Image from 'next/image';
 import logo from '../../public/images/ResearchCellLogo.png'
 import nidhi from '../../public/images/nidhiparab_photo.jpeg'
 import SAKEC from '../../public/images/SAKEC.png'
+import principal from '../../public/images/principal-pic.jpg'
 import { FaLinkedin } from "react-icons/fa";
 
 function index() {
@@ -22,14 +23,43 @@ function index() {
                   alt="idf-logo.png"
                 />
       </div>
+      
+      
       <div > 
+        <div className="m-20 p-20 items-center shadow-2xl shadow-slate-700 rounded-2xl">
+              <div className={` flex justify-center text-center h-10`}>
+  
+                    <span className='m-auto text-3xl text-blue-600 font-extrabold'>Principal</span>
+              </div>
+              <div className={` flex justify-center text-center p-10`}>
+                    <div>
+                          <Image
+                          className="m-auto w-1/1 pb-5 justify-center"
+                          src={principal}
+                          alt="idf-logo.png"
+                          />
+                    <span>
+                      <div className="flex justify-center">
+                          <h5  className="pr-1">Dr. Bhavesh Patel</h5>
+                          <FaLinkedin className="text-2xl cursor-pointer hover:text-blue-600" />
+                      </div>
+                      <p>Principal <br/>Shah & Anchor Kutchhi Engineering College</p>
+                    </span>
+                    </div></div>
+      </div>
+      
+      
+      
+      
+      
+      
       <div className="m-20 p-20 items-center shadow-2xl shadow-slate-700 rounded-2xl">
-        <div className={` flex justify-center text-center h-10`}>
+      <div className={` flex justify-center text-center h-10`}>
   
         <span className='m-auto text-3xl text-blue-600 font-extrabold'>Mentors</span>
         </div>
         <div className={` flex justify-center text-center p-10`}>
-          <div>
+        <div>
           <Image
                   className="m-auto w-2/2 p-10 pb-3 justify-center"
                   src={nidhi}
@@ -43,7 +73,6 @@ function index() {
                 <p>Developer</p>
                 </span>
           </div>
-          
           <div>
           <Image
                   className="m-auto w-2/2 p-10 pb-3 justify-center"
@@ -74,12 +103,6 @@ function index() {
           </div>
           </div>
       </div>
-      
-      
-      
-      
-      
-      
       <div className="m-20 p-20 items-center shadow-2xl shadow-slate-700 rounded-2xl">
       <div className={` flex justify-center text-center h-10`}>
   
@@ -130,7 +153,7 @@ function index() {
           </div>
           </div>
       </div>
-      <div className="m-20 p-20 items-center shadow-2xl shadow-slate-700 rounded-2xl">Developing Team</div>
+      
       
       </div>
       </>
