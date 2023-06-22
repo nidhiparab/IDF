@@ -1,10 +1,12 @@
 
 import Link from 'next/link'
+
 import baseUrl from "../helpers/baseUrl"
 import { useSession } from "next-auth/react";
 import Herosection from "../components/herosection";
 import Gallery from '../components/gallery';
 import Footer from "../components/Footer";
+import Slideshow from '../components/Slideshow';
 
 export default function Home() {
   const { data: session, status } = useSession()
@@ -31,10 +33,10 @@ Education is of prime importance. IDF Bal Gurukul projects are a success proven 
     <Gallery/>
     </div>
 </div>
-<Footer/>
+{/* <Footer/> */}
  
               
-           {/* <Herosection /> */}
+      
 
 
        </div>
