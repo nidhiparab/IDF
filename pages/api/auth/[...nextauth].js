@@ -37,6 +37,7 @@ export default NextAuth({
           values: [dbUser[0].user_id]
         })
         if (isAdmin.length > 0) isAdmin = true;
+        else isAdmin = false;
         let hodData = await executeQuery({
           query: `SELECT bg_id FROM hod where user_id=? `,
           values: [dbUser[0].user_id]
